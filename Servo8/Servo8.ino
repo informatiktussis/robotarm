@@ -4,6 +4,7 @@ Servo servo1;
 Servo servo2;
 
 
+
 int angle = 20;
 
 int servo_1pin = 8;

@@ -1,12 +1,7 @@
 #include <Servo.h>
 
-int test2;
-int hallo; 
-
 Servo servo1;
 Servo servo2;
-
-int test;
 
 int angle = 20;
 
@@ -36,6 +31,8 @@ void loop()
 while(digitalRead(button1) == 0){
 int var = servo1.read();
 
+/*Begrenzung auf 180°*/
+
 if (var < 180) {
   servo1.write(var+1);
  
@@ -51,6 +48,7 @@ while(digitalRead(button2) == 0){
   int var = servo1.read();
 
 
+/*Begrenzung auf 11° weil sonst der Motor spackt*/
 
   if (var > 11){
   servo1.write(var-1);
@@ -63,19 +61,4 @@ while(digitalRead(button2) == 0){
 
 }
 
-
-
-  /*
- // scan from 0 to 180 degrees
-  for(angle = 10; angle < 180; angle++)  
-  {                                  
-    servo.write(angle);               
-    delay(15);                   
-  } 
-  // now scan back from 180 to 0 degrees
-  for(angle = 180; angle > 10; angle--)    
-  {                                
-    servo.write(angle);           
-    delay(15);       
-  } */
 } 

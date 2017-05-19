@@ -3,6 +3,7 @@
 Servo servo1;
 Servo servo2;
 
+int test;
 
 int angle = 20;
 

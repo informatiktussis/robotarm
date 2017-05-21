@@ -3,7 +3,7 @@
 Servo servo1;
 Servo servo2;
 
-int angle = 120;
+int angle = 110;
 int servo_1pin = 8;
 int servo_2pin = 9;
 

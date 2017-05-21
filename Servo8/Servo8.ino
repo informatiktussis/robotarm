@@ -41,15 +41,15 @@ else {
   var == 180;
 }
 }
-
+/*test*/
 
 while(digitalRead(button2) == 0){
   int var = servo1.read();
 
 
-/*Begrenzung auf 11° weil sonst der Motor spackt*/
+/*Begrenzung auf 102° weil sonst der Motor spackt*/
 
-  if (var > 11){
+  if (var > 102){
   servo1.write(var-1);
  delay(15);
   

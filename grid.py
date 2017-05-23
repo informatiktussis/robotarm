@@ -1,4 +1,9 @@
+from serial import *
 from tkinter import *
+
+serialPort = "/dev/cu.usbmodem1421"
+baudRate = 9600
+ser = Serial(serialPort , baudRate, timeout=0, writeTimeout=0)
 
 root = Tk()
 root.title("Roboter Arm")

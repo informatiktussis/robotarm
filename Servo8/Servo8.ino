@@ -1,144 +1,96 @@
 #include <Servo.h>
 
-Servo servo1; //Servo numero uno
-Servo servo2; // "    numero dos
-Servo servo3; // "    nummeo tres
-Servo servo4; // "    numero quadro
+Servo servo1;
+Servo servo2;
 
-int test;
 
-int angle = 20;
 
 int servo_1pin = 8;
 int servo_2pin = 9;
 
 int button1 = 3;
 int button2 = 4;
-int button3 = 5;
-int button4 = 6;
-int button5 = 7;
-int button6 = 10;
-int button7 = 11;
-int button8 = 12;
-
-int grenze = 102; //Grenze
-
+//int var2 = 90;
 void setup() {
-Serial.begin(9600);  
+  Serial.begin(9600);
+
+
+
   servo1.attach(servo_1pin);
   servo2.attach(servo_2pin);
-  servo1.write(angle);
-pinMode(button1, INPUT_PULLUP);
-pinMode(button2, INPUT_PULLUP);
-}
+  int angle = servo1.read();
+  Serial.println(angle);
+  //bservo1.write(angle);
 
-void loop() { 
+  pinMode(button1, INPUT_PULLUP);
+  pinMode(button2, INPUT_PULLUP);
   
-while(digitalRead(button1) == 0){
-int var = servo1.read();
-
-if (var < 180) {
-  servo1.write(var+1);
- 
-delay(15);
-Serial.println(var+1);}
-else {
-  var == 180;
 }
 
+void loop()
+{
+
+
+
+  while (digitalRead(button1) == 0) {
+    int var = servo1.read();
+    int var2 =servo2.read();
+    if (var < 180) {
+      servo1.write(var + 1);
+      var2--;
+     //Alternativ: var2=180-var1; 180 kann auch eine Variable sein die man festlegen kann, das ist dann ja
+     //Der "Gesamtwinkel" des Systems.
+      delay(8);
+
+      servo2.write(var2);
+      
+      Serial.print(var2);
+      Serial.print(" ");
+      Serial.print(var + 1);
+      Serial.print(" ");
+      Serial.println(var+var2);
+    }
+    else {
+      //var == 180;
+    }
+  }
+
+
+  while (digitalRead(button2) == 0) {
+    int var = servo1.read();
+    int var2 = servo2.read();
+
+    if (var > 11) {
+      servo1.write(var - 1);
+      var2++;
+      delay(8);
+
+      servo2.write(var2);
+      
+      Serial.print(var2);
+      Serial.print(" ");
+      Serial.print(var - 1);
+      Serial.print(" ");
+      Serial.println(var+var2);
+    } else {
+      //var = 11;
+    }
+
+  }
+
+
+
+  /*
+    // scan from 0 to 180 degrees
+    for(angle = 10; angle < 180; angle++)
+    {
+    servo.write(angle);
+    delay(15);
+    }
+    // now scan back from 180 to 0 degrees
+    for(angle = 180; angle > 10; angle--)
+    {
+    servo.write(angle);
+    delay(15);
+    } */
 }
-while(digitalRead(button2) == 0){
-  int var = servo1.read();
-if (var > grenze){
-  servo1.write(var-1);
- delay(15);
-  
- Serial.println(var-1);
-  }else{
-    var = 11;
-   }
-
-}
-
-while(digitalRead(button3) == 0){
-int var = servo1.read();
-
-if (var < 180) {
-  servo1.write(var+1);
- 
-delay(15);
-Serial.println(var+1);}
-else {
-  var == 180;
-}
-
-}
-while(digitalRead(button4) == 0){
-  int var = servo1.read();
-if (var > grenze){
-  servo1.write(var-1);
- delay(15);
-  
- Serial.println(var-1);
-  }else{
-    var = 11;
-   }
-
-}
-while(digitalRead(button5) == 0){
-  int var = servo1.read();
-if (var > grenze){
-  servo1.write(var-1);
- delay(15);
-  
- Serial.println(var-1);
-  }else{
-    var = 11;
-   }
-
-}
-
-while(digitalRead(button6) == 0){
-  int var = servo1.read();
-if (var > grenze){
-  servo1.write(var-1);
- delay(15);
-  
- Serial.println(var-1);
-  }else{
-    var = 11;
-   }
-
-}
-
-while(digitalRead(button7) == 0){
-  int var = servo1.read();
-if (var > grenze){
-  servo1.write(var-1);
- delay(15);
-  
- Serial.println(var-1);
-  }else{
-    var = 11;
-   }
-
-}
-
-while(digitalRead(button8) == 0){
-  int var = servo1.read();
-if (var > grenze){
-  servo1.write(var-1);
- delay(15);
-  
- Serial.println(var-1);
-  }else{
-    var = 11;
-   }
-
-}
-
-
-
-
-
-} 

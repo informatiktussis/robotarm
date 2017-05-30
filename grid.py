@@ -1,9 +1,9 @@
 from serial import *
 from tkinter import *
 
-serialPort = "/dev/cu.usbmodem1421"
-baudRate = 9600
-ser = Serial(serialPort , baudRate, timeout=0, writeTimeout=0)
+#serialPort = "/dev/cu.usbmodem1421"
+#baudRate = 9600
+#ser = Serial(serialPort , baudRate, timeout=0, writeTimeout=0)
 
 root = Tk()
 root.title("Roboter Arm")
@@ -29,8 +29,8 @@ w.grid(sticky=E)
 
 w = Button(root, text="Open", bg="green", fg="white", command=fuck)
 w.grid(row=3, column=1)
-w = Button(root, text="Close", bg="red", fg="black", command=fuck)
-w.grid(row=3, column=2)
+p = Button(root, text="Close", bg="red", fg="black", command=fuck)
+p.grid(row=3, column=2)
 
 w = Button(root, text="←", bg="white", command=callback)
 w.grid(row=2, column=1)

@@ -1,9 +1,11 @@
 #include <Servo.h>
 
+
 Servo servo1;
 Servo servo2;
 Servo servo3;
 Servo servo4;
+
 
 int servo_1pin = 8;
 int servo_2pin = 9;
@@ -33,9 +35,8 @@ void setup() {
   pinMode(button1, INPUT_PULLUP);
   pinMode(button2, INPUT_PULLUP);
 
-
-  
 }
+
 
   
 void arm_hoch(int maximalwinkel, Servo *servoname ) { 
@@ -188,7 +189,6 @@ case 8: arm_runter(11, &servo4);  break;
 case 9: spezial_funktion_hoch(180, &servo2, &servo3); break;
 case 10: spezial_funktion_runter(11, &servo2, &servo3); break; 
 
-  
 }
 
 

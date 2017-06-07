@@ -6,10 +6,10 @@ root.geometry("600x360")
 
 v=IntVar()
 variable = 1
-def switchVariable(value):
+def switchVariable(python_button_var):
     global variable
-    variable = value
-    print(value)
+    variable = python_button_var
+    print(python_button_var)
 
 	
 '''test'''

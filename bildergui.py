@@ -1,16 +1,28 @@
 from tkinter import *
+import serial
 
 root=Tk()
 root.title("Roboterarm")
 root.geometry("600x360")
+
+'''
+connected = False
+ser = serial.Serial("COM11", 9600)
+while not connected:
+    serin = ser.read()
+    connected = True
+	
+ser.write(python_button_var) # hier sagen wir dem arduino was er ausführen soll
+'''
 
 v=IntVar()
 variable = 1
 def switchVariable(python_button_var):
     global variable
     variable = python_button_var
-    print(python_button_var)
-
+    print(python_button_var) #ser.read
+	
+	
 	
 '''test'''
 def black():

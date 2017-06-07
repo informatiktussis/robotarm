@@ -62,41 +62,41 @@ w = Label(root, text="Bottom", font = "Impact 18").place(x=170, y=280)
 
 
 
-h = Button(root, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=lambda *args: switchVariable(7))
+h = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=lambda *args: switchVariable(7))
 h.place(x=370, y=57) #case 7
-i = Button(root, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=lambda *args: switchVariable(8))
+i = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=lambda *args: switchVariable(8))
 i.place(x=370,y=98) #case 8
 
-j = Button(root, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(5))
+j = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(5))
 j.place(x=270,y=10) #case 5
-k = Button(root, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(6))
+k = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(6))
 k.place(x=320, y=10) #case 6
 
-l = Button(root, text="↑", bg="White", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(3))
+l = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(3))
 l.place(x=270, y=73) #case 3
-m = Button(root, text="↓", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(4))
+m = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(4))
 m.place(x=320, y=73) #case4
 
-n = Button(root, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(2))
+n = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(2))
 n.place(x=270, y=135) #case 2
-o = Button(root, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(1))
+o = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(1))
 o.place(x=320, y=135) #case 1
 
 '''untere Buttons'''
-a = Button(root, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=lambda *args: switchVariable(7))
+a = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=lambda *args: switchVariable(7))
 a.place(x=370, y=225) #case 7
-b = Button(root, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=lambda *args: switchVariable(8))
+b = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=lambda *args: switchVariable(8))
 b.place(x=370,y=265) #case 8
 
 
-c = Button(root, text="↑", bg="White", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(9))
+c = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(9))
 c.place(x=270, y=210) #case 9
-d = Button(root, text="↓", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(10))
+d = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(10))
 d.place(x=320, y=210) #case 10
 
-e = Button(root, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(2))
+e = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(2))
 e.place(x=270, y=280) #case2
-f = Button(root, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(1))
+f = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(1))
 f.place(x=320, y=280) #case 1
 
 

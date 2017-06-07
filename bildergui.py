@@ -5,18 +5,16 @@ root.title("Roboterarm")
 root.geometry("600x360")
 
 v=IntVar()
+variable = 1
+def switchVariable(value):
+    global variable
+    variable = value
+    print(value)
 
-def callback():
-    print( "click!") # hier einzelne funktionen von dem was der servo machen soll
-	#aufrufen von code in c - wegen der bibliothek 
-	#um dann mit dem atuino programm ihn in python zu lesen
-	
-def fuck():
-    print("MOTHERFUCKER!")
 	
 '''test'''
 def black():
- a.config(state=NORMAL) #funktioniert noch nciht 
+ a.config(state=NORMAL) 
  b.config(state=NORMAL)
  c.config(state=NORMAL)
  d.config(state=NORMAL)
@@ -32,7 +30,7 @@ def black():
  n.config(state = 'disabled')
  o.config(state = 'disabled')
 def normal():
- a.config(state='disabled') #funktioniert noch nciht 
+ a.config(state='disabled') 
  b.config(state='disabled')
  c.config(state='disabled')
  d.config(state='disabled')
@@ -64,46 +62,46 @@ w = Label(root, text="Bottom", font = "Impact 18").place(x=170, y=280)
 
 
 
-h = Button(root, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=fuck)
+h = Button(root, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=lambda *args: switchVariable(7))
 h.place(x=370, y=57) #case 7
-i = Button(root, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=fuck)
+i = Button(root, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=lambda *args: switchVariable(8))
 i.place(x=370,y=98) #case 8
 
-j = Button(root, text="←", bg="white", font="Times 16", width=2, height=1, command=callback)
+j = Button(root, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(5))
 j.place(x=270,y=10) #case 5
-k = Button(root, text="→", bg="white", font="Times 16", width=2, height=1, command=callback)
+k = Button(root, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(6))
 k.place(x=320, y=10) #case 6
 
-l = Button(root, text="↑", bg="White", font="Times 16", width=2, height=1, command=callback)
+l = Button(root, text="↑", bg="White", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(3))
 l.place(x=270, y=73) #case 3
-m = Button(root, text="↓", bg="white", font="Times 16", width=2, height=1, command=callback)
+m = Button(root, text="↓", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(4))
 m.place(x=320, y=73) #case4
 
-n = Button(root, text="←", bg="white", font="Times 16", width=2, height=1, command=callback)
+n = Button(root, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(2))
 n.place(x=270, y=135) #case 2
-o = Button(root, text="→", bg="white", font="Times 16", width=2, height=1, command=callback)
+o = Button(root, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(1))
 o.place(x=320, y=135) #case 1
 
 '''untere Buttons'''
-a = Button(root, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=fuck)
+a = Button(root, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=lambda *args: switchVariable(7))
 a.place(x=370, y=225) #case 7
-b = Button(root, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=fuck)
+b = Button(root, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=lambda *args: switchVariable(8))
 b.place(x=370,y=265) #case 8
 
 
-c = Button(root, text="↑", bg="White", font="Times 16", width=2, height=1, command=callback)
+c = Button(root, text="↑", bg="White", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(9))
 c.place(x=270, y=210) #case 9
-d = Button(root, text="↓", bg="white", font="Times 16", width=2, height=1, command=callback)
+d = Button(root, text="↓", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(10))
 d.place(x=320, y=210) #case 10
 
-e = Button(root, text="←", bg="white", font="Times 16", width=2, height=1, command=callback)
+e = Button(root, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(2))
 e.place(x=270, y=280) #case2
-f = Button(root, text="→", bg="white", font="Times 16", width=2, height=1, command=callback)
+f = Button(root, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(1))
 f.place(x=320, y=280) #case 1
 
 
-Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=normal).place(x=430,y=83)    #wenn diese aktiviert ist, dann sollen die unteren buttons nicht mehr gehen
-Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=black).place(x=430, y=245) #wenn dieses aktiviert ist sollen oberen buttons nicht mehr gehen
-# mit command state=disable
+
+Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=normal).place(x=430,y=83)   
+Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=black).place(x=430, y=245) 
 root.mainloop()
 

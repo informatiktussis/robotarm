@@ -5,24 +5,26 @@ root=Tk()
 root.title("Roboterarm")
 root.geometry("600x360")
 
-'''
+
 connected = False
-ser = serial.Serial("COM11", 9600)
+ser = serial.Serial("COM3", 9600)
+
+## loop until the arduino tells us it is ready
 while not connected:
     serin = ser.read()
     connected = True
 	
-ser.write(python_button_var) # hier sagen wir dem arduino was er ausführen soll
-'''
+#ser.write("python_button_var") # hier sagen wir dem arduino was er ausführen soll
+
 
 v=IntVar()
-variable = 1
+variable = 0
 def switchVariable(python_button_var):
     global variable
     variable = python_button_var
     print(python_button_var) #ser.read
 	
-	
+
 	
 '''test'''
 def black():
@@ -58,8 +60,8 @@ def normal():
  n.config(state = NORMAL)
  o.config(state = NORMAL)
  
-skizze= PhotoImage(file="C:/Users/Waleriya/Desktop/skizze.gif")
-skizze2 = PhotoImage(file="C:/Users/Waleriya/Desktop/skizze2.gif")
+skizze= PhotoImage(file="C:/Users/Waleriya/Desktop/Projekt/robotarm/skizze.gif")
+skizze2 = PhotoImage(file="C:/Users/Waleriya/Desktop/Projekt/robotarm/skizze2.gif")
 
 w = Label(root, compound = CENTER, image=skizze).grid(row=0,column=0)
 w = Label(root, compound = CENTER, image=skizze2).grid(row=4,column=0)
@@ -115,5 +117,8 @@ f.place(x=320, y=280) #case 1
 
 Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=normal).place(x=430,y=83)   
 Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=black).place(x=430, y=245) 
+
+ser.write(8)
+
 root.mainloop()
 

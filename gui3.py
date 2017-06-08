@@ -38,14 +38,17 @@ def change_text():
 
 def led_1():
     ser.write("a".encode("utf-8"))
+    print("test")
   # ser.write(51)
   # print(ser.write("3".encode("utf-8")))
 ##
 def led_2():
     ser.write("b".encode("utf-8"))
+    print("test2")
 
 def led_3():
     ser.write("c".encode("utf-8"))
+    print("test3")
     
 #ser.write(52)
     #print(ser.write(4))

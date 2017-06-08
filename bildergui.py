@@ -26,12 +26,15 @@ variable = 0
 
 class servo:
 
+<<<<<<< HEAD
 
     def switchVariable(python_button_var):
         global variable
         variable = python_button_var
         print(python_button_var) #ser.read
 
+=======
+>>>>>>> a7d4a8970d3470cb062fe1b5b5a9592216d257c5
 def switchVariable(self, python_button_var):
     self.python_button_var = python_button_var
     global variable

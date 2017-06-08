@@ -7,15 +7,12 @@ root.geometry("600x360")
 
 
 connected = False
-ser = serial.Serial("COM3", 9600)
+ser = serial.Serial("COM7", 9600)
 
 ## loop until the arduino tells us it is ready
 while not connected:
     serin = ser.read()
     connected = True
-	
-ser.write('python_button_var') # hier sagen wir dem arduino was er ausführen soll
-
 
 v=IntVar()
 variable = 0
@@ -24,15 +21,11 @@ def switchVariable(python_button_var):
     variable = python_button_var
     print(python_button_var) #ser.read
 	
-
 	
 '''test'''
 def black():
-<<<<<<< HEAD
  a.config(state=NORMAL) 
-=======
  a.config(state=NORMAL) 
->>>>>>> f989b1cedb290251c4993144d029f3f0787df9ad
  b.config(state=NORMAL)
  c.config(state=NORMAL)
  d.config(state=NORMAL)
@@ -122,6 +115,7 @@ f.place(x=320, y=280) #case 1
 Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=normal).place(x=430,y=83)   
 Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=black).place(x=430, y=245) 
 
+int(ser.write(switchVariable(python_button_var)))
 
 root.mainloop()
 

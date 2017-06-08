@@ -221,20 +221,20 @@ void loop()
 
 switch(python_button_var) {
 
-case 1: arm_hoch(180, &servo1);   break;
-case 2: arm_runter(11, &servo1);  break;
+case 97: arm_hoch(180, &servo1);   break;
+case 98: arm_runter(11, &servo1);  break;
 
-case 3: arm_hoch(180, &servo2);   break;
-case 4: arm_runter(11, &servo2);  break;
+case 99: arm_hoch(180, &servo2);   break;
+case 100: arm_runter(11, &servo2);  break;
 
-case 5: arm_hoch(180, &servo3);   break;
-case 6: arm_runter(11, &servo3);  break;
+case 101: arm_hoch(180, &servo3);   break;
+case 102: arm_runter(11, &servo3);  break;
 
-case 7: arm_hoch(180, &servo4);   break;
-case 8: arm_runter(11, &servo4);  break;
+case 103: arm_hoch(180, &servo4);   break;
+case 104: arm_runter(11, &servo4);  break;
 
-case 9: spezial_funktion_hoch(180, &servo2, &servo3); break;
-case 10: spezial_funktion_runter(11, &servo2, &servo3); break; 
+case 105: spezial_funktion_hoch(180, &servo2, &servo3); break;
+case 106: spezial_funktion_runter(11, &servo2, &servo3); break; 
 
 }
 

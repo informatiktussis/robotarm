@@ -1,5 +1,5 @@
 from tkinter import *
-from serial import *
+import serial
 
 root=Tk()
 root.title("Roboterarm")
@@ -25,11 +25,22 @@ while not connected:
 
 v=IntVar()
 variable = 0
+<<<<<<< HEAD
+
+class servo:
+
+
+    def switchVariable(python_button_var):
+        global variable
+        variable = python_button_var
+        print(python_button_var) #ser.read
+=======
 def switchVariable(self, python_button_var):
     self.python_button_var = python_button_var
     global variable
     variable = self.python_button_var
     print(python_button_var) #ser.read
+>>>>>>> da701e57f6b998465e7c89be03af9115d04bf958
 	
 	
 '''test'''

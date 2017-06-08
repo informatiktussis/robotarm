@@ -14,7 +14,7 @@ while not connected:
     serin = ser.read()
     connected = True
 	
-#ser.write("python_button_var") # hier sagen wir dem arduino was er ausführen soll
+ser.write('python_button_var') # hier sagen wir dem arduino was er ausführen soll
 
 
 v=IntVar()

@@ -1,5 +1,5 @@
 from tkinter import *
-import serial
+from serial import *
 
 root=Tk()
 root.title("Roboterarm")
@@ -8,11 +8,20 @@ root.geometry("600x360")
 
 connected = False
 ser = serial.Serial("COM7", 9600)
+serialPort = "COM4"
+baudRate = 9600
+ser = Serial(serialPort, baudRate, timeout=0, writeTimeout=0)
 
+
+while(True): #loop
+    if(ser.inWaiting() > 0): #wenn Datai nicht gleich wie null ist
+        ser.write(ser.read())#print it out
+		
 ## loop until the arduino tells us it is ready
 while not connected:
     serin = ser.read()
     connected = True
+
 
 v=IntVar()
 variable = 0

@@ -16,10 +16,14 @@ while not connected:
 
 v=IntVar()
 variable = 0
-def switchVariable(python_button_var):
-    global variable
-    variable = python_button_var
-    print(python_button_var) #ser.read
+
+class servo:
+
+
+    def switchVariable(python_button_var):
+        global variable
+        variable = python_button_var
+        print(python_button_var) #ser.read
 	
 	
 '''test'''

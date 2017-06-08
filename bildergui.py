@@ -16,7 +16,7 @@ def fuck():
 	
 '''test'''
 def black():
- a.config(state=NORMAL) #funktioniert noch nciht 
+ a.config(state=NORMAL) #funktioniert noch nicht 
  b.config(state=NORMAL)
  c.config(state=NORMAL)
  d.config(state=NORMAL)

@@ -2,8 +2,6 @@
 #include <SoftwareSerial.h>
 #include "DumbServer.h"
 
-<<<<<<< HEAD
-=======
 /* The WiFi shield is connected to
  * the Arduino pins 3 and 2, as the
  * Arduino has only one hardware serial
@@ -12,7 +10,6 @@
 SoftwareSerial esp_serial(3, 2);
 EspServer esp_server;
 
->>>>>>> e0bfa73ae865e5e8155d174ffca971f285b4e341
 Servo servo1;
 Servo servo2;
 Servo servo3;

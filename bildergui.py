@@ -7,19 +7,14 @@ root.geometry("600x360")
 
 
 connected = False
-ser = serial.Serial("COM7", 9600)
-ser = Serial(serialPort, baudRate, timeout=0, writeTimeout=0)
 
+serialPort = "COM7"
+baudRate=9600
+ser = Serial(timeout=1, writeTimeout=0)
+ser.port = serialPort
+ser.baudrate = baudRate
+ser.open()
 
-while(True): #loop
-    if(ser.inWaiting() > 0): #wenn Datai nicht gleich wie null ist
-        ser.write(ser.read())#print it out
-		''' switchfunktion einordnen '''
-		
-## loop until the arduino tells us it is ready
-while not connected:
-    serin = ser.read()
-    connected = True
 
 
 v=IntVar()
@@ -53,6 +48,9 @@ def case_8():
 
 def case_9():
     ser.write("i".encode("utf-8"))
+	
+def case_10():
+    ser.write("j".encode("utf-8"))
 	
 '''test'''
 def black():

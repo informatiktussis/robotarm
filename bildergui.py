@@ -28,7 +28,11 @@ def switchVariable(python_button_var):
 	
 '''test'''
 def black():
+<<<<<<< HEAD
+ a.config(state=NORMAL) #funktioniert noch nicht 
+=======
  a.config(state=NORMAL) 
+>>>>>>> f989b1cedb290251c4993144d029f3f0787df9ad
  b.config(state=NORMAL)
  c.config(state=NORMAL)
  d.config(state=NORMAL)

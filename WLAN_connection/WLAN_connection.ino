@@ -1,12 +1,13 @@
 #include <SoftwareSerial.h>
 
-#define SSID "xxxx" // wifi name
-#define PASS "xxxx" // wifi password
+#define SSID "iPhone von Jisoo" // wifi name, test
+#define PASS "1029384756" // wifi password
 #define DST_IP "143.248.5.153" // destination_IP
 
 SoftwareSerial Serial2(2,3); // make RX Arduino line is pin 2, make TX Arduino line is pin 3.
                              // This means that you need to connect the TX line from the esp to the Arduino's pin 2
                              // and the RX line from the esp to the Arduino's pin 3
+                             // ESP8266 (rxPin, txPin)
  
 
 void setup()

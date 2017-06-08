@@ -8,7 +8,11 @@ root.geometry("600x360")
 
 connected = False
 
+<<<<<<< HEAD
 serialPort = "COM3"
+=======
+serialPort = "COM6"
+>>>>>>> 7c263b1a8e3afdd81bd16cde857ebc0c68c8430f
 baudRate=9600
 ser = Serial(timeout=1, writeTimeout=0)
 ser.port = serialPort
@@ -91,8 +95,8 @@ def normal():
  n.config(state = NORMAL)
  o.config(state = NORMAL)
  
-skizze= PhotoImage(file="C:/Users/Waleriya/Desktop/Projekt/robotarm/skizze.gif")
-skizze2 = PhotoImage(file="C:/Users/Waleriya/Desktop/Projekt/robotarm/skizze2.gif")
+skizze= PhotoImage(file="skizze.gif")
+skizze2 = PhotoImage(file="skizze2.gif")
 
 w = Label(root, compound = CENTER, image=skizze).grid(row=0,column=0)
 w = Label(root, compound = CENTER, image=skizze2).grid(row=4,column=0)
@@ -174,8 +178,8 @@ f.bind("<ButtonRelease>", on_release) #case 1
 
 
 
-Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=normal).place(x=430,y=83)   
-Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=black).place(x=430, y=245) 
+Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=normal).place(x=450,y=83)   
+Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=black).place(x=450, y=245) 
 
 
 root.mainloop()

@@ -14,6 +14,7 @@ ser = Serial(serialPort, baudRate, timeout=0, writeTimeout=0)
 while(True): #loop
     if(ser.inWaiting() > 0): #wenn Datai nicht gleich wie null ist
         ser.write(ser.read())#print it out
+		''' switchfunktion einordnen '''
 		
 ## loop until the arduino tells us it is ready
 while not connected:

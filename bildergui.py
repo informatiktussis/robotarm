@@ -8,11 +8,7 @@ root.geometry("600x360")
 
 connected = False
 
-<<<<<<< HEAD
 serialPort = "COM3"
-=======
-serialPort = "COM6"
->>>>>>> 7c263b1a8e3afdd81bd16cde857ebc0c68c8430f
 baudRate=9600
 ser = Serial(timeout=1, writeTimeout=0)
 ser.port = serialPort

@@ -216,6 +216,11 @@ void loop()
   }
 */
 
+if (Serial.available() > 0) {
+    python_button_var = Serial.read();
+    Serial.println(python_button_var);}
+     
+
 switch(python_button_var) {
 
 case 97: arm_hoch(180, &servo1);   break;

@@ -29,7 +29,7 @@ def switchVariable(python_button_var):
 '''test'''
 def black():
 <<<<<<< HEAD
- a.config(state=NORMAL) #funktioniert noch nicht 
+ a.config(state=NORMAL) 
 =======
  a.config(state=NORMAL) 
 >>>>>>> f989b1cedb290251c4993144d029f3f0787df9ad
@@ -122,7 +122,6 @@ f.place(x=320, y=280) #case 1
 Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=normal).place(x=430,y=83)   
 Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=black).place(x=430, y=245) 
 
-ser.write(8)
 
 root.mainloop()
 

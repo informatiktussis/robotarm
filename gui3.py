@@ -38,13 +38,13 @@ def change_text():
 
 def led_1():
     ser.write("a".encode("utf-8"))
-    print("test")
+    print("gedrückt")
   # ser.write(51)
   # print(ser.write("3".encode("utf-8")))
 ##
 def led_2():
     ser.write("b".encode("utf-8"))
-    print("test2")
+    print("losgelassen")
 
 def led_3():
     ser.write("c".encode("utf-8"))
@@ -52,15 +52,28 @@ def led_3():
     
 #ser.write(52)
     #print(ser.write(4))
+    
+def on_press(event):
+    print("button was pressed")
+
+def on_release(event):
+    print("button was released")
+
+zange= Button(root, text="led_1")
+zange.grid(row=0,column=1)
+zange.bind("<ButtonPress>", on_press)
+zange.bind("<ButtonRelease>", on_release)
+
+
+
+
+zange2 = Button(root, text="led_2", command=led_2)
+zange2.grid(row=0,column=2)
 
 zangelabel = Label(root, text="Zange:")
 zangelabel.grid(row=0,column=0)
 
-zange= Button(root, text="led_1", command=led_1)
-zange.grid(row=0,column=1)
 
-zange2 = Button(root, text="led_2", command=led_2)
-zange2.grid(row=0,column=2)
 
 obenlabel = Label(root, text="Oben:")
 obenlabel.grid(row=1,column=0)

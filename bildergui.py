@@ -23,15 +23,36 @@ while not connected:
 
 
 v=IntVar()
-variable = 0
 
 
-def switchVariable(self, python_button_var):
-    self.python_button_var = python_button_var
-    global variable
-    variable = self.python_button_var
-    print(python_button_var) #ser.read
+def case_1():
+    ser.write("a".encode("utf-8"))
+  # ser.write(51)
+  # print(ser.write("3".encode("utf-8")))
+##
+def case_2():
+    ser.write("b".encode("utf-8"))
+
+def case_3():
+    ser.write("c".encode("utf-8"))
 	
+def case_4():
+    ser.write("d".encode("utf-8"))
+
+def case_5():
+    ser.write("e".encode("utf-8"))
+
+def case_6():
+    ser.write("f".encode("utf-8"))
+
+def case_7():
+    ser.write("g".encode("utf-8"))
+
+def case_8():
+    ser.write("h".encode("utf-8"))
+
+def case_9():
+    ser.write("i".encode("utf-8"))
 	
 '''test'''
 def black():
@@ -84,41 +105,41 @@ w = Label(root, text="Bottom", font = "Impact 18").place(x=170, y=280)
 
 
 
-h = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=lambda *args: switchVariable(7))
+h = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=case_7)
 h.place(x=370, y=57) #case 7
-i = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=lambda *args: switchVariable(8))
+i = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=case_8)
 i.place(x=370,y=98) #case 8
 
-j = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(5))
+j = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=case_5)
 j.place(x=270,y=10) #case 5
-k = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(6))
+k = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=case_6)
 k.place(x=320, y=10) #case 6
 
-l = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(3))
+l = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1, command=case_3)
 l.place(x=270, y=73) #case 3
-m = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(4))
+m = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1, command=case_4)
 m.place(x=320, y=73) #case4
 
-n = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(2))
+n = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=case_2)
 n.place(x=270, y=135) #case 2
-o = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(1))
+o = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=case_1)
 o.place(x=320, y=135) #case 1
 
 '''untere Buttons'''
-a = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=lambda *args: switchVariable(7))
+a = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=case_7)
 a.place(x=370, y=225) #case 7
-b = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=lambda *args: switchVariable(8))
+b = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=case_8)
 b.place(x=370,y=265) #case 8
 
 
-c = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(9))
+c = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1, command=case_9)
 c.place(x=270, y=210) #case 9
-d = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(10))
+d = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1, command=case_10)
 d.place(x=320, y=210) #case 10
 
-e = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(2))
+e = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=case_2)
 e.place(x=270, y=280) #case2
-f = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=lambda *args: switchVariable(1))
+f = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=case_1)
 f.place(x=320, y=280) #case 1
 
 
@@ -126,7 +147,6 @@ f.place(x=320, y=280) #case 1
 Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=normal).place(x=430,y=83)   
 Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=black).place(x=430, y=245) 
 
-int(ser.write(switchVariable(python_button_var)))
 
 root.mainloop()
 

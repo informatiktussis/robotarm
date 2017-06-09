@@ -1,14 +1,14 @@
 #include <Servo.h>
-#include <SoftwareSerial.h>
-#include "DumbServer.h"
+//#include <SoftwareSerial.h>
+//include "DumbServer.h"
 
 /* The WiFi shield is connected to
  * the Arduino pins 3 and 2, as the
  * Arduino has only one hardware serial
  * port (pins 0 and 1) we are using a
  * serial port emulated in software. */
-SoftwareSerial esp_serial(3, 2);
-EspServer esp_server;
+//SoftwareSerial esp_serial(3, 2);
+//EspServer esp_server;
 
 Servo servo1;
 Servo servo2;
@@ -26,12 +26,14 @@ int button2 = 4;
 
 
 int python_button_var;
+int speed_var_check;
+int speed_var = 15;
 
 //int var2 = 90;
 
 void setup() {
   Serial.begin(9600);
-  esp_serial.begin(9600);
+  //esp_serial.begin(9600);
 
   servo1.attach(servo_1pin);
   servo2.attach(servo_2pin);
@@ -57,18 +59,18 @@ void setup() {
    * connect pin 3 or 2 of the Arduino with the Wifi-shield
    * to pin 1(TX) of the other Arduino and use the Serial monitor
    * to see the Wifi commands and error-messages. */
-   
+/*
   Serial.println("Starting server...");
   esp_server.begin(&esp_serial, "GDI", "password", 30303);
   Serial.println("...server is running");
 
   /* Get and print the IP-Address the python program
    * should connect to */
-  char ip[16];
+  /*char ip[16];
   esp_server.my_ip(ip, 16);
 
   Serial.print("My ip: ");
-  Serial.println(ip);
+  Serial.println(ip);*/
 }
 
 
@@ -98,7 +100,7 @@ void arm_runter(int minimalwinkel, Servo *servoname ){
       if (var > minimalwinkel) {
       servoname->write(var - 1);
       //var2++;
-      delay(8);
+      delay(speed_var);
 
     
       Serial.println(var - 1);
@@ -117,7 +119,7 @@ void spezial_funktion_hoch (int maximalwinkel, Servo *servoname, Servo *servonam
       //var2--;
      //Alternativ: var2=180-var1; 180 kann auch eine Variable sein die man festlegen kann, das ist dann ja
      //Der "Gesamtwinkel" des Systems.
-      delay(15);
+      delay(speed_var);
 
       servoname2->write(var2 +1);
       
@@ -139,7 +141,7 @@ void spezial_funktion_runter (int minimalwinkel, Servo *servoname, Servo *servon
     if (var > minimalwinkel) {
       servoname->write(var - 1);
       //var2++;
-      delay(15);
+      delay(speed_var);
 
       servoname2->write(var2 - 1);
       
@@ -216,10 +218,20 @@ void loop()
   }
 */
 
-if (Serial.available() > 0) {
+if (Serial.available() < 95) {
+speed_var_check = Serial.read();
+}
+
+switch (speed_var_check) {
+case 49: speed_var = 8; //1
+case 50: speed_var = 15; //2
+case 51: speed_var = 20; //3
+}
+
+if (Serial.available() > 96) {
     python_button_var = Serial.read();
-    Serial.println(python_button_var);}
-     
+    Serial.println(python_button_var);
+}     
 
 switch(python_button_var) {
 
@@ -238,22 +250,13 @@ case 104: arm_runter(11, &servo4);  break;
 case 105: spezial_funktion_hoch(180, &servo2, &servo3); break;
 case 106: spezial_funktion_runter(11, &servo2, &servo3); break; 
 
+case 107: break;
 }
 
 
 
 
 
-
-
-while (digitalRead(button1) == 0) {
-arm_hoch(180, &servo1);
-  
-}
-while (digitalRead(button2) == 0) {
-
-  arm_runter(110, &servo1);
-}
 
   /*
     // scan from 0 to 180 degrees

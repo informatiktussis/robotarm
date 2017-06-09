@@ -10,7 +10,7 @@ connected = False
 
 serialPort = "COM3"
 baudRate=9600
-ser = Serial(timeout=1, writeTimeout=0)
+ser = Serial(timeout=1., writeTimeout=0)
 ser.port = serialPort
 ser.baudrate = baudRate
 ser.open()
@@ -25,39 +25,56 @@ def on_press(event):
 def on_release(event):
     print("Button is released.")
 
-
-def case_1():
+'''Buttons'''
+	
+def case_1(event):
     ser.write("a".encode("utf-8"))
 	
-def case_2():
+def case_2(event):
     ser.write("b".encode("utf-8"))
 
-def case_3():
+def case_3(event):
     ser.write("c".encode("utf-8"))
 	
-def case_4():
+def case_4(event):
     ser.write("d".encode("utf-8"))
 
-def case_5():
+def case_5(event):
     ser.write("e".encode("utf-8"))
 
-def case_6():
+def case_6(event):
     ser.write("f".encode("utf-8"))
 
-def case_7():
+def case_7(event):
     ser.write("g".encode("utf-8"))
 
-def case_8():
+def case_8(event):
     ser.write("h".encode("utf-8"))
 
-def case_9():
+def case_9(event):
     ser.write("i".encode("utf-8"))
 	
-def case_10():
+def case_10(event):
     ser.write("j".encode("utf-8"))
 	
-'''test'''
-def black():
+def case_standard(event):
+    ser.write("k".encode("utf-8"))
+	
+	
+'''Geschwindigkeit'''
+	
+def case_langsam(event):
+    ser.write("1".encode("utf-8"))
+
+def case_mittel(event):
+    ser.write("2".encode("utf-8"))
+	
+def case_schenll(event):
+    ser.write("3".encode("utf-8"))
+	
+	
+'''Radiobuttons'''
+def manuell():
  a.config(state=NORMAL) 
  a.config(state=NORMAL) 
  b.config(state=NORMAL)
@@ -74,7 +91,7 @@ def black():
  m.config(state = 'disabled')
  n.config(state = 'disabled')
  o.config(state = 'disabled')
-def normal():
+def automatisch():
  a.config(state='disabled') 
  b.config(state='disabled')
  c.config(state='disabled')
@@ -107,75 +124,75 @@ w = Label(root, text="Bottom", font = "Impact 18").place(x=170, y=280)
 
 
 
-h = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=case_7)
+h = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white")
 h.place(x=370, y=57)
-h.bind("<ButtonPress>", on_press)
-h.bind("<ButtonRelease>", on_release) #case 7
-i = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=case_8)
+h.bind("<ButtonPress>", case_7)
+h.bind("<ButtonRelease>", case_standard) #case 7
+i = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black")
 i.place(x=370,y=98) 
-i.bind("<ButtonPress>", on_press)
-i.bind("<ButtonRelease>", on_release)#case 8
+i.bind("<ButtonPress>", case_8)
+i.bind("<ButtonRelease>", case_standard)#case 8
 
-j = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=case_5)
+j = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1)
 j.place(x=270,y=10) 
-j.bind("<ButtonPress>", on_press)
-j.bind("<ButtonRelease>", on_release)#case 5
-k = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=case_6)
+j.bind("<ButtonPress>", case_5)
+j.bind("<ButtonRelease>", case_standard)#case 5
+k = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1)
 k.place(x=320, y=10)
-k.bind("<ButtonPress>", on_press)
-k.bind("<ButtonRelease>", on_release) #case 6
+k.bind("<ButtonPress>", case_6)
+k.bind("<ButtonRelease>", case_standard) #case 6
 
-l = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1, command=case_3)
+l = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1)
 l.place(x=270, y=73)
-l.bind("<ButtonPress>", on_press)
-l.bind("<ButtonRelease>", on_release) #case 3
-m = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1, command=case_4)
+l.bind("<ButtonPress>", case_3)
+l.bind("<ButtonRelease>", case_standard) #case 3
+m = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1)
 m.place(x=320, y=73)
-m.bind("<ButtonPress>", on_press)
-m.bind("<ButtonRelease>", on_release) #case4
+m.bind("<ButtonPress>", case_4)
+m.bind("<ButtonRelease>", case_standard) #case4
 
-n = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=case_2)
+n = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1)
 n.place(x=270, y=135)
-n.bind("<ButtonPress>", on_press)
-n.bind("<ButtonRelease>", on_release) #case 2
-o = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=case_1)
+n.bind("<ButtonPress>", case_2)
+n.bind("<ButtonRelease>", case_standard) #case 2
+o = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1)
 o.place(x=320, y=135)
-o.bind("<ButtonPress>", on_press)
-o.bind("<ButtonRelease>", on_release) #case 1
+o.bind("<ButtonPress>", case_1)
+o.bind("<ButtonRelease>", case_standard) #case 1
 
 '''untere Buttons'''
-a = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white", command=case_7)
+a = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white")
 a.place(x=370, y=225)
-a.bind("<ButtonPress>", on_press)
-a.bind("<ButtonRelease>", on_release) #case 7
-b = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black", command=case_8)
+a.bind("<ButtonPress>", case_7)
+a.bind("<ButtonRelease>", case_standard) #case 7
+b = Button(root, state=DISABLED, text="Close", bg="red", width=5, height=1, font="10", fg="black")
 b.place(x=370,y=265)
-b.bind("<ButtonPress>", on_press)
-b.bind("<ButtonRelease>", on_release) #case 8
+b.bind("<ButtonPress>", case_8)
+b.bind("<ButtonRelease>", case_standard) #case 8
 
 
-c = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1, command=case_9)
+c = Button(root, state=DISABLED, text="↑", bg="White", font="Times 16", width=2, height=1)
 c.place(x=270, y=210)
-c.bind("<ButtonPress>", on_press)
-c.bind("<ButtonRelease>", on_release) #case 9
-d = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1, command=case_10)
+c.bind("<ButtonPress>", case_9)
+c.bind("<ButtonRelease>", case_standard) #case 9
+d = Button(root, state=DISABLED, text="↓", bg="white", font="Times 16", width=2, height=1)
 d.place(x=320, y=210)
-d.bind("<ButtonPress>", on_press)
-d.bind("<ButtonRelease>", on_release) #case 10
+d.bind("<ButtonPress>", case_10)
+d.bind("<ButtonRelease>", case_standard) #case 10
 
-e = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1, command=case_2)
+e = Button(root, state=DISABLED, text="←", bg="white", font="Times 16", width=2, height=1)
 e.place(x=270, y=280) 
-e.bind("<ButtonPress>", on_press)
-e.bind("<ButtonRelease>", on_release)#case2
-f = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1, command=case_1)
+e.bind("<ButtonPress>", case_2)
+e.bind("<ButtonRelease>", case_standard)#case2
+f = Button(root, state=DISABLED, text="→", bg="white", font="Times 16", width=2, height=1)
 f.place(x=320, y=280)
-f.bind("<ButtonPress>", on_press)
-f.bind("<ButtonRelease>", on_release) #case 1
+f.bind("<ButtonPress>", case_1)
+f.bind("<ButtonRelease>", case_standard) #case 1
 
 
 
-Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=normal).place(x=450,y=83)   
-Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=black).place(x=450, y=245) 
+Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=manuell).place(x=450,y=83)   
+Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=automatisch).place(x=450, y=245) 
 
 
 root.mainloop()

@@ -41,7 +41,7 @@ void setup() {
   servo4.attach(servo_4pin);
 
   int angle = servo1.read();
-  Serial.println(angle);
+ // Serial.println(angle);
   servo2.write(50);
 
   pinMode(button1, INPUT_PULLUP);
@@ -83,10 +83,10 @@ void arm_hoch(int maximalwinkel, Servo *servoname ) {
 
     //Alternativ: var2=180-var1; 180 kann auch eine Variable sein die man festlegen kann, das ist dann ja
     //Der "Gesamtwinkel" des Systems.
-    delay(8);
+    delay(speed_var);
 
 
-    Serial.println(var + 1);
+   // Serial.println(var + 1);
 
   }
   else {
@@ -103,7 +103,7 @@ void arm_runter(int minimalwinkel, Servo *servoname ) {
     delay(speed_var);
 
 
-    Serial.println(var - 1);
+   // Serial.println(var - 1);
 
   } else {
     //var = 11;
@@ -123,11 +123,11 @@ void spezial_funktion_hoch (int maximalwinkel, Servo *servoname, Servo *servonam
 
     servoname2->write(var2 + 1);
 
-    Serial.print(var2 + 1);
-    Serial.print(" ");
-    Serial.print(var + 1);
-    Serial.print(" ");
-    Serial.println(var + var2); //Die Summe beider sollte stets umgefähr konstant sein bei 180°.
+   // Serial.print(var2 + 1);
+   // Serial.print(" ");
+   // Serial.print(var + 1);
+    //Serial.print(" ");
+   // Serial.println(var + var2); //Die Summe beider sollte stets umgefähr konstant sein bei 180°.
   }
   else {
     //var == 180;
@@ -145,11 +145,11 @@ void spezial_funktion_runter (int minimalwinkel, Servo *servoname, Servo *servon
 
     servoname2->write(var2 - 1);
 
-    Serial.print(var2 - 1);
-    Serial.print(" ");
-    Serial.print(var - 1);
-    Serial.print(" ");
-    Serial.println(var + var2);
+   // Serial.print(var2 - 1);
+   // Serial.print(" ");
+   // Serial.print(var - 1);
+   // Serial.print(" ");
+   // Serial.println(var + var2);
   } else {
     //var = 11;
   }
@@ -217,8 +217,8 @@ void loop()
 
     }
   */
-
-  if (Serial.available() > 0 && Serial.available() < 95) {
+/*
+  if (Serial.available() > 0 ) {
     speed_var_check = Serial.read();
     Serial.println(speed_var_check);
   }
@@ -241,30 +241,51 @@ void loop()
     case 63: speed_var = 19;
     case 64: speed_var = 20;
   }
+  */
 
-  if (Serial.available() > 0 && Serial.available() > 96) {
+
+  if (Serial.available() > 0) {
     python_button_var = Serial.read();
-    Serial.println(python_button_var);
+//Serial.println(python_button_var);
   }
 
   switch (python_button_var) {
 
-    case 97: arm_hoch(180, &servo1);   break;
-    case 98: arm_runter(11, &servo1);  break;
+    case 97: arm_hoch(180, &servo1);   break; //a
+    case 98: arm_runter(11, &servo1);  break; //b
 
-    case 99: arm_hoch(180, &servo2);   break;
-    case 100: arm_runter(11, &servo2);  break;
+    case 99: arm_hoch(180, &servo2);   break; //c
+    case 100: arm_runter(11, &servo2);  break; //d
 
-    case 101: arm_hoch(180, &servo3);   break;
-    case 102: arm_runter(11, &servo3);  break;
+    case 101: arm_hoch(180, &servo3);   break; //e
+    case 102: arm_runter(11, &servo3);  break; //f
 
-    case 103: arm_hoch(180, &servo4);   break;
-    case 104: arm_runter(11, &servo4);  break;
+    case 103: arm_hoch(180, &servo4);   break; //g
+    case 104: arm_runter(11, &servo4);  break; //h
 
-    case 105: spezial_funktion_hoch(180, &servo2, &servo3); break;
-    case 106: spezial_funktion_runter(11, &servo2, &servo3); break;
+    case 105: spezial_funktion_hoch(180, &servo2, &servo3); break; //i
+    case 106: spezial_funktion_runter(11, &servo2, &servo3); break; //j
 
-    case 107: break;
+    case 107: break; //default case //k
+
+
+
+    case 49: speed_var = 5;
+    case 50: speed_var = 6;
+    case 51: speed_var = 7;
+    case 52: speed_var = 8;
+    case 53: speed_var = 9;
+    case 54: speed_var = 10;
+    case 55: speed_var = 11;
+    case 56: speed_var = 12;
+    case 57: speed_var = 13;
+    case 58: speed_var = 14;
+    case 59: speed_var = 15;
+    case 60: speed_var = 16;
+    case 61: speed_var = 17;
+    case 62: speed_var = 18;
+    case 63: speed_var = 19;
+    case 64: speed_var = 20;
   }
 
 

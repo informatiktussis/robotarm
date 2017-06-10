@@ -29,9 +29,11 @@ def on_release(event):
 	
 def case_1(event):
     ser.write("a".encode("utf-8"))
+    print("test1")
 	
 def case_2(event):
     ser.write("b".encode("utf-8"))
+    print("test1")
 
 def case_3(event):
     ser.write("c".encode("utf-8"))

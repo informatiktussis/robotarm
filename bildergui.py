@@ -3,7 +3,7 @@ from serial import *
 
 root=Tk()
 root.title("Roboterarm")
-root.geometry("600x360")
+root.geometry("680x360")
 
 
 connected = False
@@ -122,7 +122,10 @@ w = Label(root, text="Bottom", font = "Impact 18").place(x=170, y=135)
 w = Label(root, text="Middle", font = "Impact 18").place(x=170, y=210)
 w = Label(root, text="Bottom", font = "Impact 18").place(x=170, y=280)
 
+tempo = Label(root, text="Speed", font="Impact 15").place(x=597, y= 10) 
 
+p = Scale(root, from_=0, to=25, length= 260, bd=0, orient=VERTICAL)#Funktionen
+p.place(x=600, y=50)
 
 h = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white")
 h.place(x=370, y=57)
@@ -191,8 +194,8 @@ f.bind("<ButtonRelease>", case_standard) #case 1
 
 
 
-Radiobutton(root, text="Manuell", font="Impact 14",  width = 15, variable=v, value=1, command=manuell).place(x=450,y=83)   
-Radiobutton(root, text="Automatisch", font="impact 14",  width = 15, variable=v, value=2, command=automatisch).place(x=450, y=245) 
+Radiobutton(root, text="Manuell", font="Impact 14",  width = 12, variable=v, value=1, command=automatisch).place(x=430,y=83)   
+Radiobutton(root, text="Automatisch", font="impact 14",  width = 12, variable=v, value=2, command=manuell).place(x=430, y=245) 
 
 
 root.mainloop()

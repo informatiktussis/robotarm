@@ -65,15 +65,19 @@ def case_standard(event):
 	
 def case_langsamaf(event):
     ser.write("1".encode("utf-8"))
+    print("check1")
 
 def case_langsamer(event):
     ser.write("2".encode("utf-8"))
+    print("check2")
 	
 def case_langsam(event):
     ser.write("3".encode("utf-8"))
+    print("check3")
 	
 def case_mittelaf(event):
     ser.write("4".encode("utf-8"))
+    print("check4")
 
 def case_mittel(event):
     ser.write("5".encode("utf-8"))
@@ -161,6 +165,7 @@ tempo = Label(root, text="Speed", font="Impact 15").place(x=597, y= 10)
 
 p = Scale(root, from_=5, to=20, length= 260, bd=0, orient=VERTICAL)#Funktionen
 p.place(x=600, y=50)
+
 
 h = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white")
 h.place(x=370, y=57)

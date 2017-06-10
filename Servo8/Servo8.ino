@@ -223,9 +223,22 @@ speed_var_check = Serial.read();
 }
 
 switch (speed_var_check) {
-case 49: speed_var = 8; //1
-case 50: speed_var = 15; //2
-case 51: speed_var = 20; //3
+case 49: speed_var = 5; 
+case 50: speed_var = 6; 
+case 51: speed_var = 7; 
+case 52: speed_var = 8;
+case 53: speed_var = 9; 
+case 54: speed_var = 10;
+case 55: speed_var = 11; 
+case 56: speed_var = 12; 
+case 57: speed_var = 13; 
+case 58: speed_var = 14;
+case 59: speed_var = 15;
+case 60: speed_var = 16; 
+case 61: speed_var = 17; 
+case 62: speed_var = 18; 
+case 63: speed_var = 19;
+case 64: speed_var = 20;
 }
 
 if (Serial.available() > 96) {

@@ -63,15 +63,50 @@ def case_standard(event):
 	
 '''Geschwindigkeit'''
 	
-def case_langsam(event):
+def case_langsamaf(event):
     ser.write("1".encode("utf-8"))
 
-def case_mittel(event):
+def case_langsamer(event):
     ser.write("2".encode("utf-8"))
 	
-def case_schenll(event):
+def case_langsam(event):
     ser.write("3".encode("utf-8"))
 	
+def case_mittelaf(event):
+    ser.write("4".encode("utf-8"))
+
+def case_mittel(event):
+    ser.write("5".encode("utf-8"))
+	
+def case_mittlere(event):
+    ser.write("6".encode("utf-8"))
+	
+def case_schneller(event):
+    ser.write("7".encode("utf-8"))
+
+def case_mittelschnell(event):
+    ser.write("8".encode("utf-8"))
+	
+def case_schenllaf(event):
+    ser.write("9".encode("utf-8"))
+	
+def case_speed(event):
+    ser.write("10".encode("utf-8"))
+
+def case_ultraspeed(event):
+    ser.write("11".encode("utf-8"))
+	
+def case_hyperspeed(event):
+    ser.write("12".encode("utf-8"))
+	
+def case_toofast(event):
+    ser.write("13".encode("utf-8"))
+
+def case_toofuriuos(event):
+    ser.write("14".encode("utf-8"))
+	
+def case_lichtgeschwindigkeit(event):
+    ser.write("15".encode("utf-8"))
 	
 '''Radiobuttons'''
 def manuell():
@@ -124,7 +159,7 @@ w = Label(root, text="Bottom", font = "Impact 18").place(x=170, y=280)
 
 tempo = Label(root, text="Speed", font="Impact 15").place(x=597, y= 10) 
 
-p = Scale(root, from_=0, to=25, length= 260, bd=0, orient=VERTICAL)#Funktionen
+p = Scale(root, from_=5, to=20, length= 260, bd=0, orient=VERTICAL)#Funktionen
 p.place(x=600, y=50)
 
 h = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white")

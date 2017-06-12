@@ -8,14 +8,14 @@ root.geometry("680x360")
 
 connected = False
 
-serialPort = "COM3"
+serialPort = "COM8"
 baudRate=9600
 ser = Serial(timeout=1., writeTimeout=0)
 ser.port = serialPort
 ser.baudrate = baudRate
 ser.open()
 
-
+p=IntVar()
 
 v=IntVar()
 
@@ -65,7 +65,7 @@ def case_standard(event):
 	
 '''Geschwindigkeit'''
 	
-def case_langsamaf(event):
+def case_langsam(event):
     ser.write("1".encode("utf-8"))
     print("check1")
 
@@ -73,7 +73,7 @@ def case_langsamer(event):
     ser.write("2".encode("utf-8"))
     print("check2")
 	
-def case_langsam(event):
+def case_mittel(event):
     ser.write("3".encode("utf-8"))
     print("check3")
 	
@@ -81,38 +81,13 @@ def case_mittelaf(event):
     ser.write("4".encode("utf-8"))
     print("check4")
 
-def case_mittel(event):
+def case_schnell(event):
     ser.write("5".encode("utf-8"))
 	
-def case_mittlere(event):
+def case_schneller(event):
     ser.write("6".encode("utf-8"))
 	
-def case_schneller(event):
-    ser.write("7".encode("utf-8"))
 
-def case_mittelschnell(event):
-    ser.write("8".encode("utf-8"))
-	
-def case_schenllaf(event):
-    ser.write("9".encode("utf-8"))
-	
-def case_speed(event):
-    ser.write("10".encode("utf-8"))
-
-def case_ultraspeed(event):
-    ser.write("11".encode("utf-8"))
-	
-def case_hyperspeed(event):
-    ser.write("12".encode("utf-8"))
-	
-def case_toofast(event):
-    ser.write("13".encode("utf-8"))
-
-def case_toofuriuos(event):
-    ser.write("14".encode("utf-8"))
-	
-def case_lichtgeschwindigkeit(event):
-    ser.write("15".encode("utf-8"))
 	
 '''Radiobuttons'''
 def manuell():
@@ -163,10 +138,10 @@ w = Label(root, text="Bottom", font = "Impact 18").place(x=170, y=135)
 w = Label(root, text="Middle", font = "Impact 18").place(x=170, y=210)
 w = Label(root, text="Bottom", font = "Impact 18").place(x=170, y=280)
 
-tempo = Label(root, text="Speed", font="Impact 15").place(x=597, y= 10) 
+tempo = Label(root, text="Speed", font="Impact 15").place(x=570, y= 25) 
 
-p = Scale(root, from_=5, to=20, length= 260, bd=0, orient=VERTICAL)#Funktionen
-p.place(x=600, y=50)
+'''p = Scale(root, from_=5, to=20, length= 260, bd=0, orient=VERTICAL)#Funktionen
+p.place(x=600, y=50)'''
 
 
 h = Button(root, state=DISABLED, text="Open", bg="green", width=5, height=1, font="10", fg="white")
@@ -238,6 +213,15 @@ f.bind("<ButtonRelease>", case_standard) #case 1
 
 Radiobutton(root, text="Manuell", font="Impact 14",  width = 12, variable=v, value=1, command=automatisch).place(x=430,y=83)   
 Radiobutton(root, text="Automatisch", font="impact 14",  width = 12, variable=v, value=2, command=manuell).place(x=430, y=245) 
+
+
+Radiobutton(root, text="Snail", font="Fixedsys 12", variable=p, value=1, command=case_langsam).place(x=570,y=70)   
+Radiobutton(root, text="SuperSlow", font="Fixedsys 12", variable=p, value=2, command=case_langsamer).place(x=570, y=110) 
+Radiobutton(root, text="Normal", font="Fixedsys 12", variable=p, value=3, command=case_mittel).place(x=570,y=150)   
+Radiobutton(root, text="SuperNormal", font="Fixedsys 12", variable=p, value=4, command=case_mittelaf).place(x=570, y=190) 
+Radiobutton(root, text="SuperSpeed", font="Fixedsys 12", variable=p, value=5, command=case_schnell).place(x=570,y=230)   
+Radiobutton(root, text="Hyperspeed", font="Fixedsys 12", variable=p, value=6, command=case_schneller).place(x=570, y=270) 
+
 
 
 root.mainloop()

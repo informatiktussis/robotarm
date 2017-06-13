@@ -17,7 +17,7 @@ int button2 = 4;
 
 int python_button_var;
 int speed_var_check;
-int speed_var = 0;
+int speed_var;
 
 //int var2 = 90;
 
@@ -126,7 +126,7 @@ void spezial_funktion_runter (int minimalwinkel, Servo *servoname, Servo *servon
 
 
 void loop()
-  if (Serial.available() > 0) {
+  if(Serial.available() > 0) {
     python_button_var = Serial.read();
 //Serial.println(python_button_var);
   }

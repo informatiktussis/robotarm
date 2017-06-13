@@ -65,12 +65,15 @@ def case_standard(event):
 	
 def case_schneller(event):
     ser.write("1".encode("utf-8"))
+    print("w")
 
 def case_schnell(event):
     ser.write("2".encode("utf-8"))
+    print("e")
 	
 def case_mittelaf(event):
     ser.write("3".encode("utf-8"))
+    print("bla")
 	
 def case_mittel(event):
     ser.write("4".encode("utf-8"))

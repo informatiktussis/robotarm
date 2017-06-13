@@ -8,7 +8,7 @@ root.geometry("680x360")
 
 connected = False
 
-serialPort = "COM8"
+serialPort = "COM10"
 baudRate=9600
 ser = Serial(timeout=1., writeTimeout=0)
 ser.port = serialPort
@@ -65,20 +65,16 @@ def case_standard(event):
 	
 def case_langsam(event):
     ser.write("1".encode("utf-8"))
-    print("check1")
 
 def case_langsamer(event):
     ser.write("2".encode("utf-8"))
-    print("check2")
 	
 def case_mittel(event):
     ser.write("3".encode("utf-8"))
-    print("check3")
 	
 def case_mittelaf(event):
     ser.write("4".encode("utf-8"))
-    print("check4")
-
+ 
 def case_schnell(event):
     ser.write("5".encode("utf-8"))
 	
@@ -215,24 +211,18 @@ Radiobutton(root, text="Manuell", font="Impact 14",  width = 12, variable=v, val
 Radiobutton(root, text="Automatisch", font="impact 14",  width = 12, variable=v, value=2, command=manuell).place(x=430, y=245) 
 
 
-x=Radiobutton(root, text="Snail", font="Fixedsys 12", variable=p, value=1)
+x=Radiobutton(root, text="Snail", font="Fixedsys 12", variable=p, value=1, command= lambda : case_langsam(None))
 x.place(x=570,y=70)
-x.bind(case_langsam)
-q=Radiobutton(root, text="SuperSlow", font="Fixedsys 12", variable=p, value=2) 
+q=Radiobutton(root, text="SuperSlow", font="Fixedsys 12", variable=p, value=2, command= lambda : case_langsamer(None)) 
 q.place(x=570, y=110)
-q.bind(case_langsamer)
-r=Radiobutton(root, text="Normal", font="Fixedsys 12", variable=p, value=3)  
+r=Radiobutton(root, text="Normal", font="Fixedsys 12", variable=p, value=3, command= lambda : case_mittel(None))  
 r.place(x=570,y=150)
-e.bind(case_mittel)
-s=Radiobutton(root, text="SuperNormal", font="Fixedsys 12", variable=p, value=4)
+s=Radiobutton(root, text="SuperNormal", font="Fixedsys 12", variable=p, value=4, command= lambda : case_mittelaf(None))
 s.place(x=570, y=190) 
-s.bind(case_mittelaf)
-t=Radiobutton(root, text="SuperSpeed", font="Fixedsys 12", variable=p, value=5)
+t=Radiobutton(root, text="SuperSpeed", font="Fixedsys 12", variable=p, value=5, command= lambda : case_schnell(None))
 t.place(x=570,y=230)
-t.bind(case_schnell)
-u=Radiobutton(root, text="Hyperspeed", font="Fixedsys 12", variable=p, value=6) 
+u=Radiobutton(root, text="Hyperspeed", font="Fixedsys 12", variable=p, value=6, command= lambda : case_schneller(None)) 
 u.place(x=570, y=270)
-u.bind(case_schneller)
 
 
 

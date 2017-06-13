@@ -29,11 +29,9 @@ def on_release(event):
 	
 def case_1(event):
     ser.write("a".encode("utf-8"))
-    print("test1")
 	
 def case_2(event):
     ser.write("b".encode("utf-8"))
-    print("test1")
 
 def case_3(event):
     ser.write("c".encode("utf-8"))
@@ -108,6 +106,7 @@ def manuell():
  n.config(state = 'disabled')
  o.config(state = 'disabled')
 def automatisch():
+
  a.config(state='disabled') 
  b.config(state='disabled')
  c.config(state='disabled')
@@ -123,6 +122,7 @@ def automatisch():
  m.config(state = NORMAL)
  n.config(state = NORMAL)
  o.config(state = NORMAL)
+
  
 skizze= PhotoImage(file="skizze.gif")
 skizze2 = PhotoImage(file="skizze2.gif")
@@ -215,12 +215,24 @@ Radiobutton(root, text="Manuell", font="Impact 14",  width = 12, variable=v, val
 Radiobutton(root, text="Automatisch", font="impact 14",  width = 12, variable=v, value=2, command=manuell).place(x=430, y=245) 
 
 
-Radiobutton(root, text="Snail", font="Fixedsys 12", variable=p, value=1, command=case_langsam).place(x=570,y=70)   
-Radiobutton(root, text="SuperSlow", font="Fixedsys 12", variable=p, value=2, command=case_langsamer).place(x=570, y=110) 
-Radiobutton(root, text="Normal", font="Fixedsys 12", variable=p, value=3, command=case_mittel).place(x=570,y=150)   
-Radiobutton(root, text="SuperNormal", font="Fixedsys 12", variable=p, value=4, command=case_mittelaf).place(x=570, y=190) 
-Radiobutton(root, text="SuperSpeed", font="Fixedsys 12", variable=p, value=5, command=case_schnell).place(x=570,y=230)   
-Radiobutton(root, text="Hyperspeed", font="Fixedsys 12", variable=p, value=6, command=case_schneller).place(x=570, y=270) 
+x=Radiobutton(root, text="Snail", font="Fixedsys 12", variable=p, value=1)
+x.place(x=570,y=70)
+x.bind(case_langsam)
+q=Radiobutton(root, text="SuperSlow", font="Fixedsys 12", variable=p, value=2) 
+q.place(x=570, y=110)
+q.bind(case_langsamer)
+r=Radiobutton(root, text="Normal", font="Fixedsys 12", variable=p, value=3)  
+r.place(x=570,y=150)
+e.bind(case_mittel)
+s=Radiobutton(root, text="SuperNormal", font="Fixedsys 12", variable=p, value=4)
+s.place(x=570, y=190) 
+s.bind(case_mittelaf)
+t=Radiobutton(root, text="SuperSpeed", font="Fixedsys 12", variable=p, value=5)
+t.place(x=570,y=230)
+t.bind(case_schnell)
+u=Radiobutton(root, text="Hyperspeed", font="Fixedsys 12", variable=p, value=6) 
+u.place(x=570, y=270)
+u.bind(case_schneller)
 
 
 

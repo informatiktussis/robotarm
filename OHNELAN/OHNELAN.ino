@@ -28,11 +28,7 @@ int button2 = 4;
 
 int python_button_var;
 int speed_var_check;
-<<<<<<< HEAD
-int speed_var;
-=======
 int speed_var = 15;
->>>>>>> 9788062f01ef23d77dd1a29266bfac2cebbc47ff
 
 //int var2 = 90;
 
@@ -160,9 +156,6 @@ void spezial_funktion_runter (int minimalwinkel, Servo *servoname, Servo *servon
 
 
 void loop()
-<<<<<<< HEAD
-  if(Serial.available() > 0) {
-=======
 { /*
      // Check if the python program sent commands
      if(esp_server.available()) {
@@ -239,7 +232,6 @@ void loop()
 
 
   if (Serial.available() > 0) {
->>>>>>> 9788062f01ef23d77dd1a29266bfac2cebbc47ff
     python_button_var = Serial.read();
 //Serial.println(python_button_var);
   }
@@ -267,7 +259,7 @@ void loop()
 
 
     case 49: speed_var = 5; break;
-    case 50: speed_var = 8; break;
+    case 50: speed_var = 8;  break;
     case 51: speed_var = 11; break;
     case 52: speed_var = 14; break;
     case 53: speed_var = 17; break;

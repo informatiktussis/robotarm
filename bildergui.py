@@ -8,7 +8,7 @@ root.geometry("680x360")
 
 connected = False
 
-serialPort = "COM10"
+serialPort = "COM7"
 baudRate=9600
 ser = Serial(timeout=1., writeTimeout=0)
 ser.port = serialPort
@@ -63,22 +63,22 @@ def case_standard(event):
 	
 '''Geschwindigkeit'''
 	
-def case_langsam(event):
+def case_schneller(event):
     ser.write("1".encode("utf-8"))
 
-def case_langsamer(event):
+def case_schnell(event):
     ser.write("2".encode("utf-8"))
 	
-def case_mittel(event):
+def case_mittelaf(event):
     ser.write("3".encode("utf-8"))
 	
-def case_mittelaf(event):
+def case_mittel(event):
     ser.write("4".encode("utf-8"))
  
-def case_schnell(event):
+def case_langsamer(event):
     ser.write("5".encode("utf-8"))
 	
-def case_schneller(event):
+def case_langsam(event):
     ser.write("6".encode("utf-8"))
 	
 

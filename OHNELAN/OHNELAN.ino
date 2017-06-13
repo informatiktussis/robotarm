@@ -27,7 +27,7 @@ int button2 = 4;
 
 int python_button_var;
 int speed_var_check;
-int speed_var = 15;
+int speed_var = 0;
 
 //int var2 = 90;
 
@@ -257,12 +257,12 @@ void loop()
 
 
 
-    case 49: speed_var = 5;
+    case 49: speed_var = 3;
     case 50: speed_var = 8;
     case 51: speed_var = 11;
     case 52: speed_var = 14;
     case 53: speed_var = 17;
-    case 54: speed_var = 20;
+    case 54: speed_var = 25;
   }
 
 

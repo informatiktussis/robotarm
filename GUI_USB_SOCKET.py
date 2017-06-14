@@ -16,13 +16,80 @@ ser.port = serialPort
 ser.baudrate = baudRate
 ser.open()
 
-s= socket.socket()
-s.connect(('134.102.28.112', 30303))
-s.setblocking(False)
+sk= socket.socket()
+sk.connect(('134.102.28.112', 30303))
+sk.setblocking(False)
 
-s.send(b'Hello World\n')
+sk.send(b'Hello World\n')
 
-s.recv(1024)
+
+'''
+sk.recv(1024)
+
+import sys
+import socket
+import errno
+from time import sleep
+
+while True:
+    try:
+        msg = sk.recv(1024)
+    except socket.error, e:
+        err = e.args[0]
+        if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
+            sleep(1)
+            print('No data available')
+            continue
+        else:
+            # a "real" error occurred
+            print(e)
+            sys.exit(1)
+    else:
+        # got a message, do something :)
+'''
+
+
+import sys
+import socket
+from time import sleep
+
+sk = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sk.connect(('127.0.0.1',9999))
+sk.settimeout(2)
+
+while True:
+    try:
+        msg = sk.recv(4096)
+    except socket.timeout, e:
+        err = e.args[0]
+        # this next if/else is a bit redundant, but illustrates how the
+        # timeout exception is setup
+        if err == 'timed out':
+            sleep(1)
+            print('recv timed out, retry later')
+            continue
+        else:
+            print(e)
+            sys.exit(1)
+    except socket.error, e:
+        # Something else happened, handle error, exit, etc.
+        print(e)
+        sys.exit(1)
+    else:
+        if len(msg) == 0:
+            print 'orderly shutdown on server end'
+            sys.exit(0)
+        else:
+            # got a message do something :)
+
+
+
+
+
+
+
+
+
 
 
 p=IntVar()

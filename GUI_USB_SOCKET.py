@@ -16,13 +16,18 @@ ser.port = serialPort
 ser.baudrate = baudRate
 ser.open()
 
-s= socket.socket()
-s.connect(('134.102.28.112', 30303))
-s.setblocking(False)
+sk= socket.socket()
+sk.connect(('172.20.10.5', 30303))
+sk.setblocking(False)
 
-s.send(b'Hello World\n')
+sk.send(b'Hello World\n')
 
-s.recv(1024)
+addr = sk.accept()
+print ('Got connection from', addr)
+sk.setblocking(1) # Make it blocking.
+connections.append( [c, addr] )
+
+sk.recv(1024)
 
 
 p=IntVar()

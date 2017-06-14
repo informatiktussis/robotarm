@@ -60,7 +60,7 @@ void setup() {
 	to see the Wifi commands and error-messages. */
 
 	Serial.println("Starting server...");
-	esp_server.begin(&esp_serial, "GDI", "password", 30303);
+	esp_server.begin(&esp_serial, "Fany", "123hohoho", 30303);
 	Serial.println("...server is running");
 
 	/* Get and print the IP-Address the python program
@@ -168,7 +168,7 @@ void loop()
 		String command = esp_server.readStringUntil('\n');
 		// Echo back the command as-is
 		esp_server.print(">");
-		esp_server.println(command)
+		esp_server.println(command);
 
 			/*
 			while (digitalRead(button1) == 0) {
@@ -289,4 +289,4 @@ void loop()
 		servo.write(angle);
 		delay(15);
 		} */
-	}
+	}	}

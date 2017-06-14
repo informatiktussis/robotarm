@@ -8,7 +8,7 @@ root.geometry("680x360")
 
 connected = False
 
-serialPort = "COM7"
+serialPort = "COM3"
 baudRate=9600
 ser = Serial(timeout=1., writeTimeout=0)
 ser.port = serialPort

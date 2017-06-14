@@ -21,6 +21,7 @@ sk.connect(('172.20.10.5', 30303))
 sk.setblocking(False)
 
 sk.send(b'Hello World\n')
+<<<<<<< HEAD
 
 addr = sk.accept()
 print ('Got connection from', addr)
@@ -66,28 +67,71 @@ while True:
 '''
 '''
 sk.recv(1024)
+=======
 
-import sys
-import socket
-import errno
-from time import sleep
 
-while True:
-    try:
-        msg = sk.recv(1024)
-    except socket.error, e:
-        err = e.args[0]
-        if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
-            sleep(1)
-            print('No data available')
-            continue
-        else:
-            # a "real" error occurred
-            print(e)
-            sys.exit(1)
-    else:
-        # got a message, do something :)
-'''
+class Arduino(object):
+    def __init__(self, window, host, port, on_received):
+        '''An abstraction for a network-connected Arduino.
+
+        'window' is an instance of a TK root object,
+        'host' and 'port' are the TCP network address of an Arduino,
+        'on_received' is a function that is called whenever a line is
+        received from the Arduino.
+        '''
+
+        self.window= window
+        self.on_received= on_received
+>>>>>>> 9cb47acc6b4b962b1472bb43dbb80f67d3869dbd
+
+        # Open socket and connect to the Arduino
+        self.socket= so.socket()
+        self.socket.connect((host, port))
+        self.socket.setblocking(False)
+
+        self.rd_buff= bytes()
+
+        self._periodic_socket_check()
+
+    def send_command(self, command):
+        'Send a message to the Arduino'
+
+        self.socket.send(command.encode('utf-8') + b'\n')
+
+    def close(self):
+        'Cleanly close the connection'
+
+        self.socket.close()
+        self.window.after_cancel(self.after_event)
+
+    def _periodic_socket_check(self):
+        try:
+            msg= self.socket.recv(1024)
+
+            if not msg:
+                raise(IOError('Connection closed'))
+
+            self.rd_buff+= msg
+
+        except so.error:
+            # In non-blocking mode an exception is thrown
+            # whenever no data is available.
+            # Which error is OS-dependant so we have to catch
+            # the generic socket.error exception.
+
+            pass
+
+        while b'\n' in self.rd_buff:
+            line, self.rd_buff= self.rd_buff.split(b'\n')
+
+            line= line.decode('utf-8').strip()
+            self.on_received(line)
+
+        # Tell tkinter to call this function again
+        # in 100ms
+        self.after_event= self.window.after(
+            100, self._periodic_socket_check
+        )
 
 p=IntVar()
 

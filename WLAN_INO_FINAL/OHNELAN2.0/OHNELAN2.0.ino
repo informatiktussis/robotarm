@@ -1,6 +1,7 @@
 #include <Servo.h>
 #include <SoftwareSerial.h>
 #include "DumbServer.h"
+#include "DumbServer.cpp"
 
 /* The WiFi shield is connected to
 the Arduino pins 3 and 2, as the

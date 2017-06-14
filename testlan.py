@@ -1,6 +1,6 @@
 from tkinter import *
 from serial import *
-import socket
+import socket as so
 
 root=Tk()
 root.title("Roboterarm")
@@ -16,77 +16,115 @@ ser.port = serialPort
 ser.baudrate = baudRate
 ser.open()
 
-sk= socket.socket()
-sk.connect(('172.20.10.5', 30303))
-sk.setblocking(False)
+class Arduino(object):
+    def __init__(self, window, host, port, on_received):
+        '''An abstraction for a network-connected Arduino.
 
-sk.send(b'Hello World\n')
-'''
-addr = sk.accept()
-print ('Got connection from', addr)
-sk.setblocking(1) # Make it blocking.
-connections.append( [c, addr] )
-'''
+        'window' is an instance of a TK root object,
+        'host' and 'port' are the TCP network address of an Arduino,
+        'on_received' is a function that is called whenever a line is
+        received from the Arduino.
+        '''
 
+        self.window= window
+        self.on_received= on_received
 
-sk.send(b'Hello World\n')
+        # Open socket and connect to the Arduino
+        self.socket= so.socket()
+        self.socket.connect((host, port))
+        self.socket.setblocking(False)
 
+        self.rd_buff= bytes()
 
-import sys
-import socket
-from time import sleep
+        self._periodic_socket_check()
 
-sk = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#sk.connect(('172.20.10.5',30303))
-sk.settimeout(2)
+    def send_command(self, command):
+        'Send a message to the Arduino'
 
-while True:
-    try:
-        msg = sk.recv(4096)
-    except socket.timeout as e:
-        err = e.args[0]
-        # this next if/else is a bit redundant, but illustrates how the
-        # timeout exception is setup
-        if err == 'timed out':
-            sleep(1)
-            print('recv timed out, retry later')
-            continue
+        self.socket.send(command.encode('utf-8') + b'\n')
+
+    def close(self):
+        'Cleanly close the connection'
+
+        self.socket.close()
+        self.window.after_cancel(self.after_event)
+
+    def _periodic_socket_check(self):
+        try:
+            msg= self.socket.recv(1024)
+
+            if not msg:
+                raise(IOError('Connection closed'))
+
+            self.rd_buff+= msg
+
+        except so.error:
+            # In non-blocking mode an exception is thrown
+            # whenever no data is available.
+            # Which error is OS-dependant so we have to catch
+            # the generic socket.error exception.
+
+            pass
+
+        while b'\n' in self.rd_buff:
+            line, self.rd_buff= self.rd_buff.split(b'\n')
+
+            line= line.decode('utf-8').strip()
+            self.on_received(line)
+
+        # Tell tkinter to call this function again
+        # in 100ms
+        self.after_event= self.window.after(
+            100, self._periodic_socket_check
+        )
+
+class LedButton(object):
+    '''A button that controls one LED connected to an Arduino
+    while providing visual feedback of the current button state
+    '''
+
+    def __init__(self, window, arduino):
+        self.button= tk.Button(
+            window,
+            text='Led',
+            command= self.on_pressed
+        )
+
+        self.button.pack()
+
+        self.arduino= arduino
+
+        self.set_state(False)
+
+    def set_state(self, state):
+        if state:
+            self.arduino.send_command('on')
+            self.button.config(relief='sunken')
+            self.state= True
+
         else:
-            print(e)
-            sys.exit(1)
-    except socket.error as e:
-        # Something else happened, handle error, exit, etc.
-        print(e)
-        sys.exit(1)
-    else:
-        if len(msg) == 0:
-            print ('orderly shutdown on server end')
-            sys.exit(0)
- 
-'''
-sk.recv(1024)
+            self.arduino.send_command('off')
+            self.button.config(relief='raised')
+            self.state= False
 
-import sys
-import socket
-import errno
-from time import sleep
+    def on_pressed(self):
+        self.set_state(not self.state)
 
-while True:
-    try:
-        msg = sk.recv(1024)
-    except socket.error, e:
-        err = e.args[0]
-        if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
-            sleep(1)
-            print('No data available')
-            continue
-        else:
-            # a "real" error occurred
-            print(e)
-            sys.exit(1)
-    else:
-        # got a message, do something :)
-'''
+class LightCenterWindow(object):
+    def __init__(self):
+        # Setup the empty window
+        self.setup_window()
+
+        host= input('Hostname: 172.20.10.5')
+        port= input('Port: 30303 ')
+
+        self.arduino= Arduino(
+            self.window,
+            host, int(port),
+            self.on_received
+        )
+
+        self.setup_content()
 
 p=IntVar()
 

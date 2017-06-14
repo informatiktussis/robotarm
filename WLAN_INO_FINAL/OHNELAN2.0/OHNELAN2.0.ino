@@ -52,6 +52,7 @@ void setup() {
 	and password "password", change these to match
 	your wifi settings.
 	If anything fails begin() will not return.
+  
 	To debug possible problems you can flash a second
 	Arduino with the "Bare Minimum" example,
 	connect the GNDs of the two Arduinos,

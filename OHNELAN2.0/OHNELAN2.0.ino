@@ -233,7 +233,7 @@ void loop()
 
   if (Serial.available() > 0) {
     python_button_var = Serial.read();
-//Serial.println(python_button_var);
+Serial.println(python_button_var);
   }
 
   switch (python_button_var) {

@@ -6,8 +6,13 @@ root=Tk()
 root.title("Roboterarm")
 root.geometry("680x360")
 
+host= '172.20.10.5'
+port= 30304
 
-connected = False
+socket= so.socket()
+socket.connect((host, port))
+socket.setblocking(False)
+
 
 serialPort = "COM3"
 baudRate=9600
@@ -15,6 +20,11 @@ ser = Serial(timeout=1., writeTimeout=0)
 ser.port = serialPort
 ser.baudrate = baudRate
 ser.open()
+
+
+def send_command(command):
+         socket.send(command.encode('utf-8') + b'\n')
+
 
 class Arduino(object):
     def __init__(self, window, host, port, on_received):
@@ -78,45 +88,15 @@ class Arduino(object):
             100, self._periodic_socket_check
         )
 
-class LedButton(object):
-    '''A button that controls one LED connected to an Arduino
-    while providing visual feedback of the current button state
-    '''
 
-    def __init__(self, window, arduino):
-        self.button= tk.Button(
-            window,
-            text='Led',
-            command= self.on_pressed
-        )
-
-        self.button.pack()
-
-        self.arduino= arduino
-
-        self.set_state(False)
-
-    def set_state(self, state):
-        if state:
-            self.arduino.send_command('on')
-            self.button.config(relief='sunken')
-            self.state= True
-
-        else:
-            self.arduino.send_command('off')
-            self.button.config(relief='raised')
-            self.state= False
-
-    def on_pressed(self):
-        self.set_state(not self.state)
 
 class LightCenterWindow(object):
     def __init__(self):
         # Setup the empty window
         self.setup_window()
 
-        host= input('Hostname: 172.20.10.5')
-        port= input('Port: 30303 ')
+        host= '170.20.10.5'
+        port= 30303
 
         self.arduino= Arduino(
             self.window,
@@ -125,6 +105,37 @@ class LightCenterWindow(object):
         )
 
         self.setup_content()
+
+    def on_received(self, line):
+        self.btn_label_var.set('Button status is: {}'.format(line))
+
+    def setup_window(self):
+        self.window= tk.Tk()
+        self.window.title('Light Center')
+        self.window.protocol("WM_DELETE_WINDOW", self.on_close)
+
+    def on_close(self):
+        self.arduino.close()
+        self.window.destroy()
+
+    def setup_content(self):
+        self.btn_label_var= tk.StringVar(self.window)
+        self.btn_label_var.set('Button status is: unknown')
+
+        self.btn_label = tk.Label(
+            self.window,
+            textvariable= self.btn_label_var
+        )
+
+        self.btn_label.pack()
+
+        self.btn= o(self.window, self.arduino)
+
+    def run(self):
+        'Execute the tkinter mainloop to display the Light center window'
+
+        self.window.mainloop()
+
 
 p=IntVar()
 
@@ -139,7 +150,9 @@ def on_release(event):
 '''Buttons'''
 	
 def case_1(event):
-    ser.write("a".encode("utf-8"))
+    #ser.write("a".encode("utf-8"))
+	arduino.send_command("on")
+	print("hallo")
 	
 def case_2(event):
     ser.write("b".encode("utf-8"))

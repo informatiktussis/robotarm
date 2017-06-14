@@ -28,15 +28,8 @@ int button2 = 4;
 
 int python_button_var;
 int speed_var_check;
-<<<<<<< HEAD
-
-int speed_var;
 
 int speed_var = 15;
-
-=======
-int speed_var = 15;
->>>>>>> 9c4dcf37548d4580b94962906952fce925611560
 
 //int var2 = 90;
 

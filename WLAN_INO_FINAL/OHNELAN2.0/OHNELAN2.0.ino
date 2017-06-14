@@ -15,7 +15,7 @@ Servo servo1;
 Servo servo2;
 Servo servo3;
 Servo servo4;
-
+int led = 13;
 
 int servo_1pin = 8;
 int servo_2pin = 9;
@@ -25,7 +25,7 @@ int servo_4pin = 11;
 int button1 = 3;
 int button2 = 4;
 
-
+String command;
 int python_button_var;
 int speed_var_check;
 int speed_var = 15;
@@ -47,6 +47,7 @@ void setup() {
 
 	pinMode(button1, INPUT_PULLUP);
 	pinMode(button2, INPUT_PULLUP);
+ pinMode(led, OUTPUT);
 
 	/* Connect to the wireless network with the name "GDI"
 	and password "password", change these to match
@@ -60,9 +61,9 @@ void setup() {
 	to pin 1(TX) of the other Arduino and use the Serial monitor
 	to see the Wifi commands and error-messages. */
 
-	Serial.println("Starting server...");
+	//Serial.println("Starting server...");
 	esp_server.begin(&esp_serial, "Fany", "123hohoho", 30303);
-	Serial.println("...server is running");
+	//Serial.println("...server is running");
 
 	/* Get and print the IP-Address the python program
 	should connect to */
@@ -70,8 +71,8 @@ void setup() {
 	char ip[16];
 	esp_server.my_ip(ip, 16);
 
-	Serial.print("My ip: ");
-	Serial.println(ip);
+	//Serial.print("My ip: ");
+	//Serial.println(ip);
 }
 
 
@@ -162,15 +163,28 @@ void spezial_funktion_runter(int minimalwinkel, Servo *servoname, Servo *servona
 
 
 void loop()
-{
-	// Check if the python program sent commands
+
+	/*// Check if the python program sent commands
 	if (esp_server.available()) {
 		// Read one line of commands
 		String command = esp_server.readStringUntil('\n');
 		// Echo back the command as-is
 		esp_server.print(">");
 		esp_server.println(command);
+	}*/
 
+{
+  // Check if the python program sent commands
+  while(esp_server.available()) {
+    // Read one line of commands
+    String command= esp_server.readStringUntil('\n');
+
+    digitalWrite(led, (command == "a") ? HIGH : LOW);
+  }
+
+ 
+
+ 
 			/*
 			while (digitalRead(button1) == 0) {
 			int var = servo1.read();
@@ -238,10 +252,10 @@ void loop()
 
 			if (Serial.available() > 0) {
 				python_button_var = Serial.read();
-				//Serial.println(python_button_var);
+				Serial.println(python_button_var);
 			}
 
-		switch (python_button_var) {
+		switch (  python_button_var) {
 
 		case 97: arm_hoch(180, &servo1);   break; //a
 		case 98: arm_runter(11, &servo1);  break; //b
@@ -290,4 +304,4 @@ void loop()
 		servo.write(angle);
 		delay(15);
 		} */
-	}	}
+	}	

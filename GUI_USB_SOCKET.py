@@ -21,16 +21,16 @@ sk.connect(('172.20.10.5', 30303))
 sk.setblocking(False)
 
 sk.send(b'Hello World\n')
-'''
+
 addr = sk.accept()
 print ('Got connection from', addr)
 sk.setblocking(1) # Make it blocking.
 connections.append( [c, addr] )
-'''
+
 
 
 sk.send(b'Hello World\n')
-
+'''
 
 import sys
 import socket
@@ -63,6 +63,7 @@ while True:
             print ('orderly shutdown on server end')
             sys.exit(0)
  
+'''
 '''
 sk.recv(1024)
 

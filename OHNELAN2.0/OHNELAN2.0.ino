@@ -235,7 +235,9 @@ void loop()
     python_button_var = Serial.read();
 //Serial.println(python_button_var);
   }
-
+if(Received=="a"){
+  python_button_var=97;
+}else if((Received==b)
   switch (python_button_var) {
 
     case 97: arm_hoch(180, &servo1);   break; //a

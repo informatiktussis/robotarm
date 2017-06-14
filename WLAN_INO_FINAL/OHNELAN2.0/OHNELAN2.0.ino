@@ -249,12 +249,53 @@ void loop()
 			case 64: speed_var = 20;
 			}
 			*/
-
+ while(esp_server.available()) {
+    // Read one line of commands
+    String command= esp_server.readStringUntil('\n');
+  }
 
 			if (Serial.available() > 0) {
 				python_button_var = Serial.read();
 				Serial.println(python_button_var);
 			}
+
+     if(command=='a'){
+  python_button_var=97;
+}else if(command=='b'){
+  python_button_var=98;}
+  else if(command=='c'){
+  python_button_var=99;}
+  else if(command=='d'){
+  python_button_var=100;}
+  else if(command=='e'){
+  python_button_var=101;}
+  else if(command=='f'){
+  python_button_var=102;}
+  else if(command=='g'){
+  python_button_var=103;}
+  else if(command=='h'){
+  python_button_var=104;}
+  else if(command=='i'){
+  python_button_var=105;}
+  else if(command=='j'){
+  python_button_var=106;}
+  else if(command=='k'){
+  python_button_var=107;}
+  else if(command=='1'){
+  python_button_var=49;}
+  else if(command=='2'){
+  python_button_var=50;}
+  else if(command=='3'){
+  python_button_var=51;}
+  else if(command=='4'){
+  python_button_var=52;}
+  else if(command=='5'){
+  python_button_var=53;}
+  else if(command=='6'){
+  python_button_var=54;}
+  
+
+
 
 		switch (  python_button_var) {
 

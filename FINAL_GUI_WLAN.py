@@ -3,11 +3,6 @@ import tkinter as tk
 import socket as so
 
 
-p = 0
-
-
-
-
 
 
 class Arduino(object):
@@ -25,7 +20,7 @@ class Arduino(object):
 
         # Open socket and connect to the Arduino
         self.socket= so.socket()
-        self.socket.connect(('172.20.10.5', 30304))
+        self.socket.connect(('170.20.10.5', 30304))
         self.socket.setblocking(False)
 
         self.rd_buff= bytes()
@@ -77,7 +72,7 @@ class Arduino(object):
 class Bla(object):
     def __init__(self):
         self.setup_window()
-        host= "172.20.10.5"
+        host= "170.20.10.5"
         port= 30304
 
         self.arduino= Arduino(
@@ -98,12 +93,15 @@ class Bla(object):
         self.window.title("Roboterarm")
         self.window.geometry("680x360")
         self.window.protocol("WM_DELETE_WINDOW", self.on_close)
+        self.p=tk.IntVar()
+        self.p.set(1)
 
     def on_close(self):
         self.arduino.close()
         self.window.destroy()
     
     def setup_content(self):
+
         
         self.h = tk.Button(self.window, text="Open", bg="green", width=5, height=1, font="10", fg="white")
         self.h.place(x=370, y=57)
@@ -169,18 +167,20 @@ class Bla(object):
         self.f.place(x=320, y=280)
         self.f.bind("<ButtonPress>", self.case_1)
         self.f.bind("<ButtonRelease>", self.case_standard) #self.case 1    
-    
-        self.x=tk.Radiobutton(self.window, text="Snail", font="Fixedsys 12", variable=p, value=1, command= lambda : self.case_langsam(None))
+  
+  
+  
+        self.x=tk.Radiobutton(self.window, text="Snail", font="Fixedsys 12", variable=self.p, value=1, command= lambda : self.case_langsam(None))
         self.x.place(x=520,y=70)
-        self.q=tk.Radiobutton(self.window, text="SuperSlow", font="Fixedsys 12", variable=p, value=2, command= lambda : self.case_langsamer(None)) 
+        self.q=tk.Radiobutton(self.window, text="SuperSlow", font="Fixedsys 12", variable=self.p, value=2, command= lambda : self.case_langsamer(None)) 
         self.q.place(x=520, y=110)
-        self.r=tk.Radiobutton(self.window, text="Normal", font="Fixedsys 12", variable=p, value=3, command= lambda : self.case_mittel(None))  
+        self.r=tk.Radiobutton(self.window, text="Normal", font="Fixedsys 12", variable=self.p, value=4, command= lambda : self.case_mittel(None))  
         self.r.place(x=520,y=150)
-        self.s=tk.Radiobutton(self.window, text="SuperNormal", font="Fixedsys 12", variable=p, value=4, command= lambda : self.case_mittelaf(None))
+        self.s=tk.Radiobutton(self.window, text="SuperNormal", font="Fixedsys 12", variable=self.p, value=5, command= lambda : self.case_mittelaf(None))
         self.s.place(x=520, y=190) 
-        self.t=tk.Radiobutton(self.window, text="SuperSpeed", font="Fixedsys 12", variable=p, value=5, command= lambda : self.case_schnell(None))
+        self.t=tk.Radiobutton(self.window, text="SuperSpeed", font="Fixedsys 12", variable=self.p, value=6, command= lambda : self.case_schnell(None))
         self.t.place(x=520,y=230)
-        self.u=tk.Radiobutton(self.window, text="Hyperspeed", font="Fixedsys 12", variable=p, value=6, command= lambda : self.case_schneller(None)) 
+        self.u=tk.Radiobutton(self.window, text="Hyperspeed", font="Fixedsys 12", variable=self.p, value=7, command= lambda : self.case_schneller(None)) 
         self.u.place(x=520, y=270)
         
         self.skizze= tk.PhotoImage(file="skizze_neu.gif")
@@ -252,15 +252,12 @@ class Bla(object):
     
     def case_schneller(self,event):
         self.arduino.send_command('1')
-        print("w")
 
     def case_schnell(self,event):
         self.arduino.send_command('2')
-        print("e")
-	
+
     def case_mittelaf(self,event):
         self.arduino.send_command('3')
-        print("bla")
 	
     def case_mittel(self,event):
         self.arduino.send_command('4')

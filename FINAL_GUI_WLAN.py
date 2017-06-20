@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import tkinter as tk
 import socket as so
 
@@ -7,18 +6,9 @@ import socket as so
 
 class Arduino(object):
     def __init__(self, window, host, port, on_received):
-        '''An abstraction for a network-connected Arduino.
-
-        'window' is an instance of a TK root object,
-        'host' and 'port' are the TCP network address of an Arduino,
-        'on_received' is a function that is called whenever a line is
-        received from the Arduino.
-        '''
-        
         self.window= window
         self.on_received= on_received
 
-        # Open socket and connect to the Arduino
         self.socket= so.socket()
         self.socket.connect(('170.20.10.5', 30304))
         self.socket.setblocking(False)
@@ -28,12 +18,11 @@ class Arduino(object):
         self._periodic_socket_check()
 
     def send_command(self, command):
-        'Send a message to the Arduino'
+
 
         self.socket.send(command.encode('utf-8') + b'\n')
 
     def close(self):
-        'Cleanly close the connection'
 
         self.socket.close()
         self.window.after_cancel(self.after_event)
@@ -48,11 +37,6 @@ class Arduino(object):
             self.rd_buff+= msg
 
         except so.error:
-            # In non-blocking mode an exception is thrown
-            # whenever no data is available.
-            # Which error is OS-dependant so we have to catch
-            # the generic socket.error exception.
-
             pass
 
         while b'\n' in self.rd_buff:
@@ -61,15 +45,13 @@ class Arduino(object):
             line= line.decode('utf-8').strip()
             self.on_received(line)
 
-        # Tell tkinter to call this function again
-        # in 100ms
         self.after_event= self.window.after(
             100, self._periodic_socket_check
         )
 
 
 
-class Bla(object):
+class WLAN(object):
     def __init__(self):
         self.setup_window()
         host= "170.20.10.5"
@@ -83,8 +65,6 @@ class Bla(object):
 
         self.setup_content()
 
-        #self.a =tk.Button(window, text="Open", bg="green", width=5, height=1, font="10", fg="white", command= senden)
-        #self.a.place(x=370, y=225)
     
     
     
@@ -106,68 +86,67 @@ class Bla(object):
         self.h = tk.Button(self.window, text="Open", bg="green", width=5, height=1, font="10", fg="white")
         self.h.place(x=370, y=57)
         self.h.bind("<ButtonPress>", self.case_7)
-        self.h.bind("<ButtonRelease>", self.case_standard) #case 7
-
+        self.h.bind("<ButtonRelease>", self.case_standard)
         self.i =tk.Button(self.window, text="Close", bg="red", width=5, height=1, font="10", fg="black")
         self.i.place(x=370,y=98) 
         self.i.bind("<ButtonPress>", self.case_8)
-        self.i.bind("<ButtonRelease>", self.case_standard)#self.case 8
+        self.i.bind("<ButtonRelease>", self.case_standard)
 
         self.j =tk.Button(self.window, text="↑", bg="white", font="Times 16", width=2, height=1)
         self.j.place(x=270,y=10) 
         self.j.bind("<ButtonPress>", self.case_6)
-        self.j.bind("<ButtonRelease>", self.case_standard)#self.case 5
+        self.j.bind("<ButtonRelease>", self.case_standard)
         self.k =tk.Button(self.window, text="↓", bg="white", font="Times 16", width=2, height=1)
         self.k.place(x=320, y=10)
         self.k.bind("<ButtonPress>", self.case_5)
-        self.k.bind("<ButtonRelease>", self.case_standard) #self.case 6
+        self.k.bind("<ButtonRelease>", self.case_standard
 
         self.l =tk.Button(self.window, text="↑", bg="White", font="Times 16", width=2, height=1)
         self.l.place(x=270, y=73)
         self.l.bind("<ButtonPress>", self.case_3)
-        self.l.bind("<ButtonRelease>", self.case_standard) #self.case 3
+        self.l.bind("<ButtonRelease>", self.case_standard)
         self.m =tk.Button(self.window, text="↓", bg="white", font="Times 16", width=2, height=1)
         self.m.place(x=320, y=73)
         self.m.bind("<ButtonPress>", self.case_4)
-        self.m.bind("<ButtonRelease>", self.case_standard) #self.case4
+        self.m.bind("<ButtonRelease>", self.case_standard) 
 
         self.n =tk.Button(self.window, text="←", bg="white", font="Times 16", width=2, height=1)
         self.n.place(x=270, y=135)
         self.n.bind("<ButtonPress>", self.case_2)
-        self.n.bind("<ButtonRelease>", self.case_standard) #self.case 2
+        self.n.bind("<ButtonRelease>", self.case_standard)
         self.o =tk.Button(self.window, text="→", bg="white", font="Times 16", width=2, height=1)
         self.o.place(x=320, y=135)
         self.o.bind("<ButtonPress>", self.case_1)
-        self.o.bind("<ButtonRelease>", self.case_standard) #self.case 1
-#untere Buttons
+        self.o.bind("<ButtonRelease>", self.case_standard)
+
+		
+		
         self.a =tk.Button(self.window, text="Open", bg="green", width=5, height=1, font="10", fg="white")
         self.a.place(x=370, y=225)
         self.a.bind("<ButtonPress>", self.case_7)
-        self.a.bind("<ButtonRelease>", self.case_standard) #self.case 7
+        self.a.bind("<ButtonRelease>", self.case_standard)
         self.b =tk.Button(self.window, text="Close", bg="red", width=5, height=1, font="10", fg="black")
         self.b.place(x=370,y=265)
         self.b.bind("<ButtonPress>", self.case_8)
-        self.b.bind("<ButtonRelease>", self.case_standard) #self.case 8
-
+        self.b.bind("<ButtonRelease>", self.case_standard)
 
         self.c =tk.Button(self.window, text="↑", bg="White", font="Times 16", width=2, height=1)
         self.c.place(x=270, y=210)
         self.c.bind("<ButtonPress>", self.case_9)
-        self.c.bind("<ButtonRelease>", self.case_standard) #self.case 9
+        self.c.bind("<ButtonRelease>", self.case_standard)
         self.d =tk.Button(self.window, text="↓", bg="white", font="Times 16", width=2, height=1)
         self.d.place(x=320, y=210)
         self.d.bind("<ButtonPress>", self.case_10)
-        self.d.bind("<ButtonRelease>", self.case_standard) #self.case 10
+        self.d.bind("<ButtonRelease>", self.case_standard)
 
         self.e =tk.Button(self.window, text="←", bg="white", font="Times 16", width=2, height=1)
         self.e.place(x=270, y=280) 
         self.e.bind("<ButtonPress>", self.case_2)
-        self.e.bind("<ButtonRelease>", self.case_standard)#self.case2
+        self.e.bind("<ButtonRelease>", self.case_standard)
         self.f =tk.Button(self.window, text="→", bg="white", font="Times 16", width=2, height=1)
         self.f.place(x=320, y=280)
         self.f.bind("<ButtonPress>", self.case_1)
-        self.f.bind("<ButtonRelease>", self.case_standard) #self.case 1    
-  
+        self.f.bind("<ButtonRelease>", self.case_standard)     
   
   
         self.x=tk.Radiobutton(self.window, text="Snail", font="Fixedsys 12", variable=self.p, value=1, command= lambda : self.case_langsam(None))
@@ -203,19 +182,10 @@ class Bla(object):
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
     def on_received(self):
         pass
     def senden(self):
         self.arduino.send_command('on')
-
     
     def case_1(self,event):
         self.arduino.send_command('a')
@@ -235,9 +205,9 @@ class Bla(object):
     def case_6(self,event):
         self.arduino.send_command('f')
     
-    
     def case_7(self,event):
         self.arduino.send_command('g')
+		
     def case_8(self,event):
         self.arduino.send_command('h')
 
@@ -267,11 +237,12 @@ class Bla(object):
 	
     def case_langsam(self,event):
         self.arduino.send_command('6')
+		
     def run(self):
         self.window.mainloop()
         
    
 
 if __name__ == '__main__':
-    window= Bla()
+    window= WLAN()
     window.run()

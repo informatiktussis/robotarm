@@ -5,7 +5,7 @@ root=Tk()
 root.title("Roboterarm")
 root.geometry("680x360")
 
-
+'''
 connected = False
 
 serialPort = "COM3"
@@ -14,7 +14,7 @@ ser = Serial(timeout=1., writeTimeout=0)
 ser.port = serialPort
 ser.baudrate = baudRate
 ser.open()
-
+'''
 p=IntVar()
 
 v=IntVar()

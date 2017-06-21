@@ -1,0 +1,146 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Vorlage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Dokumentenklasse
+% hier: KOMA-Script Klasse mit deutschen Features
+% Eventuell in MikTeX das Paket "koma-script" nachinstallieren!
+\documentclass[12pt, a4paper, DIV12]{scrartcl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PRÄAMBEL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deutsche Lokalisation (Umlaute etc.)
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc} % Zeichencodierung (nicht unwichtig!)
+\usepackage[ngerman]{babel}   % Deutsche Silbentrennung, etc.
+
+% Mathematik-Erweiterungen
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{siunitx}
+
+%Bessere verbatim-Umgebung mit Syntax-Highlighting
+\usepackage{listings}
+
+% Sauberes Setzen von URLs
+\usepackage{url}
+
+% Farbige Akzente setzen
+\usepackage{xcolor}
+
+% Einbinden von Grafiken
+\usepackage{graphicx}
+
+%Einbinden von Tabellen
+\usepackage{booktabs}
+
+% PDF Optimierungen und Verlinkungen
+\usepackage{hyperref}
+
+\usepackage{amssymb}
+
+% Möglichkit direkt mit LaTeX zu zeichnen
+% \usepackage{tikz}
+\usepackage{float}
+\restylefloat{figure}
+
+
+% Dokumentmetadaten
+\title{Projektdokumentation: Roboterarm}
+\author{Jisoo Choi (3103933), Michael Vogt (4391254), Fany Bowt (4345894)}
+\date{ 23.06.2017} % oder: \today
+
+
+\subtitle{Grundlagen der Informatik II SOSE 2017}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOKUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	
+	\maketitle 
+	
+	%Name des Versuchs: T5-Thermoelement und %Abkühlungsgesetz\\
+
+
+\tableofcontents
+\newpage
+
+\section{Beschreibung des Projekts und Funktionsweise}
+
+Ein Arduino sollte anfänglich 4 Mikro Servomotoren steuern, dabei befindet sich ein Servomotor bei der Konstruktion am unteren Teil des Greifarms, dieser lässt den Arm nach rechts oder links lenken. Ein weiterer Servomotor befindet sich in der Mitte des Armes, dieser lässt den mittleren Teils des Armes nach oben und unten steuern. Zwei Servomotoren befinden sich im oberen Teil der Konstruktion, einer der Servomotoren platziert am Greifer, um den Greifer nach oben oder unten zu bewegen und ein weiterer um die Zange zu öffnen und zu schließen. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth, height=200px]{skizze.jpg}
+	\caption{Skizze vom Arm}
+	\label{fig1}
+\end{figure}
+
+Über die grafische Benutzeroberfläche (GUI) sollte der Arm gesteuert werden. Dabei sollte mit Buttons, der jeweilige Servo und die jeweilige Richtung auszuwählen sein. Des Weiteren sollte die Geschwindigkeit der Servos veränderbar sein. \\
+Wie wir mit dem Arduino kommunizieren und den Servos die Kommandos geschickt haben, darauf werden wir im späteren Teil, beim Beschreiben des Codes genauer darauf eingehen. Die gesamte Kommunikation mit dem Arduino, sollte im Anschluss dann auch ohne USB Kabel funktionieren, und so wurden die gesamten Kommandos via WLAN an den Arduino gesendet. \\
+Die Funktion hinter dem ganzen Projekt war, einen leicht steuerbaren Arm zu konstruieren, welcher
+Sachen greifen und bewegen kann. 
+
+\section{Aufbau}
+
+Ein Arduino, welcher mit dem WLAN Shield gekoppelt ist, steuert den Roboterarm indem er Kommandos via WLAN an die einzelnen Servomotoren sendet. Ein weiterer Arduino dient zur Stromversorgung der Servomotoren, da ansonsten das WLAN Shield nicht einwandfrei funktioniert hat, auf diesem Arduino ist kein Code hochgeladen worden.
+
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1.03\textwidth, height=180px]{schaltbild.png}
+	\caption{Schaltbild}
+	\label{Schaltbild}
+\end{figure}
+
+\section{Arduino/C Code-Beschreibung}
+
+In unserem C Code haben wir zuerst vier Funktionen erstellt. Eine dient dazu den jeweiligen Servomotor nach links zu bewegen und eine Andere, um ihn nach rechts zu bewegen. Die anderen beiden Funktionen, die sogenannten "Spezial-Funktionen", bewirken, dass Servo  Nr. 2 und Nr. 3 immer die Summe aus 180° bilden. Dadurch bleibt der mittlere Teil des Armes, siehe Abbildung 1, immer Senkrecht stehen, dies lässt sich nach oben sowie nach unten steuern.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth, height=200px]{spezialfunktion.png}
+	\label{spezialfunktion}
+\end{figure}
+
+Damit der Arduino sein empfangenes Kommando ausführt, mit der Variable: $python\_button\_var$, haben wir Switch Cases integriert. Switch-Cases funktioniert nur mit Zahlen bzw. Integern. Darum müssen die in Python gesendeten Buchstaben erstmal in den If-Funktionen zu Integern umgeändert werden, damit anschließend die Cases benutzt werden können. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.4\textwidth, height=120px]{if.png}
+	\caption{If-funktion mit dem Auslesen der Kommandos via WLAN}
+	\label{IF}
+\end{figure}
+
+
+Neben den Richtungen können wir mit Switch Cases auch die Geschwindigkeit der Servomotoren verändern, indem das Delay größer oder kleiner gesetzt wird für die Variable $speed\_var$.  (Siehe Case 49-54)
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth, height=200px]{switch.png}
+	\label{Switch}
+\end{figure}
+
+\subsection{WLAN-Empfang}
+
+In unserem Code lassen wir den Arduino etwas über das WLAN empfangen, indem wir die DumbServer.h, sowie DumbServer.cpp eingebaut haben. Diese erlauben uns eine Verbidnung mit dem WLAN Shield ESP8266 herzustellen. \\
+Um mit dem Python Programm in Verbindung zu treten, benötigen wir die IP Adresse und den richtigen Port. Den Port teilen wir dem Python und dem Arduino Programm selber zu, die IP Adresse erfahren wir durch unser Arduino Programm, sobald wir den Seriellen Monitor öffnen und der Server gestartet ist. \\
+Das genaue Kommando welches wir empfangen und auslesen, tun wir mit dem oberen Teil des Codes in Abbildung 3.
+
+
+\section{Python Code und GUI}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth, height=205px]{GUI.png}
+	\caption{Mit Tkinter erstellte GUI}
+	\label{GUI}
+\end{figure}
+
+
+
+\end{document}

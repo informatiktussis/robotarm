@@ -1,6 +1,6 @@
-import tkinter as tk
-import socket as so
-
+import tkinter as tk     """GUI erstellt mit Tkinter"""
+import socket as so      """Für eine WLAN Verbidung"""
+   
 
 
 
@@ -10,7 +10,7 @@ class Arduino(object):
         self.on_received= on_received
 
         self.socket= so.socket()
-        self.socket.connect(('170.20.10.5', 30304))
+        self.socket.connect(('170.20.10.5', 30304))    """Für die Verbindung mit dem WLAN Shield"""
         self.socket.setblocking(False)
 
         self.rd_buff= bytes()
@@ -24,7 +24,7 @@ class Arduino(object):
 
     def close(self):
 
-        self.socket.close()
+        self.socket.close()                            """Damit die GUI geschlossen werden kann"""
         self.window.after_cancel(self.after_event)
 
     def _periodic_socket_check(self):
@@ -54,8 +54,8 @@ class Arduino(object):
 class WLAN(object):
     def __init__(self):
         self.setup_window()
-        host= "170.20.10.5"
-        port= 30304
+        #host= "170.20.10.5"
+        #port= 30304
 
         self.arduino= Arduino(
             self.window,
@@ -73,7 +73,7 @@ class WLAN(object):
         self.window.title("Roboterarm")
         self.window.geometry("680x360")
         self.window.protocol("WM_DELETE_WINDOW", self.on_close)
-        self.p=tk.IntVar()
+        self.p=tk.IntVar() 														"""RadioButton Variable"""
         self.p.set(1)
 
     def on_close(self):
@@ -81,12 +81,12 @@ class WLAN(object):
         self.window.destroy()
     
     def setup_content(self):
-
+""" Obere Buttons"""
         
         self.h = tk.Button(self.window, text="Open", bg="green", width=5, height=1, font="10", fg="white")
-        self.h.place(x=370, y=57)
-        self.h.bind("<ButtonPress>", self.case_7)
-        self.h.bind("<ButtonRelease>", self.case_standard)
+        self.h.place(x=370, y=57)                                                                              """Alle einzelnen Buttons werden mit einem genauen Ort zugeordnet"""
+        self.h.bind("<ButtonPress>", self.case_7)                                                              """Der Button bekommt die Funktion case_7"""
+        self.h.bind("<ButtonRelease>", self.case_standard)                                                     """Wenn der Button aufgehört wird zu druücken, soll die Funktion case_standard aktiviert werden, soddass beim Arduino Programm nichts mehr ausgeführt werden kann"""
         self.i =tk.Button(self.window, text="Close", bg="red", width=5, height=1, font="10", fg="black")
         self.i.place(x=370,y=98) 
         self.i.bind("<ButtonPress>", self.case_8)
@@ -119,7 +119,7 @@ class WLAN(object):
         self.o.bind("<ButtonPress>", self.case_1)
         self.o.bind("<ButtonRelease>", self.case_standard)
 
-		
+		"""untere Buttons"""
 		
         self.a =tk.Button(self.window, text="Open", bg="green", width=5, height=1, font="10", fg="white")
         self.a.place(x=370, y=225)
@@ -148,8 +148,9 @@ class WLAN(object):
         self.f.bind("<ButtonPress>", self.case_1)
         self.f.bind("<ButtonRelease>", self.case_standard)     
   
+  """Radiobuttons für die Geschwindigkeit"""
   
-        self.x=tk.Radiobutton(self.window, text="Snail", font="Fixedsys 12", variable=self.p, value=1, command= lambda : self.case_langsam(None))
+        self.x=tk.Radiobutton(self.window, text="Snail", font="Fixedsys 12", variable=self.p, value=1, command= lambda : self.case_langsam(None))      """Variable P, damit wird deklariert das die Radiobuttons zusammen gehören."""
         self.x.place(x=520,y=70)
         self.q=tk.Radiobutton(self.window, text="SuperSlow", font="Fixedsys 12", variable=self.p, value=2, command= lambda : self.case_langsamer(None)) 
         self.q.place(x=520, y=110)
@@ -165,7 +166,7 @@ class WLAN(object):
         self.skizze= tk.PhotoImage(file="skizze_neu.gif")
         self.skizze2 = tk.PhotoImage(file="skizze2_neu.gif")
         
-        self.w = tk.Label(self.window, image=self.skizze).grid(row=0,column=0)
+        self.w = tk.Label(self.window, image=self.skizze).grid(row=0,column=0)                      """Die Bilder wurden in einer Matrix angeordnet, damit man sich danach richten kann."""
         self.w = tk.Label(self.window, image=self.skizze2).grid(row=4,column=0)
 
         self.w = tk.Label(self.window, text="Top", font = "Impact 18").place(x=170, y=10)
@@ -184,62 +185,63 @@ class WLAN(object):
     
     def on_received(self):
         pass
+		
     def senden(self):
         self.arduino.send_command('on')
     
     def case_1(self,event):
-        self.arduino.send_command('a')
-	
+        self.arduino.send_command('a')  """Hier werden die einzelnen Cases aus dem Arduino ausgeführt.
+										   Das ist Case 97."""
     def case_2(self,event):
-        self.arduino.send_command('b')
+        self.arduino.send_command('b')  """Case 98"""
 
     def case_3(self,event):
-        self.arduino.send_command('c')
+        self.arduino.send_command('c')  """Case 99"""
 	
     def case_4(self,event):
-        self.arduino.send_command('d')
+        self.arduino.send_command('d')  """Case 100"""
 
     def case_5(self,event):
-        self.arduino.send_command('e')
+        self.arduino.send_command('e')  """Case 101"""
 
     def case_6(self,event):
-        self.arduino.send_command('f')
+        self.arduino.send_command('f')  """Case 102"""
     
     def case_7(self,event):
-        self.arduino.send_command('g')
+        self.arduino.send_command('g')  """Case 103"""
 		
     def case_8(self,event):
-        self.arduino.send_command('h')
+        self.arduino.send_command('h')  """Case 104"""
 
     def case_9(self,event):
-        self.arduino.send_command('i')
+        self.arduino.send_command('i')  """Case 105"""
 	
     def case_10(self,event):
-        self.arduino.send_command('j')
+        self.arduino.send_command('j')  """Case 106"""
     
     def case_standard(self,event):
-        self.arduino.send_command('k')
+        self.arduino.send_command('k')  """Case 107 - Default Case"""
     
     def case_schneller(self,event):
-        self.arduino.send_command('1')
+        self.arduino.send_command('1')  """RadioButton Funktionen, welche die Geschwindigkeit rüber senden. Case 49"""
 
     def case_schnell(self,event):
-        self.arduino.send_command('2')
+        self.arduino.send_command('2')  """Case 50"""
 
     def case_mittelaf(self,event):
-        self.arduino.send_command('3')
+        self.arduino.send_command('3')  """Case 51"""
 	
     def case_mittel(self,event):
-        self.arduino.send_command('4')
+        self.arduino.send_command('4')  """Case 52"""
  
     def case_langsamer(self,event):
-        self.arduino.send_command('5')
+        self.arduino.send_command('5')  """Case 53"""
 	
     def case_langsam(self,event):
-        self.arduino.send_command('6')
+        self.arduino.send_command('6')  """Case 54"""
 		
     def run(self):
-        self.window.mainloop()
+        self.window.mainloop()          """Dafür das die GUI die ganze Zeit geöffnet bleibt und sich nicht einfach schließt."""
         
    
 

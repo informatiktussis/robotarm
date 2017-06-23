@@ -47,7 +47,7 @@
 
 % Dokumentmetadaten
 \title{Projektdokumentation: Roboterarm}
-\author{Jisoo Choi (3103933), Michael Vogt (4391254), Fany Bowt (4345894)}
+%\author{Jisoo Choi (3103933), Michael Vogt (4391254), Fany Bowt (4345894)}
 \date{ 23.06.2017} % oder: \today
 
 
@@ -59,9 +59,28 @@
 
 \begin{document}
 	
+
+		\maketitle 	
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|c}
+		Name  & Martikelnummer\\
+		\hline
+		Fany Bowt  &  4345894  \\
 	
-	\maketitle 
+		Jisoo Choi  & 3103933   \\
+		
+		Michael Vogt  & 4391254   \\
 	
+	\end{tabular}
+\end{table}
+
+	\begin{center}
+		
+		
+		
+	\end{center}
 	%Name des Versuchs: T5-Thermoelement und %Abkühlungsgesetz\\
 
 
@@ -74,62 +93,97 @@ Ein Arduino sollte anfänglich 4 Mikro Servomotoren steuern, dabei befindet sich 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\textwidth, height=200px]{skizze.jpg}
+		\includegraphics[width=0.43\linewidth, height=0.25\textheight]{skizze.jpg}
 	\caption{Skizze vom Arm}
 	\label{fig1}
 \end{figure}
 
+
+
 Über die grafische Benutzeroberfläche (GUI) sollte der Arm gesteuert werden. Dabei sollte mit Buttons, der jeweilige Servo und die jeweilige Richtung auszuwählen sein. Des Weiteren sollte die Geschwindigkeit der Servos veränderbar sein. \\
-Wie wir mit dem Arduino kommunizieren und den Servos die Kommandos geschickt haben, darauf werden wir im späteren Teil, beim Beschreiben des Codes genauer darauf eingehen. Die gesamte Kommunikation mit dem Arduino, sollte im Anschluss dann auch ohne USB Kabel funktionieren, und so wurden die gesamten Kommandos via WLAN an den Arduino gesendet. \\
+Wie wir mit dem Arduino kommunizieren und den Servos die Kommandos geschickt haben, wird im späteren Teil, beim Beschreiben des Codes genauer erläutert. Die gesamte Kommunikation mit dem Arduino, sollte im Anschluss dann auch ohne USB Kabel funktionieren, und so wurden die gesamten Kommandos via WLAN an den Arduino gesendet. \\
 Die Funktion hinter dem ganzen Projekt war, einen leicht steuerbaren Arm zu konstruieren, welcher
 Sachen greifen und bewegen kann. 
 
-\section{Aufbau}
+\section{Der Aufbau}
 
-Ein Arduino, welcher mit dem WLAN Shield gekoppelt ist, steuert den Roboterarm indem er Kommandos via WLAN an die einzelnen Servomotoren sendet. Ein weiterer Arduino dient zur Stromversorgung der Servomotoren, da ansonsten das WLAN Shield nicht einwandfrei funktioniert hat, auf diesem Arduino ist kein Code hochgeladen worden.
+
+Ein Arduino, welcher mit dem WLAN Shield gekoppelt ist, steuert den Roboterarm indem er Kommandos via WLAN an die einzelnen Servomotoren sendet. Um einen Servo anzusteuern sind drei Verbindungen mit dem Arduino nötig: VCC, GND und DATA. Mittels einer speziellen Bibliothek lassen sich dann die Servos auf den 1 Grad genau ansteuern. Dabei sind die Servomotoren jedoch auf 180° mechanisch begrenzt. Es werden schließlich 4 Servomotoren durch den DATA-Pin von einen Arduino kontrolliert (siehe Abbildung 2). Ein weiterer Arduino dient zur Stromversorgung der Servomotoren (VCC und GND), da ansonsten das WLAN Shield nicht einwandfrei funktioniert hat, auf diesem Arduino ist kein Code hochgeladen worden. 
 
 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1.03\textwidth, height=180px]{schaltbild.png}
+		\includegraphics[width=0.89\linewidth, height=0.26\textheight]{schaltbild.png}
 	\caption{Schaltbild}
 	\label{Schaltbild}
 \end{figure}
 
-\section{Arduino/C Code-Beschreibung}
 
-In unserem C Code haben wir zuerst vier Funktionen erstellt. Eine dient dazu den jeweiligen Servomotor nach links zu bewegen und eine Andere, um ihn nach rechts zu bewegen. Die anderen beiden Funktionen, die sogenannten "Spezial-Funktionen", bewirken, dass Servo  Nr. 2 und Nr. 3 immer die Summe aus 180° bilden. Dadurch bleibt der mittlere Teil des Armes, siehe Abbildung 1, immer Senkrecht stehen, dies lässt sich nach oben sowie nach unten steuern.
+Die Arme wurden aus Holz ausgeschnitten. Anschließend konnten die Servos mit kleinen Schrauben am Holz befestigt werden. Eine größere Holzplatte dient als Unterlage. 
+Sehr wichtig war es, dass der Arm ein Ausgleichsgewicht besitzt da sonst der Servo zu stark belastet wird, sodass der Arm nicht hochgehoben werden kann. 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\textwidth, height=200px]{spezialfunktion.png}
-	\label{spezialfunktion}
+	\includegraphics[width=1.0\linewidth, height=0.26\textheight]{aufbau}
+	\caption{Aufbau}
+	\label{aufbau}
 \end{figure}
 
-Damit der Arduino sein empfangenes Kommando ausführt, mit der Variable: $python\_button\_var$, haben wir Switch Cases integriert. Switch-Cases funktioniert nur mit Zahlen bzw. Integern. Darum müssen die in Python gesendeten Buchstaben erstmal in den If-Funktionen zu Integern umgeändert werden, damit anschließend die Cases benutzt werden können. 
+
+
+\section{Arduino/C Code-Beschreibung}
+
+
+\subsection{Setup}
+
+Mittels der Bibliohtek servo.h lassen sich die servos sehr simpel ansteuern. 
+Dazu müssen zunächst Variablen als Servos geklariert werden (siehe Abbildung 3 Zeile 7-10) und daraufhin auf welchen Pin (Zeile 11-14). Diese Pins sind dann an DATA anzuschließen. Im Setup wird dann mit dem Befehl servo.attach($servo\_pin$) der jeweilige Servo einem Pin zugewiesen.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.4\textwidth, height=120px]{if.png}
+	\includegraphics[width=0.4\linewidth, height=0.25\textheight]{setup}
+	\caption{If-funktion mit dem Auslesen der Kommandos via WLAN}
+	\label{setup}
+\end{figure}
+
+\subsection{Steuerungsfunktionen}
+
+In unserem C Code haben wir zuerst vier Funktionen erstellt. Eine dient dazu den jeweiligen Servomotor nach links zu bewegen und eine Andere, um ihn nach rechts zu bewegen. Die anderen beiden Funktionen, die sogenannten Spezial-Funktionen, bewirken, dass Servo  Nr. 2 und Nr. 3 immer die Summe aus 180° bilden. Dadurch bleibt der mittlere Teil des Armes, siehe Abbildung 1, immer Senkrecht stehen, dies lässt sich nach oben sowie nach unten steuern.
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=0.6\linewidth, height=0.25\textheight]{spezialfunktion.png}
+	\label{spezialfunktion}
+	\caption{Bewegungsfunktionen}
+\end{figure}
+
+\subsection{Die Loop}
+
+Damit der Arduino sein empfangenes Kommando ausführt, wird mit der Variable $python\_button\_var$ ein Switch-Cases integriert. Switch-Cases funktioniert nur mit Zahlen bzw. Integern. Darum müssen die in Python gesendeten Buchstaben zunächst in den If-Funktionen zu Integern umgeändert werden, damit anschließend die Cases benutzt werden können. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.45\linewidth, height=0.25\textheight]{if.png}
 	\caption{If-funktion mit dem Auslesen der Kommandos via WLAN}
 	\label{IF}
 \end{figure}
 
 
-Neben den Richtungen können wir mit Switch Cases auch die Geschwindigkeit der Servomotoren verändern, indem das Delay größer oder kleiner gesetzt wird für die Variable $speed\_var$.  (Siehe Case 49-54)
+Neben den Richtungen können wir mit Switch Cases auch die Geschwindigkeit der Servomotoren verändern, indem das Delay größer oder kleiner gesetzt wird für die Variable $speed\_var$.  (Siehe Abbilung 6, Case 49-54)
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\textwidth, height=200px]{switch.png}
+	\includegraphics[width=0.6\linewidth, height=0.3\textheight]{switch.png}
+	\caption{Die switch-case}
 	\label{Switch}
 \end{figure}
 
 \subsection{WLAN-Empfang}
 
-In unserem Code lassen wir den Arduino etwas über das WLAN empfangen, indem wir die DumbServer.h, sowie DumbServer.cpp eingebaut haben. Diese erlauben uns eine Verbidnung mit dem WLAN Shield ESP8266 herzustellen. \\
-Um mit dem Python Programm in Verbindung zu treten, benötigen wir die IP Adresse und den richtigen Port. Den Port teilen wir dem Python und dem Arduino Programm selber zu, die IP Adresse erfahren wir durch unser Arduino Programm, sobald wir den Seriellen Monitor öffnen und der Server gestartet ist. \\
-Das genaue Kommando welches wir empfangen und auslesen, tun wir mit dem oberen Teil des Codes in Abbildung 3.
+In unserem Code lassen wir den Arduino etwas über das WLAN empfangen, indem wir die DumbServer.h, sowie DumbServer.cpp eingebaut haben. Diese erlauben uns eine Verbidnung mit dem WLAN-Shield ESP8266 herzustellen. \\
+Um mit dem Python Programm in Verbindung zu treten, benötigen wir die IP Adresse und den richtigen Port. Den Port teilen wir dem Python und dem Arduino Programm selber zu, die IP Adresse erfahren wir durch unser Arduinprogramm, sobald wir den seriellen Monitor öffnen und der Server gestartet ist. \\
+Das genaue Kommando welches wir empfangen und auslesen, tun wir mit dem oberen Teil des Codes in Abbildung 6.
 
 
 \section{Python Code und GUI}
@@ -137,7 +191,7 @@ Das genaue Kommando welches wir empfangen und auslesen, tun wir mit dem oberen T
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth, height=205px]{GUI.png}
-	\caption{Mit Tkinter erstellte GUI}
+	\caption{Die mit Tkinter erstellte GUI}
 	\label{GUI}
 \end{figure}
 

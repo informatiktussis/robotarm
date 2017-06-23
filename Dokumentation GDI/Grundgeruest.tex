@@ -198,10 +198,10 @@ Das genaue Kommando welches wir empfangen und auslesen, tun wir mit dem oberen T
 \end{figure}
  
 
-Die GUI wurde mit Tkinter stellt und diese haben wir in drei Sektionen eingeteilt. \\
-Die erste Sektion ist für das Bewegen der einzelnen Servomotoren in die jeweils angezeigte Richtung auf dem Button. Die Open und Close Buttons dienen dazu den oberen Servo (Nr.4) anzusteuern, damit sich die Zange öffnet und schließt. \\
-Die zweite Sektion, die Untere, ist dafür da um die Spezialfunktion zu nutzen. Damit das Ganze übersichtlich bleibt, haben wir auch die Buttons für den unteren und den oberen Servomotoren hinzugefügt, so teilt es sich in die zwei verschiedenen Ansteuerungs Möglichkeiten auf, sodass besser nachvollziehbar sind. \\
-Die dritte Sektion ist die Geschwindigkeit, mit dieser können wir zwischen sechs Radiobuttons auswählen. Alle Servos bekommen die selbe Geschwindigkeit, die Funktion ist nicht für einzelne Servomotoren gedacht.
+Die GUI wurde mit Tkinter erstellt. Diese wurde in drei Sektionen eingeteilt. \\
+Die erste Sektion ist für das Bewegen der einzelnen Servomotoren in die jeweils angezeigte Richtung auf dem Button. Die Open und Close Buttons dienen dazu, den oberen Servo (Nr.4) anzusteuern, damit sich die Zange öffnet und schließt. \\
+Die zweite Sektion, die Untere, ist dafür da um die Spezialfunktion zu nutzen. Damit das Ganze übersichtlich bleibt, haben wir auch die Buttons für den unteren und den oberen Servomotoren hinzugefügt, so teilt es sich in die zwei verschiedenen Ansteuerungsmöglichkeiten auf, sodass besser nachvollziehbar sind. \\
+Die dritte Sektion ist die Geschwindigkeit. In dieser kann einer von sechs Radiobuttons auswählt werden, der die Geschwindigkeiten aller Servos gleichmaßen verändert.
 
 \subsection{Python Code}
 
@@ -214,15 +214,18 @@ Jeder Button bekommt eine eigene Funktion. Diese Funktionen bewirken, dass die B
 	\label{python}
 \end{figure}
 
-Während der jeweilige Buttons gedrückt wird, wird der String gesendet, sodass wenn wir den Button gedrückt halten der Servo durchgehend gesteuert wird. Sollte der Button losgelassen werden, wird das Case 107 ausgeführt, diese bewirkt das der jeweilige Servo sich nicht mehr bewegt.\\
+Während der jeweilige Buttons gedrückt wird, wird der String gesendet, sodass wenn wir den Button gedrückt halten der Servo durchgehend gesteuert wird. Sollte der Button losgelassen werden, wird das Case 107 ausgeführt, diese bewirkt, dass der jeweilige Servo sich nicht mehr bewegt.\\
 Das Kommando wird mit der $send\_command$ Funktion übermittelt. Diese sendet an unseren Socket Server den String, welcher gerade übermittelt wurde durch den Button und der Arduino mit WLAN Shield wandelt ihn in ein Integer um, um die Case auszuführen.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.4\textwidth, height=35px]{senden.png}
+	\includegraphics[width=0.45\textwidth, height=35px]{senden.png}
 	\caption{Kommando Übermittlung an den Arduino mit WLAN Shield}
 	\label{senden}
 \end{figure}
+
+
+
 
 
 \end{document}

@@ -1,8 +1,8 @@
 #include <Servo.h>
-
 /** Servo.h ist eine Bibliothek, die benötigt wird,
    um die Servos zu steuern.
 */
+
 #include <SoftwareSerial.h>
 /** SoftwareSerial-Bibliothek*/
 #include "DumbServer.h"
@@ -167,7 +167,7 @@ void loop()
 
     String command = esp_server.readStringUntil('\n');
 
-    /** Ist eine neue verfügugbar, wird der string in command
+    /** Ist eine neue verfügbar, wird der string in command
        gespeichert.
        Ab hier beginnt dann die umwandlung in einen Integer.
        Dies nötig da später cases Benutzt werden, wobei nur

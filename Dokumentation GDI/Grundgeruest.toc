@@ -1,6 +1,9 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {1}Beschreibung des Projekts und Funktionsweise}{2}{section.1}
-\contentsline {section}{\numberline {2}Aufbau}{2}{section.2}
+\contentsline {section}{\numberline {2}Der Aufbau}{2}{section.2}
 \contentsline {section}{\numberline {3}Arduino/C Code-Beschreibung}{3}{section.3}
-\contentsline {subsection}{\numberline {3.1}WLAN-Empfang}{4}{subsection.3.1}
-\contentsline {section}{\numberline {4}Python Code und GUI}{5}{section.4}
+\contentsline {subsection}{\numberline {3.1}Setup}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Steuerungsfunktionen}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Die Loop}{5}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}WLAN-Empfang}{5}{subsection.3.4}
+\contentsline {section}{\numberline {4}Python Code und GUI}{6}{section.4}

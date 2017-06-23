@@ -1,0 +1,9 @@
+<map id="loop" name="loop">
+<area shape="rect" id="node2" href="$class_esp_server.html#aad68b4972f6b8426004feeef6e98d02d" title="EspServer::available" alt="" coords="108,31,247,57"/>
+<area shape="rect" id="node5" href="$_arduino__kommentiert_8ino.html#a74bfcf85e5418694eb99df53d30c8fab" title="Ab hier beginnen die 4 Funktionen die später den Arm gewegen Führt man den Befehl servoname..." alt="" coords="138,81,217,108"/>
+<area shape="rect" id="node6" href="$_arduino__kommentiert_8ino.html#a5b873994166a952d81f787c307ca08d9" title="Für die Funktion arm_runter ist es genau das gleiche Prinzip wie für arm_hoch, nur dass der Winkel im..." alt="" coords="135,132,219,159"/>
+<area shape="rect" id="node7" href="$_arduino__kommentiert_8ino.html#ac03f54892f7473625ec7d6498ea5a010" title="Für die Spezialfunktionen werden zwei servos angesprochen. Dabei ist eigentlich nur die untige if&#45;Abf..." alt="" coords="102,183,253,209"/>
+<area shape="rect" id="node8" href="$_arduino__kommentiert_8ino.html#abf7a5d6cd0eca7c0dacb61f5ef555beb" title="Bei der untigen anderen spezial_funktion ist es der gegenteilige Fall. " alt="" coords="100,233,255,260"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a2008f0d315cff00a4bcc1120eeb2dc95" title="EspServer::expect" alt="" coords="303,5,431,32"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#a3da02efeb5f2cbe3a8a1963e5e7f0a47" title="EspServer::blockread" alt="" coords="479,31,624,57"/>
+</map>

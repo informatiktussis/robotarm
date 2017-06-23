@@ -1,0 +1,5 @@
+<map id="EspServer::peek" name="EspServer::peek">
+<area shape="rect" id="node2" href="$class_esp_server.html#aad68b4972f6b8426004feeef6e98d02d" title="EspServer::available" alt="" coords="171,31,309,57"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a2008f0d315cff00a4bcc1120eeb2dc95" title="EspServer::expect" alt="" coords="357,5,485,32"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#a3da02efeb5f2cbe3a8a1963e5e7f0a47" title="EspServer::blockread" alt="" coords="533,31,679,57"/>
+</map>

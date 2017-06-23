@@ -1,0 +1,35 @@
+digraph "expect"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node50 [label="expect",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node50 -> Node51 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node51 [label="reset",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#ad20897c5c8bd47f5d4005989bead0e55"];
+  Node51 -> Node52 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node52 [label="begin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#a1d8682ca0934af03639311e23a71283f"];
+  Node52 -> Node53 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node53 [label="setup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_arduino__kommentiert_8ino.html#a4fc01d736fe50cf5b977f755b675f11d"];
+  Node50 -> Node54 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node54 [label="connect_wifi",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#a504393c8aa6394b2d0631146425bf011"];
+  Node54 -> Node52 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node50 -> Node55 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node55 [label="setup_server",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#a7968cc44a6c9fff24b9020e1714c49f8"];
+  Node55 -> Node52 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node50 -> Node56 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node56 [label="my_ip",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#a01953c4cc039c37f94dc3e1057126abb"];
+  Node56 -> Node53 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node50 -> Node57 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node57 [label="available",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#a4549a76725f2e4c013e4d57018366109"];
+  Node57 -> Node58 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node58 [label="loop",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_arduino__kommentiert_8ino.html#afe461d27b9c48d5921c00d521181f12f"];
+  Node57 -> Node59 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node59 [label="connected",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#a59fc494d53391b27e2fd75cb750690d9"];
+  Node59 -> Node60 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node60 [label="write",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#a7c66fc8d559f4956d4ccea196299bca7"];
+  Node57 -> Node61 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node61 [label="peek",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#a9040fa1d479d71edf3a826f4691c35c4"];
+  Node57 -> Node62 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node62 [label="read",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_esp_server.html#aaab5dab5b969a87f538242e524431637"];
+  Node50 -> Node60 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

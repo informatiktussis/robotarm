@@ -1,0 +1,14 @@
+<map id="EspServer::expect" name="EspServer::expect">
+<area shape="rect" id="node2" href="$class_esp_server.html#aeabfb2610ecfdc26e8ce0e624221067f" title="EspServer::reset" alt="" coords="203,5,322,32"/>
+<area shape="rect" id="node5" href="$class_esp_server.html#a6df2412420218304713dd25715e17198" title="EspServer::connect_wifi" alt="" coords="183,56,343,83"/>
+<area shape="rect" id="node6" href="$class_esp_server.html#a215752989c25b9819ca06bc8f94845ed" title="EspServer::setup_server" alt="" coords="181,107,344,133"/>
+<area shape="rect" id="node7" href="$class_esp_server.html#a55995fd6398892be5768da85dde4f533" title="EspServer::my_ip" alt="" coords="201,157,325,184"/>
+<area shape="rect" id="node8" href="$class_esp_server.html#aad68b4972f6b8426004feeef6e98d02d" title="EspServer::available" alt="" coords="193,208,332,235"/>
+<area shape="rect" id="node11" href="$class_esp_server.html#a0756c42343195dd1d1aa2f61c9b095bf" title="EspServer::write" alt="" coords="589,284,705,311"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a1d032e732d4733905d676ef016fcd43c" title="EspServer::begin" alt="" coords="407,56,527,83"/>
+<area shape="rect" id="node4" href="$_arduino__kommentiert_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="620,81,675,108"/>
+<area shape="rect" id="node9" href="$_arduino__kommentiert_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="443,157,490,184"/>
+<area shape="rect" id="node10" href="$class_esp_server.html#a6a25e008ded89de0e4599df7170008fb" title="EspServer::connected" alt="" coords="392,208,541,235"/>
+<area shape="rect" id="node12" href="$class_esp_server.html#a005a9cd487f4ccb4ccef72197bf263b7" title="EspServer::peek" alt="" coords="408,259,525,285"/>
+<area shape="rect" id="node13" href="$class_esp_server.html#ae47512714818b3b9a1d29d2bf1f70fdf" title="EspServer::read" alt="" coords="409,309,524,336"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="EspServer::available" name="EspServer::available">
+<area shape="rect" id="node2" href="$_arduino__kommentiert_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="243,5,290,32"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a6a25e008ded89de0e4599df7170008fb" title="EspServer::connected" alt="" coords="192,56,341,83"/>
+<area shape="rect" id="node5" href="$class_esp_server.html#a005a9cd487f4ccb4ccef72197bf263b7" title="EspServer::peek" alt="" coords="208,107,325,133"/>
+<area shape="rect" id="node6" href="$class_esp_server.html#ae47512714818b3b9a1d29d2bf1f70fdf" title="EspServer::read" alt="" coords="209,157,324,184"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#a0756c42343195dd1d1aa2f61c9b095bf" title="EspServer::write" alt="" coords="389,56,505,83"/>
+</map>

@@ -1,0 +1,467 @@
+\hypertarget{Arduino__kommentiert_8ino}{}\section{Arduino\+\_\+kommentiert/\+Arduino\+\_\+kommentiert.ino-\/\+Dateireferenz}
+\label{Arduino__kommentiert_8ino}\index{Arduino\+\_\+kommentiert/\+Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert/\+Arduino\+\_\+kommentiert.\+ino}}
+{\ttfamily \#include $<$Servo.\+h$>$}\newline
+{\ttfamily \#include $<$Software\+Serial.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Dumb\+Server.\+h\char`\"{}}\newline
+Include-\/\+Abhängigkeitsdiagramm für Arduino\+\_\+kommentiert.\+ino\+:
+% FIG 0
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\+\_\+hoch} (int maximalwinkel, Servo $\ast$servoname)
+\begin{DoxyCompactList}\small\item\em Ab hier beginnen die 4 Funktionen die später den Arm gewegen Führt man den Befehl servoname.\+write(winkel) bewegt man den servo auf einen bestimmten Winkel. Mit .read() liest man den Winkel aus in dem sich der jeweilige Servo gerade befindet. Als Parameter sind immer der Maximalwinkel und der Servoname, also welcher Servo angesprochen werden soll, angegeben. Dies erspart eine Menge schreibarbeit. \end{DoxyCompactList}\item 
+void \hyperlink{Arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\+\_\+runter} (int minimalwinkel, Servo $\ast$servoname)
+\begin{DoxyCompactList}\small\item\em Für die Funktion arm\+\_\+runter ist es genau das gleiche Prinzip wie für arm\+\_\+hoch, nur dass der Winkel immer um -\/1 nach unten gesetzt wird, der Arm bewegt sich also in die andere Richtung. \end{DoxyCompactList}\item 
+Software\+Serial \hyperlink{Arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}{esp\+\_\+serial} (3, 2)
+\begin{DoxyCompactList}\small\item\em Servo.\+h ist eine Bibliothek, die benötigt wird, um die Servos zu steuern. \end{DoxyCompactList}\item 
+void \hyperlink{Arduino__kommentiert_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{Arduino__kommentiert_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Arduino__kommentiert_8ino_ac03f54892f7473625ec7d6498ea5a010}{spezial\+\_\+funktion\+\_\+hoch} (int maximalwinkel, Servo $\ast$servoname, Servo $\ast$servoname2)
+\begin{DoxyCompactList}\small\item\em Für die Spezialfunktionen werden zwei servos angesprochen. Dabei ist eigentlich nur die untige if-\/\+Abfrage in der Funktion selbst interessant, da der eine Winkel des Servos addiert wird, und der des anderen Subtrahiert. \end{DoxyCompactList}\item 
+void \hyperlink{Arduino__kommentiert_8ino_abf7a5d6cd0eca7c0dacb61f5ef555beb}{spezial\+\_\+funktion\+\_\+runter} (int minimalwinkel, Servo $\ast$servoname, Servo $\ast$servoname2)
+\begin{DoxyCompactList}\small\item\em Bei der untigen anderen spezial\+\_\+funktion ist es der gegenteilige Fall. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEspServer}{Esp\+Server} \hyperlink{Arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\+\_\+server}
+\begin{DoxyCompactList}\small\item\em Das W\+L\+A\+N-\/\+Shield ist an Pin 2 und 3 Seriell mit dem Arduino verbunden. \end{DoxyCompactList}\item 
+int \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\+\_\+button\+\_\+var}
+\begin{DoxyCompactList}\small\item\em Geklaration mehrer Variablen. \end{DoxyCompactList}\item 
+Servo \hyperlink{Arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1}
+\begin{DoxyCompactList}\small\item\em servo1,2,3... als Servo geklarieren. Später werden die servos auch so angesprochen. \end{DoxyCompactList}\item 
+Servo \hyperlink{Arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}
+\item 
+Servo \hyperlink{Arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3}
+\item 
+Servo \hyperlink{Arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4}
+\item 
+int \hyperlink{Arduino__kommentiert_8ino_ac5b3a3df1bbdb6b2c8e8988c7373ad97}{servo\+\_\+1pin} = 8
+\begin{DoxyCompactList}\small\item\em Die Pins der Servos. \end{DoxyCompactList}\item 
+int \hyperlink{Arduino__kommentiert_8ino_a0fcb42829030c7eab1ede7429256f14d}{servo\+\_\+2pin} = 9
+\item 
+int \hyperlink{Arduino__kommentiert_8ino_a006b96047ca9585e312d88690d5a95a3}{servo\+\_\+3pin} = 10
+\item 
+int \hyperlink{Arduino__kommentiert_8ino_a5c0d394c06f48072ed4a5cf3f5f3b81b}{servo\+\_\+4pin} = 11
+\item 
+int \hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\+\_\+var} = 15
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}\label{Arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!arm\+\_\+hoch@{arm\+\_\+hoch}}
+\index{arm\+\_\+hoch@{arm\+\_\+hoch}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{arm\+\_\+hoch()}{arm\_hoch()}}
+{\footnotesize\ttfamily void arm\+\_\+hoch (\begin{DoxyParamCaption}\item[{int}]{maximalwinkel,  }\item[{Servo $\ast$}]{servoname }\end{DoxyParamCaption})}
+
+
+
+Ab hier beginnen die 4 Funktionen die später den Arm gewegen Führt man den Befehl servoname.\+write(winkel) bewegt man den servo auf einen bestimmten Winkel. Mit .read() liest man den Winkel aus in dem sich der jeweilige Servo gerade befindet. Als Parameter sind immer der Maximalwinkel und der Servoname, also welcher Servo angesprochen werden soll, angegeben. Dies erspart eine Menge schreibarbeit. 
+
+Der jeweilige Winkel des Servos wird in der Variable var gespeichert.
+
+Da die servos auf 180° Grad mechanisch begrenzt sind kann ist hier eine if-\/\+Abfrage nötig, da sonst der Servomotor anfangen würde zu Brummen. Er darf also nicht weiter als 180° drehen.
+
+Wenn der Winkel 180° noch nicht erreicht ist wird der Winkel mit write(nächster Winkel), also der Winkel+1 gesetzt. Der Delay ist dazu da die Geschwindigkeit des Servos zu steuern. Wird die variable speed\+\_\+var größer gewählt wird die Drehgeschwindigkeit langer, wird sie kleiner gewählt wird sie schneller, da die Funktion öfter pro Sekunde aufgerufen wird.
+
+Definiert in Zeile 122 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+
+\begin{DoxyCode}
+122                                                     \{
+123 
+124   \textcolor{keywordtype}{int} var = servoname->read(); 
+132   \textcolor{keywordflow}{if} (var < maximalwinkel) \{
+133     servoname->write(var + 1);
+134     delay(\hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
+146   \}
+147 \};
+\end{DoxyCode}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+% FIG 1
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}\label{Arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!arm\+\_\+runter@{arm\+\_\+runter}}
+\index{arm\+\_\+runter@{arm\+\_\+runter}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{arm\+\_\+runter()}{arm\_runter()}}
+{\footnotesize\ttfamily void arm\+\_\+runter (\begin{DoxyParamCaption}\item[{int}]{minimalwinkel,  }\item[{Servo $\ast$}]{servoname }\end{DoxyParamCaption})}
+
+
+
+Für die Funktion arm\+\_\+runter ist es genau das gleiche Prinzip wie für arm\+\_\+hoch, nur dass der Winkel immer um -\/1 nach unten gesetzt wird, der Arm bewegt sich also in die andere Richtung. 
+
+Auch hier gibt es eine if-\/\+Abfrage ob diesesmal der Minimalwinkel erreicht wurde. In der Theorie dürfte der Servo bei 0° aufhören, jedoch hat es sich gezeigt dass bereits bei 11° die Begrezung auftritt, dies muss an einer schlechten Qualität der Servos liegen.
+
+Definiert in Zeile 156 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+
+\begin{DoxyCode}
+156                                                       \{
+157   \textcolor{keywordtype}{int} var = servoname->read();
+158 
+166   \textcolor{keywordflow}{if} (var > minimalwinkel) \{
+167     servoname->write(var - 1);
+168     delay(\hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
+169 
+170   \}
+171 \};
+\end{DoxyCode}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+% FIG 2
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}\label{Arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!esp\+\_\+serial@{esp\+\_\+serial}}
+\index{esp\+\_\+serial@{esp\+\_\+serial}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{esp\+\_\+serial()}{esp\_serial()}}
+{\footnotesize\ttfamily Software\+Serial esp\+\_\+serial (\begin{DoxyParamCaption}\item[{3}]{,  }\item[{2}]{ }\end{DoxyParamCaption})}
+
+
+
+Servo.\+h ist eine Bibliothek, die benötigt wird, um die Servos zu steuern. 
+
+Software\+Serial-\/\+Bibliothek Verknüfung mit \hyperlink{DumbServer_8h}{Dumb\+Server.\+h} Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+% FIG 3
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_afe461d27b9c48d5921c00d521181f12f}\label{Arduino__kommentiert_8ino_afe461d27b9c48d5921c00d521181f12f}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!loop@{loop}}
+\index{loop@{loop}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+mit dieser if-\/\+Bedingung wird überprüft, ob eineneuer String durch die serielle Verbindung mit dem W\+L\+A\+N-\/\+Shield verfügbar ist.
+
+Ist eine neue verfügugbar, wird der string in command gespeichert. Ab hier beginnt dann die umwandlung in einen Integer. Dies nötig da später cases Benutzt werden, wobei nur Integer als Vergleich benutzt werden können und keine Strings.
+
+Jeder gesendete String wird nun durch eine sehr lange if-\/\+Schleife einer passenden Zahl zugewiesen. Ist das Empfangene beispielsweise ein \char`\"{}a\char`\"{}, so wird die Variable python\+\_\+button\+\_\+var auf 97 gesetzt, usw.
+
+Da jetzt der gesendete String einem Integer zugewiesen worden ist kann einfach mit dem untenstehenden switch, der nur von der einen Variable python\+\_\+button\+\_\+var abgängig ist, der gesamte Arm gesteuert werden.
+
+Zur Wiederholung\+: Wenn ein \char`\"{}a\char`\"{} gesendet wurde, wird daraus eine 97 gemacht, und in der case 97 wird die Funktion arm\+\_\+hoch(180, \&servo1) aufgerufen. Dies bedeutet, dass sich servo1 nun nach oben bewegen würde und das gegen den Maximalwinkel 180°.
+
+Des weiten gibt es eine default-\/\+Case, die immer dann gesendet wird, wenn ein Button in der G\+UI losgelassen wird. Wird also ein \char`\"{}k\char`\"{} gesendet, dann ist das ein einfach der Befehl zum nichts tun.
+
+default case \+:k
+
+Für die cases 49 bis 54 wird die Geschwindigkeit der servos geändert. Dazu wird die variable speed\+\_\+var einfach einen neuen Wert zugewiesen.
+
+Definiert in Zeile 208 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+
+\begin{DoxyCode}
+209 \{
+215   \textcolor{keywordflow}{if} (\hyperlink{Arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.\hyperlink{classEspServer_a4549a76725f2e4c013e4d57018366109}{available}()) \{
+216 
+217     String command = \hyperlink{Arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.readStringUntil(\textcolor{charliteral}{'\(\backslash\)n'});
+218 
+232     \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"a"}) \{
+233       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 97;
+234     \}
+235     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"b"}) \{
+236       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 98;
+237     \}
+238     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"c"}) \{
+239       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 99;
+240     \}
+241     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"d"}) \{
+242       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 100;
+243     \}
+244     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"e"}) \{
+245       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 101;
+246     \}
+247     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"f"}) \{
+248       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 102;
+249     \}
+250     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"g"}) \{
+251       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 103;
+252     \}
+253     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"h"}) \{
+254       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 104;
+255     \}
+256     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"i"}) \{
+257       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 105;
+258     \}
+259     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"j"}) \{
+260       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 106;
+261     \}
+262     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"k"}) \{
+263       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 107;
+264     \}
+265     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"1"}) \{
+266       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 49;
+267     \}
+268     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"2"}) \{
+269       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 50;
+270     \}
+271     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"3"}) \{
+272       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 51;
+273     \}
+274     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"4"}) \{
+275       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 52;
+276     \}
+277     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"5"}) \{
+278       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 53;
+279     \}
+280     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"6"}) \{
+281       \hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 54;
+282     \}
+283   \}
+284 
+296   \textcolor{keywordflow}{switch} (\hyperlink{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var}) \{
+297 
+298     \textcolor{keywordflow}{case} 97: \hyperlink{Arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{Arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1});   \textcolor{keywordflow}{break}; \textcolor{comment}{//a}
+299     \textcolor{keywordflow}{case} 98: \hyperlink{Arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(11, &\hyperlink{Arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1});  \textcolor{keywordflow}{break}; \textcolor{comment}{//b}
+300 
+301     \textcolor{keywordflow}{case} 99: \hyperlink{Arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{Arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2});   \textcolor{keywordflow}{break}; \textcolor{comment}{//c}
+302     \textcolor{keywordflow}{case} 100: \hyperlink{Arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(20, &\hyperlink{Arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2});  \textcolor{keywordflow}{break}; \textcolor{comment}{//d}
+303 
+304     \textcolor{keywordflow}{case} 101: \hyperlink{Arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{Arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3});   \textcolor{keywordflow}{break}; \textcolor{comment}{//e}
+305     \textcolor{keywordflow}{case} 102: \hyperlink{Arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(11, &\hyperlink{Arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3});  \textcolor{keywordflow}{break}; \textcolor{comment}{//f}
+306 
+307     \textcolor{keywordflow}{case} 103: \hyperlink{Arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{Arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4});   \textcolor{keywordflow}{break}; \textcolor{comment}{//g}
+308     \textcolor{keywordflow}{case} 104: \hyperlink{Arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(45, &\hyperlink{Arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4});  \textcolor{keywordflow}{break}; \textcolor{comment}{//h}
+309 
+310     \textcolor{keywordflow}{case} 105: \hyperlink{Arduino__kommentiert_8ino_ac03f54892f7473625ec7d6498ea5a010}{spezial\_funktion\_hoch}(180, &\hyperlink{Arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}, &
+      \hyperlink{Arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3}); \textcolor{keywordflow}{break}; \textcolor{comment}{//i}
+311     \textcolor{keywordflow}{case} 106: \hyperlink{Arduino__kommentiert_8ino_abf7a5d6cd0eca7c0dacb61f5ef555beb}{spezial\_funktion\_runter}(20, &\hyperlink{Arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}, &
+      \hyperlink{Arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3}); \textcolor{keywordflow}{break}; \textcolor{comment}{//j}
+312 
+319     \textcolor{keywordflow}{case} 107: \textcolor{keywordflow}{break}; 
+327     \textcolor{keywordflow}{case} 49: \hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 5; \textcolor{keywordflow}{break};
+328     \textcolor{keywordflow}{case} 50: \hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 8;  \textcolor{keywordflow}{break};
+329     \textcolor{keywordflow}{case} 51: \hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 11; \textcolor{keywordflow}{break};
+330     \textcolor{keywordflow}{case} 52: \hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 14; \textcolor{keywordflow}{break};
+331     \textcolor{keywordflow}{case} 53: \hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 17; \textcolor{keywordflow}{break};
+332     \textcolor{keywordflow}{case} 54: \hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 20; \textcolor{keywordflow}{break};
+333   \}
+334 
+335 \}
+\end{DoxyCode}
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+% FIG 4
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{Arduino__kommentiert_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!setup@{setup}}
+\index{setup@{setup}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Die Pins werden dann mit dem servo1.\+attach(servo\+\_\+pin) Befehl als servo-\/pin geklariert. Dies ist sehr ähnlich wie wenn eine L\+E\+D-\/pin gedefiniert mit pin\+Mode(...,O\+U\+T\+P\+UT).
+
+Die I\+P-\/\+Adresse des W\+L\+A\+N-\/\+Shields wird seriell ausgegeben. 
+
+Definiert in Zeile 81 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+
+\begin{DoxyCode}
+81              \{
+82   Serial.begin(9600);
+83   \hyperlink{Arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}{esp\_serial}.begin(9600);
+84 
+90   \hyperlink{Arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1}.attach(\hyperlink{Arduino__kommentiert_8ino_ac5b3a3df1bbdb6b2c8e8988c7373ad97}{servo\_1pin});
+91   \hyperlink{Arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}.attach(\hyperlink{Arduino__kommentiert_8ino_a0fcb42829030c7eab1ede7429256f14d}{servo\_2pin});
+92   \hyperlink{Arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3}.attach(\hyperlink{Arduino__kommentiert_8ino_a006b96047ca9585e312d88690d5a95a3}{servo\_3pin});
+93   \hyperlink{Arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4}.attach(\hyperlink{Arduino__kommentiert_8ino_a5c0d394c06f48072ed4a5cf3f5f3b81b}{servo\_4pin});
+94 
+95   Serial.println(\textcolor{stringliteral}{"Starting server..."});
+96   \hyperlink{Arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.\hyperlink{classEspServer_a1d8682ca0934af03639311e23a71283f}{begin}(&\hyperlink{Arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}{esp\_serial}, \textcolor{stringliteral}{"GDI"}, \textcolor{stringliteral}{"password"}, 30303);
+97   Serial.println(\textcolor{stringliteral}{"...server is running"});
+98 
+99 
+100   
+101   \textcolor{keywordtype}{char} ip[16];
+102   \hyperlink{Arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.\hyperlink{classEspServer_a01953c4cc039c37f94dc3e1057126abb}{my\_ip}(ip, 16);
+103 
+104   Serial.print(\textcolor{stringliteral}{"My ip: "});
+105   Serial.println(ip);
+106 
+110 \}
+\end{DoxyCode}
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
+% FIG 5
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_ac03f54892f7473625ec7d6498ea5a010}\label{Arduino__kommentiert_8ino_ac03f54892f7473625ec7d6498ea5a010}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!spezial\+\_\+funktion\+\_\+hoch@{spezial\+\_\+funktion\+\_\+hoch}}
+\index{spezial\+\_\+funktion\+\_\+hoch@{spezial\+\_\+funktion\+\_\+hoch}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{spezial\+\_\+funktion\+\_\+hoch()}{spezial\_funktion\_hoch()}}
+{\footnotesize\ttfamily void spezial\+\_\+funktion\+\_\+hoch (\begin{DoxyParamCaption}\item[{int}]{maximalwinkel,  }\item[{Servo $\ast$}]{servoname,  }\item[{Servo $\ast$}]{servoname2 }\end{DoxyParamCaption})}
+
+
+
+Für die Spezialfunktionen werden zwei servos angesprochen. Dabei ist eigentlich nur die untige if-\/\+Abfrage in der Funktion selbst interessant, da der eine Winkel des Servos addiert wird, und der des anderen Subtrahiert. 
+
+
+
+Definiert in Zeile 181 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+
+\begin{DoxyCode}
+181                                                                                     \{
+182   \textcolor{keywordtype}{int} var = servoname->read();
+183   \textcolor{keywordtype}{int} var2 = servoname2->read();
+184 
+185   \textcolor{keywordflow}{if} (var < maximalwinkel) \{
+186     servoname->write(var + 1);
+187     servoname2->write(var2 + 1);
+188     delay(\hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
+189   \}
+190 
+191 \}
+\end{DoxyCode}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+% FIG 6
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_abf7a5d6cd0eca7c0dacb61f5ef555beb}\label{Arduino__kommentiert_8ino_abf7a5d6cd0eca7c0dacb61f5ef555beb}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!spezial\+\_\+funktion\+\_\+runter@{spezial\+\_\+funktion\+\_\+runter}}
+\index{spezial\+\_\+funktion\+\_\+runter@{spezial\+\_\+funktion\+\_\+runter}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{spezial\+\_\+funktion\+\_\+runter()}{spezial\_funktion\_runter()}}
+{\footnotesize\ttfamily void spezial\+\_\+funktion\+\_\+runter (\begin{DoxyParamCaption}\item[{int}]{minimalwinkel,  }\item[{Servo $\ast$}]{servoname,  }\item[{Servo $\ast$}]{servoname2 }\end{DoxyParamCaption})}
+
+
+
+Bei der untigen anderen spezial\+\_\+funktion ist es der gegenteilige Fall. 
+
+
+
+Definiert in Zeile 196 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+
+\begin{DoxyCode}
+196                                                                                       \{
+197   \textcolor{keywordtype}{int} var = servoname->read();
+198   \textcolor{keywordtype}{int} var2 = servoname2->read();
+199 
+200   \textcolor{keywordflow}{if} (var > minimalwinkel) \{
+201     servoname->write(var - 1);
+202     servoname2->write(var2 - 1);
+203     delay(\hyperlink{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
+204   \}
+205 
+206 \}
+\end{DoxyCode}
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
+% FIG 7
+
+
+\subsection{Variablen-\/\+Dokumentation}
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}\label{Arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!esp\+\_\+server@{esp\+\_\+server}}
+\index{esp\+\_\+server@{esp\+\_\+server}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{esp\+\_\+server}{esp\_server}}
+{\footnotesize\ttfamily \hyperlink{classEspServer}{Esp\+Server} esp\+\_\+server}
+
+
+
+Das W\+L\+A\+N-\/\+Shield ist an Pin 2 und 3 Seriell mit dem Arduino verbunden. 
+
+
+
+Definiert in Zeile 54 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}\label{Arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!python\+\_\+button\+\_\+var@{python\+\_\+button\+\_\+var}}
+\index{python\+\_\+button\+\_\+var@{python\+\_\+button\+\_\+var}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{python\+\_\+button\+\_\+var}{python\_button\_var}}
+{\footnotesize\ttfamily int python\+\_\+button\+\_\+var}
+
+
+
+Geklaration mehrer Variablen. 
+
+
+
+Definiert in Zeile 78 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}\label{Arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo1@{servo1}}
+\index{servo1@{servo1}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{servo1}{servo1}}
+{\footnotesize\ttfamily Servo servo1}
+
+
+
+servo1,2,3... als Servo geklarieren. Später werden die servos auch so angesprochen. 
+
+
+
+Definiert in Zeile 61 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}\label{Arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo2@{servo2}}
+\index{servo2@{servo2}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{servo2}{servo2}}
+{\footnotesize\ttfamily Servo servo2}
+
+
+
+Definiert in Zeile 62 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}\label{Arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo3@{servo3}}
+\index{servo3@{servo3}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{servo3}{servo3}}
+{\footnotesize\ttfamily Servo servo3}
+
+
+
+Definiert in Zeile 63 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}\label{Arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo4@{servo4}}
+\index{servo4@{servo4}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{servo4}{servo4}}
+{\footnotesize\ttfamily Servo servo4}
+
+
+
+Definiert in Zeile 64 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_ac5b3a3df1bbdb6b2c8e8988c7373ad97}\label{Arduino__kommentiert_8ino_ac5b3a3df1bbdb6b2c8e8988c7373ad97}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo\+\_\+1pin@{servo\+\_\+1pin}}
+\index{servo\+\_\+1pin@{servo\+\_\+1pin}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{servo\+\_\+1pin}{servo\_1pin}}
+{\footnotesize\ttfamily int servo\+\_\+1pin = 8}
+
+
+
+Die Pins der Servos. 
+
+
+
+Definiert in Zeile 70 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a0fcb42829030c7eab1ede7429256f14d}\label{Arduino__kommentiert_8ino_a0fcb42829030c7eab1ede7429256f14d}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo\+\_\+2pin@{servo\+\_\+2pin}}
+\index{servo\+\_\+2pin@{servo\+\_\+2pin}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{servo\+\_\+2pin}{servo\_2pin}}
+{\footnotesize\ttfamily int servo\+\_\+2pin = 9}
+
+
+
+Definiert in Zeile 71 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a006b96047ca9585e312d88690d5a95a3}\label{Arduino__kommentiert_8ino_a006b96047ca9585e312d88690d5a95a3}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo\+\_\+3pin@{servo\+\_\+3pin}}
+\index{servo\+\_\+3pin@{servo\+\_\+3pin}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{servo\+\_\+3pin}{servo\_3pin}}
+{\footnotesize\ttfamily int servo\+\_\+3pin = 10}
+
+
+
+Definiert in Zeile 72 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a5c0d394c06f48072ed4a5cf3f5f3b81b}\label{Arduino__kommentiert_8ino_a5c0d394c06f48072ed4a5cf3f5f3b81b}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo\+\_\+4pin@{servo\+\_\+4pin}}
+\index{servo\+\_\+4pin@{servo\+\_\+4pin}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{servo\+\_\+4pin}{servo\_4pin}}
+{\footnotesize\ttfamily int servo\+\_\+4pin = 11}
+
+
+
+Definiert in Zeile 73 der Datei Arduino\+\_\+kommentiert.\+ino.
+
+\mbox{\Hypertarget{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}\label{Arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}} 
+\index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!speed\+\_\+var@{speed\+\_\+var}}
+\index{speed\+\_\+var@{speed\+\_\+var}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
+\subsubsection{\texorpdfstring{speed\+\_\+var}{speed\_var}}
+{\footnotesize\ttfamily int speed\+\_\+var = 15}
+
+
+
+Definiert in Zeile 79 der Datei Arduino\+\_\+kommentiert.\+ino.
+

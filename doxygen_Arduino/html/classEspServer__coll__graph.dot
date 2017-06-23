@@ -1,0 +1,8 @@
+digraph "EspServer"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node2 [label="{EspServer\n|- _esp_serial\l- connection_id\l- rem_msg_len\l|+ EspServer()\l+ available()\l+ begin()\l+ connected()\l+ flush()\l+ my_ip()\l+ peek()\l+ read()\l+ write()\l+ write()\l+ write()\l+ write()\l+ write()\l+ write()\l- blockread()\l- connect_wifi()\l- expect()\l- flush_in_buff()\l- reset()\l- setup_server()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node3 [label="{Stream\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

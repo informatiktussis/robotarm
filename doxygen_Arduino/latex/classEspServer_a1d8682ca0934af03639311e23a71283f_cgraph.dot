@@ -1,0 +1,23 @@
+digraph "begin"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node11 [label="begin",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="esp_serial",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Arduino__kommentiert_8ino.html#af690b3a6882292855c4091ede8039998",tooltip="Servo.h ist eine Bibliothek, die benötigt wird, um die Servos zu steuern. "];
+  Node11 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="reset",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEspServer.html#ad20897c5c8bd47f5d4005989bead0e55"];
+  Node13 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="expect",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEspServer.html#aff5ea67ab96af075223b2b836036ccf1"];
+  Node14 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="blockread",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEspServer.html#ac2b4ae3c7ebcd751c4c8020412fa3270"];
+  Node13 -> Node16 [color="midnightblue",fontsize="10",style="solid"];
+  Node16 [label="flush_in_buff",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEspServer.html#a1d791edc8eca304acc71f702f07c0437"];
+  Node11 -> Node17 [color="midnightblue",fontsize="10",style="solid"];
+  Node17 [label="connect_wifi",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEspServer.html#a504393c8aa6394b2d0631146425bf011"];
+  Node17 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
+  Node18 [label="setup_server",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEspServer.html#a7968cc44a6c9fff24b9020e1714c49f8"];
+  Node18 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+}

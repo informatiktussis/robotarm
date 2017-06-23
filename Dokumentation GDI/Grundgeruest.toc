@@ -7,3 +7,5 @@
 \contentsline {subsection}{\numberline {3.3}Die Loop}{5}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}WLAN-Empfang}{5}{subsection.3.4}
 \contentsline {section}{\numberline {4}Python Code und GUI}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}GUI}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Python Code}{7}{subsection.4.2}

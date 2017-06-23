@@ -1,0 +1,5 @@
+<map id="EspServer::reset" name="EspServer::reset">
+<area shape="rect" id="node2" href="$class_esp_server.html#a2008f0d315cff00a4bcc1120eeb2dc95" title="EspServer::expect" alt="" coords="188,5,316,32"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#a191aa3259094cf1d2c0f22cdfbca9f58" title="EspServer::flush_in_buff" alt="" coords="172,56,332,83"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a3da02efeb5f2cbe3a8a1963e5e7f0a47" title="EspServer::blockread" alt="" coords="380,5,525,32"/>
+</map>

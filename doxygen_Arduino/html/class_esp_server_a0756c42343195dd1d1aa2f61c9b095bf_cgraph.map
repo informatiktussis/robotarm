@@ -1,0 +1,6 @@
+<map id="EspServer::write" name="EspServer::write">
+<area shape="rect" id="node2" href="$class_esp_server.html#a6a25e008ded89de0e4599df7170008fb" title="EspServer::connected" alt="" coords="169,5,319,32"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#a2008f0d315cff00a4bcc1120eeb2dc95" title="EspServer::expect" alt="" coords="553,56,681,83"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#aad68b4972f6b8426004feeef6e98d02d" title="EspServer::available" alt="" coords="367,5,505,32"/>
+<area shape="rect" id="node5" href="$class_esp_server.html#a3da02efeb5f2cbe3a8a1963e5e7f0a47" title="EspServer::blockread" alt="" coords="729,31,875,57"/>
+</map>

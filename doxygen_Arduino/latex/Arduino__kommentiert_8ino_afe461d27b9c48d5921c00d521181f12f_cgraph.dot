@@ -1,0 +1,22 @@
+digraph "loop"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node10 [label="loop",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="EspServer::available",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEspServer.html#a4549a76725f2e4c013e4d57018366109"];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="EspServer::expect",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEspServer.html#aff5ea67ab96af075223b2b836036ccf1"];
+  Node12 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="EspServer::blockread",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEspServer.html#ac2b4ae3c7ebcd751c4c8020412fa3270"];
+  Node11 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="arm_hoch",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Arduino__kommentiert_8ino.html#a74bfcf85e5418694eb99df53d30c8fab",tooltip="Ab hier beginnen die 4 Funktionen die später den Arm gewegen Führt man den Befehl servoname..."];
+  Node10 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="arm_runter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Arduino__kommentiert_8ino.html#a5b873994166a952d81f787c307ca08d9",tooltip="Für die Funktion arm_runter ist es genau das gleiche Prinzip wie für arm_hoch, nur dass der Winkel im..."];
+  Node10 -> Node16 [color="midnightblue",fontsize="10",style="solid"];
+  Node16 [label="spezial_funktion_hoch",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Arduino__kommentiert_8ino.html#ac03f54892f7473625ec7d6498ea5a010",tooltip="Für die Spezialfunktionen werden zwei servos angesprochen. Dabei ist eigentlich nur die untige if-Abf..."];
+  Node10 -> Node17 [color="midnightblue",fontsize="10",style="solid"];
+  Node17 [label="spezial_funktion_runter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Arduino__kommentiert_8ino.html#abf7a5d6cd0eca7c0dacb61f5ef555beb",tooltip="Bei der untigen anderen spezial_funktion ist es der gegenteilige Fall. "];
+}

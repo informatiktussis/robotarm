@@ -1,0 +1,4 @@
+<map id="EspServer::connect_wifi" name="EspServer::connect_wifi">
+<area shape="rect" id="node2" href="$class_esp_server.html#a2008f0d315cff00a4bcc1120eeb2dc95" title="EspServer::expect" alt="" coords="213,5,341,32"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a3da02efeb5f2cbe3a8a1963e5e7f0a47" title="EspServer::blockread" alt="" coords="389,5,535,32"/>
+</map>

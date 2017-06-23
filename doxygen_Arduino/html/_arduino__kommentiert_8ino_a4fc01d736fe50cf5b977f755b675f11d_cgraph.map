@@ -1,0 +1,11 @@
+<map id="setup" name="setup">
+<area shape="rect" id="node2" href="$_arduino__kommentiert_8ino.html#af690b3a6882292855c4091ede8039998" title="Servo.h ist eine Bibliothek, die benötigt wird, um die Servos zu steuern. " alt="" coords="321,5,402,32"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a1d032e732d4733905d676ef016fcd43c" title="EspServer::begin" alt="" coords="110,95,230,121"/>
+<area shape="rect" id="node10" href="$class_esp_server.html#a55995fd6398892be5768da85dde4f533" title="EspServer::my_ip" alt="" coords="108,171,232,197"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#aeabfb2610ecfdc26e8ce0e624221067f" title="EspServer::reset" alt="" coords="302,56,421,83"/>
+<area shape="rect" id="node8" href="$class_esp_server.html#a6df2412420218304713dd25715e17198" title="EspServer::connect_wifi" alt="" coords="281,107,441,133"/>
+<area shape="rect" id="node9" href="$class_esp_server.html#a215752989c25b9819ca06bc8f94845ed" title="EspServer::setup_server" alt="" coords="280,157,443,184"/>
+<area shape="rect" id="node5" href="$class_esp_server.html#a2008f0d315cff00a4bcc1120eeb2dc95" title="EspServer::expect" alt="" coords="507,132,635,159"/>
+<area shape="rect" id="node7" href="$class_esp_server.html#a191aa3259094cf1d2c0f22cdfbca9f58" title="EspServer::flush_in_buff" alt="" coords="491,56,651,83"/>
+<area shape="rect" id="node6" href="$class_esp_server.html#a3da02efeb5f2cbe3a8a1963e5e7f0a47" title="EspServer::blockread" alt="" coords="699,132,844,159"/>
+</map>

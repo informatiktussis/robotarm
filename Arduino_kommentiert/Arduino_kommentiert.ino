@@ -1,20 +1,20 @@
 #include <Servo.h>
 
-/*Servo.h ist eine Bibliothek, die benötigt wird,
+/** Servo.h ist eine Bibliothek, die benötigt wird,
    um die Servos zu steuern.
 */
 #include <SoftwareSerial.h>
-/*SoftwareSerial-Bibliothek*/
+/** SoftwareSerial-Bibliothek*/
 #include "DumbServer.h"
-/*Verknüfung mit DumbServer.h*/
+/** Verknüfung mit DumbServer.h*/
 
 SoftwareSerial esp_serial(3, 2);
-/*Das WLAN-Shield ist an Pin 2 und 3
+/** Das WLAN-Shield ist an Pin 2 und 3
  * Seriell mit dem Arduino verbunden
 */
 EspServer esp_server;
 
-/*servo1,2,3... als
+/** servo1,2,3... als
  * Servo geklarieren. Später
  * werden die servos auch so angesprochen.
 */
@@ -24,7 +24,7 @@ Servo servo2;
 Servo servo3;
 Servo servo4;
 
-/*Die Pins der Servos
+/** Die Pins der Servos
 */
 
 int servo_1pin = 8;
@@ -32,7 +32,7 @@ int servo_2pin = 9;
 int servo_3pin = 10;
 int servo_4pin = 11;
 
-/*Geklaration mehrer Variablen*/
+/** Geklaration mehrer Variablen*/
 
 int python_button_var;
 int speed_var = 15;
@@ -41,7 +41,7 @@ void setup() {
   Serial.begin(9600);
   esp_serial.begin(9600);
 
-  /*Die Pins werden
+  /** Die Pins werden
    * dann mit dem servo1.attach(servo_pin)
    * Befehl als servo-pin geklariert.
    * Dies ist sehr ähnlich wie wenn eine
@@ -65,11 +65,11 @@ void setup() {
   Serial.print("My ip: ");
   Serial.println(ip);
 
-  /*Die IP-Adresse des WLAN-Shields wird seriell ausgegeben.*/
+  /** Die IP-Adresse des WLAN-Shields wird seriell ausgegeben.*/
 
 }
 
-/*Ab hier beginnen die 4 Funktionen die später den Arm gewegen
+/** Ab hier beginnen die 4 Funktionen die später den Arm gewegen
    Führt man den Befehl servoname.write(winkel) bewegt man den servo auf
    einen bestimmten Winkel.
    Mit .read() liest man den Winkel aus in dem sich der jeweilige
@@ -80,16 +80,16 @@ void setup() {
 
 void arm_hoch(int maximalwinkel, Servo *servoname ) {
 
-  int var = servoname->read(); //Der jeweilige Winkel des Servos wird in der Variable var gespeichert.
+  int var = servoname->read(); /** Der jeweilige Winkel des Servos wird in der Variable var gespeichert. */
 
-  /*Da die servos auf 180° Grad mechanisch begrenzt sind kann ist hier
+  /** Da die servos auf 180° Grad mechanisch begrenzt sind kann ist hier
      eine if-Abfrage nötig, da sonst der Servomotor anfangen würde
      zu Brummen. Er darf also nicht weiter als 180° drehen.
   */
   if (var < maximalwinkel) {
     servoname->write(var + 1);
     delay(speed_var);
-    /*Wenn der Winkel 180° noch nicht erreicht ist
+    /** Wenn der Winkel 180° noch nicht erreicht ist
        wird der Winkel mit write(nächster Winkel), also
        der Winkel+1 gesetzt.
        Der  Delay ist dazu da die Geschwindigkeit des Servos
@@ -102,7 +102,7 @@ void arm_hoch(int maximalwinkel, Servo *servoname ) {
   }
 };
 
-/*Für die Funktion arm_runter ist es genau das gleiche
+/** Für die Funktion arm_runter ist es genau das gleiche
    Prinzip wie für arm_hoch, nur dass der Winkel
    immer um -1 nach unten gesetzt wird, der Arm bewegt
    sich also in die andere Richtung.
@@ -111,7 +111,7 @@ void arm_hoch(int maximalwinkel, Servo *servoname ) {
 void arm_runter(int minimalwinkel, Servo *servoname ) {
   int var = servoname->read();
 
-  /*Auch hier gibt es eine if-Abfrage ob diesesmal der Minimalwinkel
+  /** Auch hier gibt es eine if-Abfrage ob diesesmal der Minimalwinkel
      erreicht wurde. In der Theorie dürfte der Servo bei 0° aufhören, jedoch
      hat es sich gezeigt dass bereits bei 11° die Begrezung auftritt, dies
      muss an  einer schlechten Qualität der Servos liegen.
@@ -125,7 +125,7 @@ void arm_runter(int minimalwinkel, Servo *servoname ) {
 };
 
 
-/*Für die Spezialfunktionen werden zwei servos angesprochen.
+/** Für die Spezialfunktionen werden zwei servos angesprochen.
    Dabei ist eigentlich nur die untige if-Abfrage in der Funktion
    selbst interessant, da der eine Winkel des Servos addiert wird,
    und der des anderen Subtrahiert.
@@ -143,7 +143,7 @@ void spezial_funktion_hoch (int maximalwinkel, Servo *servoname, Servo *servonam
 
 }
 
-/*Bei der untigen anderen spezial_funktion ist es der gegenteilige Fall*/
+/** Bei der untigen anderen spezial_funktion ist es der gegenteilige Fall */
 
 void spezial_funktion_runter (int minimalwinkel, Servo *servoname, Servo *servoname2) {
   int var = servoname->read();
@@ -159,7 +159,7 @@ void spezial_funktion_runter (int minimalwinkel, Servo *servoname, Servo *servon
 
 void loop()
 {
-  /*mit dieser if-Bedingung wird überprüft, ob
+  /** mit dieser if-Bedingung wird überprüft, ob
      eineneuer String durch die serielle
      Verbindung mit dem WLAN-Shield verfügbar ist.
   */
@@ -167,7 +167,7 @@ void loop()
 
     String command = esp_server.readStringUntil('\n');
 
-    /*Ist eine neue verfügugbar, wird der string in command
+    /** Ist eine neue verfügugbar, wird der string in command
        gespeichert.
        Ab hier beginnt dann die umwandlung in einen Integer.
        Dies nötig da später cases Benutzt werden, wobei nur
@@ -232,7 +232,7 @@ void loop()
     }
   }
 
-  /*Da jetzt der gesendete String einem Integer zugewiesen worden ist
+  /** Da jetzt der gesendete String einem Integer zugewiesen worden ist
      kann einfach mit dem untenstehenden switch, der nur von der einen
      Variable python_button_var abgängig ist, der gesamte Arm gesteuert werden.
 
@@ -259,14 +259,14 @@ void loop()
     case 105: spezial_funktion_hoch(180, &servo2, &servo3); break; //i
     case 106: spezial_funktion_runter(20, &servo2, &servo3); break; //j
 
-    /*Des weiten gibt es eine default-Case, die immer dann gesendet wird,
+    /** Des weiten gibt es eine default-Case, die immer dann gesendet wird,
        wenn ein Button in der GUI losgelassen wird. Wird also ein "k" gesendet, dann
        ist das ein einfach der Befehl zum nichts tun.
     */
 
-    case 107: break; //default case //k
+    case 107: break; /** default case :k */
 
-    /*Für die cases 49 bis 54 wird die Geschwindigkeit der servos geändert.
+    /** Für die cases 49 bis 54 wird die Geschwindigkeit der servos geändert.
        Dazu wird die variable speed_var einfach einen neuen Wert zugewiesen.
     */
 

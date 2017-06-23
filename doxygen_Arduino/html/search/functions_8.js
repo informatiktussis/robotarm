@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['read',['read',['../class_esp_server.html#ae47512714818b3b9a1d29d2bf1f70fdf',1,'EspServer']]],
-  ['reset',['reset',['../class_esp_server.html#aeabfb2610ecfdc26e8ce0e624221067f',1,'EspServer']]]
+  ['read',['read',['../class_esp_server.html#aaab5dab5b969a87f538242e524431637',1,'EspServer']]],
+  ['reset',['reset',['../class_esp_server.html#ad20897c5c8bd47f5d4005989bead0e55',1,'EspServer']]]
 ];

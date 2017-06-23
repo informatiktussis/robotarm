@@ -1,0 +1,7 @@
+<map id="available" name="available">
+<area shape="rect" id="node2" href="$_arduino__kommentiert_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="142,5,189,32"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a59fc494d53391b27e2fd75cb750690d9" title="connected" alt="" coords="124,56,207,83"/>
+<area shape="rect" id="node5" href="$class_esp_server.html#a9040fa1d479d71edf3a826f4691c35c4" title="peek" alt="" coords="140,107,191,133"/>
+<area shape="rect" id="node6" href="$class_esp_server.html#aaab5dab5b969a87f538242e524431637" title="read" alt="" coords="142,157,189,184"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#a7c66fc8d559f4956d4ccea196299bca7" title="write" alt="" coords="255,56,304,83"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="begin" name="begin">
+<area shape="rect" id="node2" href="$_arduino__kommentiert_8ino.html#af690b3a6882292855c4091ede8039998" title="Servo.h ist eine Bibliothek, die benötigt wird, um die Servos zu steuern. " alt="" coords="113,5,195,32"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#ad20897c5c8bd47f5d4005989bead0e55" title="reset" alt="" coords="129,157,179,184"/>
+<area shape="rect" id="node7" href="$class_esp_server.html#a504393c8aa6394b2d0631146425bf011" title="connect_wifi" alt="" coords="107,56,201,83"/>
+<area shape="rect" id="node8" href="$class_esp_server.html#a7968cc44a6c9fff24b9020e1714c49f8" title="setup_server" alt="" coords="107,107,201,133"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#aff5ea67ab96af075223b2b836036ccf1" title="expect" alt="" coords="265,107,327,133"/>
+<area shape="rect" id="node6" href="$class_esp_server.html#a1d791edc8eca304acc71f702f07c0437" title="flush_in_buff" alt="" coords="249,157,343,184"/>
+<area shape="rect" id="node5" href="$class_esp_server.html#ac2b4ae3c7ebcd751c4c8020412fa3270" title="blockread" alt="" coords="391,107,469,133"/>
+</map>

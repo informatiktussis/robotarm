@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Robot Arm", "index.html", [
+  [ "Robot Arm_Arduino", "index.html", [
     [ "Project : Robot Arm", "index.html", [
       [ "Intro", "index.html#Intro", null ],
       [ "Program", "index.html#Program", null ],

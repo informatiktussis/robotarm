@@ -1,0 +1,15 @@
+<map id="blockread" name="blockread">
+<area shape="rect" id="node2" href="$class_esp_server.html#aff5ea67ab96af075223b2b836036ccf1" title="expect" alt="" coords="132,157,193,184"/>
+<area shape="rect" id="node9" href="$class_esp_server.html#a4549a76725f2e4c013e4d57018366109" title="available" alt="" coords="253,284,324,311"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#ad20897c5c8bd47f5d4005989bead0e55" title="reset" alt="" coords="263,157,314,184"/>
+<area shape="rect" id="node6" href="$class_esp_server.html#a504393c8aa6394b2d0631146425bf011" title="connect_wifi" alt="" coords="242,56,335,83"/>
+<area shape="rect" id="node7" href="$class_esp_server.html#a7968cc44a6c9fff24b9020e1714c49f8" title="setup_server" alt="" coords="241,107,336,133"/>
+<area shape="rect" id="node8" href="$class_esp_server.html#a01953c4cc039c37f94dc3e1057126abb" title="my_ip" alt="" coords="260,5,317,32"/>
+<area shape="rect" id="node12" href="$class_esp_server.html#a7c66fc8d559f4956d4ccea196299bca7" title="write" alt="" coords="517,233,567,260"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#a1d8682ca0934af03639311e23a71283f" title="begin" alt="" coords="399,81,452,108"/>
+<area shape="rect" id="node5" href="$_arduino__kommentiert_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="515,51,569,77"/>
+<area shape="rect" id="node10" href="$_arduino__kommentiert_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="loop" alt="" coords="402,411,449,437"/>
+<area shape="rect" id="node11" href="$class_esp_server.html#a59fc494d53391b27e2fd75cb750690d9" title="connected" alt="" coords="384,259,467,285"/>
+<area shape="rect" id="node13" href="$class_esp_server.html#a9040fa1d479d71edf3a826f4691c35c4" title="peek" alt="" coords="400,309,451,336"/>
+<area shape="rect" id="node14" href="$class_esp_server.html#aaab5dab5b969a87f538242e524431637" title="read" alt="" coords="402,360,449,387"/>
+</map>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['connect_5fwifi',['connect_wifi',['../class_esp_server.html#a6df2412420218304713dd25715e17198',1,'EspServer']]],
-  ['connected',['connected',['../class_esp_server.html#a6a25e008ded89de0e4599df7170008fb',1,'EspServer']]],
-  ['connection_5fid',['connection_id',['../class_esp_server.html#ab601ba8cdf21497e04e862f22e52c590',1,'EspServer']]]
+  ['connect_5fwifi',['connect_wifi',['../class_esp_server.html#a504393c8aa6394b2d0631146425bf011',1,'EspServer']]],
+  ['connected',['connected',['../class_esp_server.html#a59fc494d53391b27e2fd75cb750690d9',1,'EspServer']]],
+  ['connection_5fid',['connection_id',['../class_esp_server.html#a821bd4e05f0b260cc584a2d23bda0fff',1,'EspServer']]]
 ];

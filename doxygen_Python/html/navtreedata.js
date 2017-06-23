@@ -1,18 +1,18 @@
 var NAVTREE =
 [
-  [ "Robot Arm", "index.html", [
-    [ "Pakete", null, [
-      [ "Pakete", "namespaces.html", "namespaces" ],
-      [ "Paketfunktionen", "namespacemembers.html", [
+  [ "Robot Arm_Python", "index.html", [
+    [ "Namensbereiche", null, [
+      [ "Liste aller Namensbereiche", "namespaces.html", "namespaces" ],
+      [ "Elemente eines Namensbereiches", "namespacemembers.html", [
         [ "Alle", "namespacemembers.html", null ],
         [ "Variablen", "namespacemembers_vars.html", null ]
       ] ]
     ] ],
-    [ "Klassen", "annotated.html", [
-      [ "Auflistung der Klassen", "annotated.html", "annotated_dup" ],
-      [ "Klassen-Verzeichnis", "classes.html", null ],
+    [ "Datenstrukturen", "annotated.html", [
+      [ "Datenstrukturen", "annotated.html", "annotated_dup" ],
+      [ "Datenstruktur-Verzeichnis", "classes.html", null ],
       [ "Klassenhierarchie", "hierarchy.html", "hierarchy" ],
-      [ "Klassen-Elemente", "functions.html", [
+      [ "Datenstruktur-Elemente", "functions.html", [
         [ "Alle", "functions.html", null ],
         [ "Funktionen", "functions_func.html", null ],
         [ "Variablen", "functions_vars.html", null ]

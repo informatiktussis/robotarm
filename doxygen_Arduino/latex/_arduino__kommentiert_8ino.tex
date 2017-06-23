@@ -3,8 +3,13 @@
 {\ttfamily \#include $<$Servo.\+h$>$}\newline
 {\ttfamily \#include $<$Software\+Serial.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}Dumb\+Server.\+h\char`\"{}}\newline
-Include-\/\+Abhängigkeitsdiagramm für Arduino\+\_\+kommentiert.\+ino\+:
-% FIG 0
+Include-\/\+Abhängigkeitsdiagramm für Arduino\+\_\+kommentiert.\+ino\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_arduino__kommentiert_8ino__incl}
+\end{center}
+\end{figure}
 \subsection*{Funktionen}
 \begin{DoxyCompactItemize}
 \item 
@@ -66,21 +71,26 @@ Da die servos auf 180° Grad mechanisch begrenzt sind kann ist hier eine if-\/\+
 
 Wenn der Winkel 180° noch nicht erreicht ist wird der Winkel mit write(nächster Winkel), also der Winkel+1 gesetzt. Der Delay ist dazu da die Geschwindigkeit des Servos zu steuern. Wird die variable speed\+\_\+var größer gewählt wird die Drehgeschwindigkeit langer, wird sie kleiner gewählt wird sie schneller, da die Funktion öfter pro Sekunde aufgerufen wird.
 
-Definiert in Zeile 106 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 102 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 \begin{DoxyCode}
-106                                                     \{
-107 
-108   \textcolor{keywordtype}{int} var = servoname->read(); 
-116   \textcolor{keywordflow}{if} (var < maximalwinkel) \{
-117     servoname->write(var + 1);
-118     delay(\hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
-130   \}
-131 \};
+102                                                     \{
+103 
+104   \textcolor{keywordtype}{int} var = servoname->read(); 
+112   \textcolor{keywordflow}{if} (var < maximalwinkel) \{
+113     servoname->write(var + 1);
+114     delay(\hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
+126   \}
+127 \};
 \end{DoxyCode}
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
-% FIG 1
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{_arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}\label{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!arm\+\_\+runter@{arm\+\_\+runter}}
 \index{arm\+\_\+runter@{arm\+\_\+runter}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
@@ -93,22 +103,27 @@ Für die Funktion arm\+\_\+runter ist es genau das gleiche Prinzip wie für arm\
 
 Auch hier gibt es eine if-\/\+Abfrage ob diesesmal der Minimalwinkel erreicht wurde. In der Theorie dürfte der Servo bei 0° aufhören, jedoch hat es sich gezeigt dass bereits bei 11° die Begrezung auftritt, dies muss an einer schlechten Qualität der Servos liegen.
 
-Definiert in Zeile 140 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 136 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 \begin{DoxyCode}
-140                                                       \{
-141   \textcolor{keywordtype}{int} var = servoname->read();
-142 
-150   \textcolor{keywordflow}{if} (var > minimalwinkel) \{
-151     servoname->write(var - 1);
-152     delay(\hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
-153 
-154   \}
-155 \};
+136                                                       \{
+137   \textcolor{keywordtype}{int} var = servoname->read();
+138 
+146   \textcolor{keywordflow}{if} (var > minimalwinkel) \{
+147     servoname->write(var - 1);
+148     delay(\hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
+149 
+150   \}
+151 \};
 \end{DoxyCode}
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
-% FIG 2
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}\label{_arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!esp\+\_\+serial@{esp\+\_\+serial}}
 \index{esp\+\_\+serial@{esp\+\_\+serial}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
@@ -119,8 +134,13 @@ Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
 
 Servo.\+h ist eine Bibliothek, die benötigt wird, um die Servos zu steuern. 
 
-Software\+Serial-\/\+Bibliothek Verknüfung mit \hyperlink{_dumb_server_8h}{Dumb\+Server.\+h} Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
-% FIG 3
+Software\+Serial-\/\+Bibliothek Verknüfung mit \hyperlink{_dumb_server_8h}{Dumb\+Server.\+h} Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{_arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_afe461d27b9c48d5921c00d521181f12f}\label{_arduino__kommentiert_8ino_afe461d27b9c48d5921c00d521181f12f}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!loop@{loop}}
 \index{loop@{loop}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
@@ -143,100 +163,105 @@ default case \+:k
 
 Für die cases 49 bis 54 wird die Geschwindigkeit der servos geändert. Dazu wird die variable speed\+\_\+var einfach einen neuen Wert zugewiesen.
 
-Definiert in Zeile 192 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 188 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 \begin{DoxyCode}
-193 \{
-199   \textcolor{keywordflow}{if} (\hyperlink{_arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.\hyperlink{class_esp_server_aad68b4972f6b8426004feeef6e98d02d}{available}()) \{
-200 
-201     String command = \hyperlink{_arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.readStringUntil(\textcolor{charliteral}{'\(\backslash\)n'});
-202 
-216     \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"a"}) \{
-217       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 97;
-218     \}
-219     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"b"}) \{
-220       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 98;
-221     \}
-222     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"c"}) \{
-223       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 99;
-224     \}
-225     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"d"}) \{
-226       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 100;
-227     \}
-228     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"e"}) \{
-229       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 101;
-230     \}
-231     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"f"}) \{
-232       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 102;
-233     \}
-234     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"g"}) \{
-235       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 103;
-236     \}
-237     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"h"}) \{
-238       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 104;
-239     \}
-240     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"i"}) \{
-241       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 105;
-242     \}
-243     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"j"}) \{
-244       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 106;
-245     \}
-246     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"k"}) \{
-247       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 107;
-248     \}
-249     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"1"}) \{
-250       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 49;
-251     \}
-252     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"2"}) \{
-253       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 50;
-254     \}
-255     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"3"}) \{
-256       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 51;
-257     \}
-258     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"4"}) \{
-259       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 52;
-260     \}
-261     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"5"}) \{
-262       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 53;
-263     \}
-264     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"6"}) \{
-265       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 54;
-266     \}
-267   \}
-268 
-280   \textcolor{keywordflow}{switch} (\hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var}) \{
-281 
-282     \textcolor{keywordflow}{case} 97: \hyperlink{_arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1});   \textcolor{keywordflow}{break}; \textcolor{comment}{//a}
-283     \textcolor{keywordflow}{case} 98: \hyperlink{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(11, &\hyperlink{_arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1});  \textcolor{keywordflow}{break}; \textcolor{comment}{//b}
-284 
-285     \textcolor{keywordflow}{case} 99: \hyperlink{_arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2});   \textcolor{keywordflow}{break}; \textcolor{comment}{//c}
-286     \textcolor{keywordflow}{case} 100: \hyperlink{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(20, &\hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2});  \textcolor{keywordflow}{break}; \textcolor{comment}{//d}
-287 
-288     \textcolor{keywordflow}{case} 101: \hyperlink{_arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3});   \textcolor{keywordflow}{break}; \textcolor{comment}{//e}
-289     \textcolor{keywordflow}{case} 102: \hyperlink{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(11, &\hyperlink{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3});  \textcolor{keywordflow}{break}; \textcolor{comment}{//f}
-290 
-291     \textcolor{keywordflow}{case} 103: \hyperlink{_arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4});   \textcolor{keywordflow}{break}; \textcolor{comment}{//g}
-292     \textcolor{keywordflow}{case} 104: \hyperlink{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(45, &\hyperlink{_arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4});  \textcolor{keywordflow}{break}; \textcolor{comment}{//h}
-293 
-294     \textcolor{keywordflow}{case} 105: \hyperlink{_arduino__kommentiert_8ino_ac03f54892f7473625ec7d6498ea5a010}{spezial\_funktion\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}, &
+189 \{
+195   \textcolor{keywordflow}{if} (\hyperlink{_arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.\hyperlink{class_esp_server_a4549a76725f2e4c013e4d57018366109}{available}()) \{
+196 
+197     String command = \hyperlink{_arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.readStringUntil(\textcolor{charliteral}{'\(\backslash\)n'});
+198 
+212     \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"a"}) \{
+213       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 97;
+214     \}
+215     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"b"}) \{
+216       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 98;
+217     \}
+218     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"c"}) \{
+219       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 99;
+220     \}
+221     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"d"}) \{
+222       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 100;
+223     \}
+224     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"e"}) \{
+225       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 101;
+226     \}
+227     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"f"}) \{
+228       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 102;
+229     \}
+230     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"g"}) \{
+231       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 103;
+232     \}
+233     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"h"}) \{
+234       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 104;
+235     \}
+236     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"i"}) \{
+237       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 105;
+238     \}
+239     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"j"}) \{
+240       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 106;
+241     \}
+242     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"k"}) \{
+243       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 107;
+244     \}
+245     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"1"}) \{
+246       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 49;
+247     \}
+248     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"2"}) \{
+249       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 50;
+250     \}
+251     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"3"}) \{
+252       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 51;
+253     \}
+254     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"4"}) \{
+255       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 52;
+256     \}
+257     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"5"}) \{
+258       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 53;
+259     \}
+260     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"6"}) \{
+261       \hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var} = 54;
+262     \}
+263   \}
+264 
+276   \textcolor{keywordflow}{switch} (\hyperlink{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}{python\_button\_var}) \{
+277 
+278     \textcolor{keywordflow}{case} 97: \hyperlink{_arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1});   \textcolor{keywordflow}{break}; \textcolor{comment}{//a}
+279     \textcolor{keywordflow}{case} 98: \hyperlink{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(11, &\hyperlink{_arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1});  \textcolor{keywordflow}{break}; \textcolor{comment}{//b}
+280 
+281     \textcolor{keywordflow}{case} 99: \hyperlink{_arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2});   \textcolor{keywordflow}{break}; \textcolor{comment}{//c}
+282     \textcolor{keywordflow}{case} 100: \hyperlink{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(20, &\hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2});  \textcolor{keywordflow}{break}; \textcolor{comment}{//d}
+283 
+284     \textcolor{keywordflow}{case} 101: \hyperlink{_arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3});   \textcolor{keywordflow}{break}; \textcolor{comment}{//e}
+285     \textcolor{keywordflow}{case} 102: \hyperlink{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(11, &\hyperlink{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3});  \textcolor{keywordflow}{break}; \textcolor{comment}{//f}
+286 
+287     \textcolor{keywordflow}{case} 103: \hyperlink{_arduino__kommentiert_8ino_a74bfcf85e5418694eb99df53d30c8fab}{arm\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4});   \textcolor{keywordflow}{break}; \textcolor{comment}{//g}
+288     \textcolor{keywordflow}{case} 104: \hyperlink{_arduino__kommentiert_8ino_a5b873994166a952d81f787c307ca08d9}{arm\_runter}(45, &\hyperlink{_arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4});  \textcolor{keywordflow}{break}; \textcolor{comment}{//h}
+289 
+290     \textcolor{keywordflow}{case} 105: \hyperlink{_arduino__kommentiert_8ino_ac03f54892f7473625ec7d6498ea5a010}{spezial\_funktion\_hoch}(180, &\hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}, &
       \hyperlink{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3}); \textcolor{keywordflow}{break}; \textcolor{comment}{//i}
-295     \textcolor{keywordflow}{case} 106: \hyperlink{_arduino__kommentiert_8ino_abf7a5d6cd0eca7c0dacb61f5ef555beb}{spezial\_funktion\_runter}(20, &\hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}, &
+291     \textcolor{keywordflow}{case} 106: \hyperlink{_arduino__kommentiert_8ino_abf7a5d6cd0eca7c0dacb61f5ef555beb}{spezial\_funktion\_runter}(20, &\hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}, &
       \hyperlink{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3}); \textcolor{keywordflow}{break}; \textcolor{comment}{//j}
-296 
-303     \textcolor{keywordflow}{case} 107: \textcolor{keywordflow}{break}; 
-311     \textcolor{keywordflow}{case} 49: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 5; \textcolor{keywordflow}{break};
-312     \textcolor{keywordflow}{case} 50: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 8;  \textcolor{keywordflow}{break};
-313     \textcolor{keywordflow}{case} 51: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 11; \textcolor{keywordflow}{break};
-314     \textcolor{keywordflow}{case} 52: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 14; \textcolor{keywordflow}{break};
-315     \textcolor{keywordflow}{case} 53: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 17; \textcolor{keywordflow}{break};
-316     \textcolor{keywordflow}{case} 54: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 20; \textcolor{keywordflow}{break};
-317   \}
-318 
-319 \}
+292 
+299     \textcolor{keywordflow}{case} 107: \textcolor{keywordflow}{break}; 
+307     \textcolor{keywordflow}{case} 49: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 5; \textcolor{keywordflow}{break};
+308     \textcolor{keywordflow}{case} 50: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 8;  \textcolor{keywordflow}{break};
+309     \textcolor{keywordflow}{case} 51: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 11; \textcolor{keywordflow}{break};
+310     \textcolor{keywordflow}{case} 52: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 14; \textcolor{keywordflow}{break};
+311     \textcolor{keywordflow}{case} 53: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 17; \textcolor{keywordflow}{break};
+312     \textcolor{keywordflow}{case} 54: \hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var} = 20; \textcolor{keywordflow}{break};
+313   \}
+314 
+315 \}
 \end{DoxyCode}
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
-% FIG 4
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_arduino__kommentiert_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{_arduino__kommentiert_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!setup@{setup}}
 \index{setup@{setup}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
@@ -247,35 +272,40 @@ Die Pins werden dann mit dem servo1.\+attach(servo\+\_\+pin) Befehl als servo-\/
 
 Die I\+P-\/\+Adresse des W\+L\+A\+N-\/\+Shields wird seriell ausgegeben. 
 
-Definiert in Zeile 65 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 61 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 \begin{DoxyCode}
-65              \{
-66   Serial.begin(9600);
-67   \hyperlink{_arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}{esp\_serial}.begin(9600);
-68 
-74   \hyperlink{_arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1}.attach(\hyperlink{_arduino__kommentiert_8ino_ac5b3a3df1bbdb6b2c8e8988c7373ad97}{servo\_1pin});
-75   \hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}.attach(\hyperlink{_arduino__kommentiert_8ino_a0fcb42829030c7eab1ede7429256f14d}{servo\_2pin});
-76   \hyperlink{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3}.attach(\hyperlink{_arduino__kommentiert_8ino_a006b96047ca9585e312d88690d5a95a3}{servo\_3pin});
-77   \hyperlink{_arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4}.attach(\hyperlink{_arduino__kommentiert_8ino_a5c0d394c06f48072ed4a5cf3f5f3b81b}{servo\_4pin});
+61              \{
+62   Serial.begin(9600);
+63   \hyperlink{_arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}{esp\_serial}.begin(9600);
+64 
+70   \hyperlink{_arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}{servo1}.attach(\hyperlink{_arduino__kommentiert_8ino_ac5b3a3df1bbdb6b2c8e8988c7373ad97}{servo\_1pin});
+71   \hyperlink{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}{servo2}.attach(\hyperlink{_arduino__kommentiert_8ino_a0fcb42829030c7eab1ede7429256f14d}{servo\_2pin});
+72   \hyperlink{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}{servo3}.attach(\hyperlink{_arduino__kommentiert_8ino_a006b96047ca9585e312d88690d5a95a3}{servo\_3pin});
+73   \hyperlink{_arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}{servo4}.attach(\hyperlink{_arduino__kommentiert_8ino_a5c0d394c06f48072ed4a5cf3f5f3b81b}{servo\_4pin});
+74 
+75   Serial.println(\textcolor{stringliteral}{"Starting server..."});
+76   \hyperlink{_arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.\hyperlink{class_esp_server_a1d8682ca0934af03639311e23a71283f}{begin}(&\hyperlink{_arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}{esp\_serial}, \textcolor{stringliteral}{"GDI"}, \textcolor{stringliteral}{"password"}, 30303);
+77   Serial.println(\textcolor{stringliteral}{"...server is running"});
 78 
-79   Serial.println(\textcolor{stringliteral}{"Starting server..."});
-80   \hyperlink{_arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.\hyperlink{class_esp_server_a1d032e732d4733905d676ef016fcd43c}{begin}(&\hyperlink{_arduino__kommentiert_8ino_af690b3a6882292855c4091ede8039998}{esp\_serial}, \textcolor{stringliteral}{"GDI"}, \textcolor{stringliteral}{"password"}, 30303);
-81   Serial.println(\textcolor{stringliteral}{"...server is running"});
-82 
+79 
+80   
+81   \textcolor{keywordtype}{char} ip[16];
+82   \hyperlink{_arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.\hyperlink{class_esp_server_a01953c4cc039c37f94dc3e1057126abb}{my\_ip}(ip, 16);
 83 
-84   
-85   \textcolor{keywordtype}{char} ip[16];
-86   \hyperlink{_arduino__kommentiert_8ino_a92309e3a6d185d9188757bac49168fe5}{esp\_server}.\hyperlink{class_esp_server_a55995fd6398892be5768da85dde4f533}{my\_ip}(ip, 16);
-87 
-88   Serial.print(\textcolor{stringliteral}{"My ip: "});
-89   Serial.println(ip);
-90 
-94 \}
+84   Serial.print(\textcolor{stringliteral}{"My ip: "});
+85   Serial.println(ip);
+86 
+90 \}
 \end{DoxyCode}
-Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:
-% FIG 5
+Hier ist ein Graph, der zeigt, was diese Funktion aufruft\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_arduino__kommentiert_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_ac03f54892f7473625ec7d6498ea5a010}\label{_arduino__kommentiert_8ino_ac03f54892f7473625ec7d6498ea5a010}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!spezial\+\_\+funktion\+\_\+hoch@{spezial\+\_\+funktion\+\_\+hoch}}
 \index{spezial\+\_\+funktion\+\_\+hoch@{spezial\+\_\+funktion\+\_\+hoch}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
@@ -288,24 +318,29 @@ Für die Spezialfunktionen werden zwei servos angesprochen. Dabei ist eigentlich
 
 
 
-Definiert in Zeile 165 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 161 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 \begin{DoxyCode}
-165                                                                                     \{
-166   \textcolor{keywordtype}{int} var = servoname->read();
-167   \textcolor{keywordtype}{int} var2 = servoname2->read();
-168 
-169   \textcolor{keywordflow}{if} (var < maximalwinkel) \{
-170     servoname->write(var + 1);
-171     servoname2->write(var2 + 1);
-172     delay(\hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
-173   \}
-174 
-175 \}
+161                                                                                     \{
+162   \textcolor{keywordtype}{int} var = servoname->read();
+163   \textcolor{keywordtype}{int} var2 = servoname2->read();
+164 
+165   \textcolor{keywordflow}{if} (var < maximalwinkel) \{
+166     servoname->write(var + 1);
+167     servoname2->write(var2 + 1);
+168     delay(\hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
+169   \}
+170 
+171 \}
 \end{DoxyCode}
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
-% FIG 6
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{_arduino__kommentiert_8ino_ac03f54892f7473625ec7d6498ea5a010_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_abf7a5d6cd0eca7c0dacb61f5ef555beb}\label{_arduino__kommentiert_8ino_abf7a5d6cd0eca7c0dacb61f5ef555beb}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!spezial\+\_\+funktion\+\_\+runter@{spezial\+\_\+funktion\+\_\+runter}}
 \index{spezial\+\_\+funktion\+\_\+runter@{spezial\+\_\+funktion\+\_\+runter}!Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}}
@@ -318,24 +353,29 @@ Bei der untigen anderen spezial\+\_\+funktion ist es der gegenteilige Fall.
 
 
 
-Definiert in Zeile 180 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 176 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 \begin{DoxyCode}
-180                                                                                       \{
-181   \textcolor{keywordtype}{int} var = servoname->read();
-182   \textcolor{keywordtype}{int} var2 = servoname2->read();
-183 
-184   \textcolor{keywordflow}{if} (var > minimalwinkel) \{
-185     servoname->write(var - 1);
-186     servoname2->write(var2 - 1);
-187     delay(\hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
-188   \}
-189 
-190 \}
+176                                                                                       \{
+177   \textcolor{keywordtype}{int} var = servoname->read();
+178   \textcolor{keywordtype}{int} var2 = servoname2->read();
+179 
+180   \textcolor{keywordflow}{if} (var > minimalwinkel) \{
+181     servoname->write(var - 1);
+182     servoname2->write(var2 - 1);
+183     delay(\hyperlink{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}{speed\_var});
+184   \}
+185 
+186 \}
 \end{DoxyCode}
-Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:
-% FIG 7
+Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{_arduino__kommentiert_8ino_abf7a5d6cd0eca7c0dacb61f5ef555beb_icgraph}
+\end{center}
+\end{figure}
 
 
 \subsection{Variablen-\/\+Dokumentation}
@@ -351,7 +391,7 @@ Das W\+L\+A\+N-\/\+Shield ist an Pin 2 und 3 Seriell mit dem Arduino verbunden.
 
 
 
-Definiert in Zeile 38 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 34 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}\label{_arduino__kommentiert_8ino_a409d566aad8f36a68f5c2ec46ce59393}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!python\+\_\+button\+\_\+var@{python\+\_\+button\+\_\+var}}
@@ -365,7 +405,7 @@ Geklaration mehrer Variablen.
 
 
 
-Definiert in Zeile 62 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 58 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}\label{_arduino__kommentiert_8ino_ac5d2bea44c6318454db0e2639a4efe95}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo1@{servo1}}
@@ -379,7 +419,7 @@ servo1,2,3... als Servo geklarieren. Später werden die servos auch so angesproc
 
 
 
-Definiert in Zeile 45 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 41 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}\label{_arduino__kommentiert_8ino_a6458146b8e54c3729bbee8c037921c72}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo2@{servo2}}
@@ -389,7 +429,7 @@ Definiert in Zeile 45 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 
-Definiert in Zeile 46 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 42 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}\label{_arduino__kommentiert_8ino_a7c0244e667b5f7c873df01946f0767bd}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo3@{servo3}}
@@ -399,7 +439,7 @@ Definiert in Zeile 46 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 
-Definiert in Zeile 47 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 43 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}\label{_arduino__kommentiert_8ino_a207f149c99b91a8bacd26b8b70dfc71c}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo4@{servo4}}
@@ -409,7 +449,7 @@ Definiert in Zeile 47 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 
-Definiert in Zeile 48 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 44 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_ac5b3a3df1bbdb6b2c8e8988c7373ad97}\label{_arduino__kommentiert_8ino_ac5b3a3df1bbdb6b2c8e8988c7373ad97}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo\+\_\+1pin@{servo\+\_\+1pin}}
@@ -423,7 +463,7 @@ Die Pins der Servos.
 
 
 
-Definiert in Zeile 54 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 50 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a0fcb42829030c7eab1ede7429256f14d}\label{_arduino__kommentiert_8ino_a0fcb42829030c7eab1ede7429256f14d}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo\+\_\+2pin@{servo\+\_\+2pin}}
@@ -433,7 +473,7 @@ Definiert in Zeile 54 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 
-Definiert in Zeile 55 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 51 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a006b96047ca9585e312d88690d5a95a3}\label{_arduino__kommentiert_8ino_a006b96047ca9585e312d88690d5a95a3}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo\+\_\+3pin@{servo\+\_\+3pin}}
@@ -443,7 +483,7 @@ Definiert in Zeile 55 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 
-Definiert in Zeile 56 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 52 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a5c0d394c06f48072ed4a5cf3f5f3b81b}\label{_arduino__kommentiert_8ino_a5c0d394c06f48072ed4a5cf3f5f3b81b}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!servo\+\_\+4pin@{servo\+\_\+4pin}}
@@ -453,7 +493,7 @@ Definiert in Zeile 56 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 
-Definiert in Zeile 57 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 53 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 \mbox{\Hypertarget{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}\label{_arduino__kommentiert_8ino_a8b03f5396d8e845086daab48dcaca5cb}} 
 \index{Arduino\+\_\+kommentiert.\+ino@{Arduino\+\_\+kommentiert.\+ino}!speed\+\_\+var@{speed\+\_\+var}}
@@ -463,5 +503,5 @@ Definiert in Zeile 57 der Datei Arduino\+\_\+kommentiert.\+ino.
 
 
 
-Definiert in Zeile 63 der Datei Arduino\+\_\+kommentiert.\+ino.
+Definiert in Zeile 59 der Datei Arduino\+\_\+kommentiert.\+ino.
 

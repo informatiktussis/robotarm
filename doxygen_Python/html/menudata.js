@@ -1,15 +1,15 @@
 var menudata={children:[
 {text:"Hauptseite",url:"index.html"},
-{text:"Pakete",url:"namespaces.html",children:[
-{text:"Pakete",url:"namespaces.html"},
-{text:"Paketfunktionen",url:"namespacemembers.html",children:[
+{text:"Namensbereiche",url:"namespaces.html",children:[
+{text:"Liste aller Namensbereiche",url:"namespaces.html"},
+{text:"Elemente eines Namensbereiches",url:"namespacemembers.html",children:[
 {text:"Alle",url:"namespacemembers.html"},
 {text:"Variablen",url:"namespacemembers_vars.html"}]}]},
-{text:"Klassen",url:"annotated.html",children:[
-{text:"Auflistung der Klassen",url:"annotated.html"},
-{text:"Klassen-Verzeichnis",url:"classes.html"},
+{text:"Datenstrukturen",url:"annotated.html",children:[
+{text:"Datenstrukturen",url:"annotated.html"},
+{text:"Datenstruktur-Verzeichnis",url:"classes.html"},
 {text:"Klassenhierarchie",url:"inherits.html"},
-{text:"Klassen-Elemente",url:"functions.html",children:[
+{text:"Datenstruktur-Elemente",url:"functions.html",children:[
 {text:"Alle",url:"functions.html",children:[
 {text:"_",url:"functions.html#index__"},
 {text:"a",url:"functions.html#index_a"},

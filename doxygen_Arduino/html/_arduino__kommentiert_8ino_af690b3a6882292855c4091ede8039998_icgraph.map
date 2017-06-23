@@ -1,4 +1,4 @@
 <map id="esp_serial" name="esp_serial">
 <area shape="rect" id="node2" href="$_arduino__kommentiert_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="setup" alt="" coords="303,5,357,32"/>
-<area shape="rect" id="node3" href="$class_esp_server.html#a1d032e732d4733905d676ef016fcd43c" title="EspServer::begin" alt="" coords="135,31,255,57"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a1d8682ca0934af03639311e23a71283f" title="EspServer::begin" alt="" coords="135,31,255,57"/>
 </map>

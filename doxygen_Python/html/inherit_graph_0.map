@@ -1,4 +1,4 @@
 <map id="Grafische Darstellung der Klassenhierarchie" name="Grafische Darstellung der Klassenhierarchie">
-<area shape="rect" id="node1" href="$class_f_i_n_a_l___g_u_i___w_l_a_n_1_1_arduino.html" title="FINAL_GUI_WLAN.Arduino" alt="" coords="5,29,185,56"/>
-<area shape="rect" id="node2" href="$class_f_i_n_a_l___g_u_i___w_l_a_n_1_1_w_l_a_n.html" title="FINAL_GUI_WLAN.WLAN" alt="" coords="233,29,408,56"/>
+<area shape="rect" id="node1" href="$class_f_i_n_a_l___g_u_i___w_l_a_n_1_1_arduino.html" title="Arduino" alt="" coords="5,29,72,56"/>
+<area shape="rect" id="node2" href="$class_f_i_n_a_l___g_u_i___w_l_a_n_1_1_w_l_a_n.html" title="WLAN" alt="" coords="120,29,180,56"/>
 </map>

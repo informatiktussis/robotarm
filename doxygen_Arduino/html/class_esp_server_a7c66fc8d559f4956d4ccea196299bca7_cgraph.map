@@ -1,0 +1,6 @@
+<map id="write" name="write">
+<area shape="rect" id="node2" href="$class_esp_server.html#a59fc494d53391b27e2fd75cb750690d9" title="connected" alt="" coords="103,5,185,32"/>
+<area shape="rect" id="node4" href="$class_esp_server.html#aff5ea67ab96af075223b2b836036ccf1" title="expect" alt="" coords="352,56,413,83"/>
+<area shape="rect" id="node3" href="$class_esp_server.html#a4549a76725f2e4c013e4d57018366109" title="available" alt="" coords="233,5,304,32"/>
+<area shape="rect" id="node5" href="$class_esp_server.html#ac2b4ae3c7ebcd751c4c8020412fa3270" title="blockread" alt="" coords="461,31,540,57"/>
+</map>

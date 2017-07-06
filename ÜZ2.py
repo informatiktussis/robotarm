@@ -34,20 +34,48 @@ Pyramiden-sortiert:
 #!/usr/bin/python
 
 
+U=[]
 
-
-
+'''von klein nach groß'''
 def to_sort(U):
-	if len(U) <=1:
-		return U
-	U.split in L, R
-	L = to_sort(L)
-	R = to_sort(R)
-	return MERGE(R, L)
+    if len(U) <=1:
+        return U
+        '''U.split() in L, R'''
+    for i in range(0, len(U)-1):
+        if U[i]<U[i+1]:
+            pass
+        elif U[i]>U[i+1]:
+            temp = U[i+1]
+            U[i+1] = U[i]
+            U[i] = temp
+
+    h = round(1/2*len(U)-1)
+    L = U[0:h]
+    R = U[h+1:]
+    to_sort(L)
+    to_sort(R)
+    return MERGE(R, L)
+
+def to_sort_umgekehrt(U):
+    if len(U) <=1:
+        return U
+    U.split in L, R
+    L = to_sort_umgekehrt(L)
+    R = to_sort_umgekehrt(R)
+    return MERGE(L,R)
 
 def MERGE(L,R):
-    N=[]
-    while len(L) and len(R) > 0:
+    N = []
+    def insert_last(N, A):
+        N.extend([A])
+
+    def delete_first(U):
+        for i in range (0, len(U)-1):
+            U[i] = U[i+1]
+            U = U[:len(U)-2]
+            return U
+
+    while len(L) and len(R) != 0:
         if L[0] <= R[0]:
             insert_last(N, L[0])
             delete_first(L)
@@ -60,20 +88,11 @@ def MERGE(L,R):
     while len(R)>0:
         insert_last(N, L[0])
         delete_first(L)
-    print(N)
     return N
 
-def insert_last(N, U):
-    N=[]
-    while len(U)>0:
-        N.append(U[0])
-        print(N)
 
-def delete_first(U):
-    while len(U)>0:
-        for i in range (0, len(U)):
-            U[i] = U[i+1]
-        print(U)
+
+
 
 '''if (up == 0):
 def "von groß nach klein"
@@ -81,16 +100,17 @@ def "von groß nach klein"
 
 if __name__ == '__main__':
 
-    list=[3, 78, 1, 9, 65, 12, 6, 0, 38, 17, 3, 91, 96, 15, 28, 70, 87, 45, 56, 10]
-    print(list)
+    li=[3, 78, 1, 9, 65, 12, 6, 0, 38, 17, 3, 91, 96, 15, 28, 70, 87, 45, 56, 10]
+    print(li)
     up = input("Eingabe(0 oder 1): ")
-	up=int(up)
-    print(up + " wurde als Ups Wert eingegeben.")
+    up=int(up)
+    print(str(up) + " wurde als Ups Wert eingegeben.")
 
     while up == 0 or up == 1:
         if up == 1:
             print("Sort anfangen mit to_sort")
-            print(list)
+            to_sort(li)
+            print(li)
         elif up == 0:
             print("Sort anfangen mit to_sort_umgekehrt")
     if up not in range(0,1):
